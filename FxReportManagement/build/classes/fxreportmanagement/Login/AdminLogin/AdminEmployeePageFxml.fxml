@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="1016.0" styleClass="thirdBackground" stylesheets="@../../css/Style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxreportmanagement.Login.AdminLogin.AdminEmployeePageFxmlController">
+   <children>
+      <AnchorPane layoutX="136.0" layoutY="101.0" prefHeight="601.0" prefWidth="243.0" styleClass="sideBackground" stylesheets="@../../css/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox layoutX="26.0" layoutY="36.0" spacing="30.0" stylesheets="@../../css/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <JFXTextField fx:id="txtUsername" alignment="CENTER" focusColor="WHITE" prefHeight="33.0" prefWidth="171.0" promptText="Username" styleClass="textfield" stylesheets="@../../css/Style.css" unFocusColor="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="txtPassword" alignment="CENTER" focusColor="WHITE" prefHeight="33.0" prefWidth="171.0" promptText="Password" styleClass="textfield" stylesheets="@../../css/Style.css" unFocusColor="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="txtFirstName" alignment="CENTER" focusColor="WHITE" prefHeight="33.0" prefWidth="171.0" promptText="First Name" styleClass="textfield" stylesheets="@../../css/Style.css" unFocusColor="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="txtLastName" alignment="CENTER" focusColor="WHITE" prefHeight="33.0" prefWidth="171.0" promptText="Last Name" styleClass="textfield" stylesheets="@../../css/Style.css" unFocusColor="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="txtLevel" alignment="CENTER" focusColor="WHITE" prefHeight="33.0" prefWidth="171.0" promptText="Level" styleClass="textfield" stylesheets="@../../css/Style.css" unFocusColor="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="txtAdmin" alignment="CENTER" focusColor="WHITE" prefHeight="33.0" prefWidth="171.0" promptText="Admin Status" styleClass="textfield" stylesheets="@../../css/Style.css" unFocusColor="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXButton fx:id="btnAdd" onAction="#handleBtnAdd" prefHeight="32.0" prefWidth="148.0" ripplerFill="#00d026" styleClass="sideButtons" stylesheets="@../../css/Style.css" text="Add" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="45.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton fx:id="btnUpdate" onAction="#handleBtnUpdate" prefHeight="32.0" prefWidth="148.0" ripplerFill="#f2961f" styleClass="sideButtons" stylesheets="@../../css/Style.css" text="Update" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="45.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton fx:id="btnDelete" onAction="#handleBtnDelete" prefHeight="32.0" prefWidth="148.0" ripplerFill="RED" styleClass="sideButtons" stylesheets="@../../css/Style.css" text="Delete" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="45.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="480.0" layoutY="153.0" prefHeight="200.0" prefWidth="200.0" styleClass="thirdBackground" stylesheets="@../../css/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="243.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TableView fx:id="tbvEmployee" layoutX="13.0" layoutY="45.0" onMouseClicked="#handleGetClickedRow" prefHeight="469.0" prefWidth="756.0" styleClass="mainBackground" stylesheets="@../../css/Style.css" AnchorPane.bottomAnchor="87.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="45.0">
+               <columns>
+                  <TableColumn fx:id="tcId" prefWidth="108.0" text="id" />
+                  <TableColumn fx:id="tcUsername" prefWidth="108.0" text="username" />
+                  <TableColumn fx:id="tcPassword" prefWidth="108.0" text="password" />
+                  <TableColumn fx:id="tcFirstName" prefWidth="108.0" text="firstname" />
+                  <TableColumn fx:id="tcLastName" prefWidth="108.0" text="lastname" />
+                  <TableColumn fx:id="tcLevel" prefWidth="108.0" text="level" />
+                  <TableColumn fx:id="tcAdminStatus" prefWidth="108.0" text="Admin Status" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

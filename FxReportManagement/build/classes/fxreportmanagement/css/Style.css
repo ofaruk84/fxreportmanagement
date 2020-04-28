@@ -1,0 +1,45 @@
+
+
+.mainBackground{
+    -fx-background-color: #1e272e;
+}
+
+.sideBackground{
+    -fx-background-color: #485460;
+}
+
+.sideButtons{
+    
+    -fx-background-color: #808e9b;
+}
+.sideButtons:hover{
+    
+    -fx-background-color: #1DB954
+;
+     
+    
+    
+}
+
+
+.ancBottomBorder{
+    
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #808e9b;
+ 
+}
+.hamburger{
+    -fx-background-color: #f0932b;
+}
+
+.textfield.text-field{
+    -fx-prompt-text-fill: white;
+    -fx-text-fill: white;
+}
+
+.thirdBackground{
+    -fx-background-color: #808e9b;
+}
+
+
+
