@@ -13,14 +13,22 @@
    <children>
       <AnchorPane layoutX="136.0" layoutY="101.0" prefHeight="601.0" prefWidth="243.0" styleClass="sideBackground" stylesheets="@../../css/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox layoutX="26.0" layoutY="36.0" spacing="30.0" stylesheets="@../../css/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox layoutX="26.0" layoutY="36.0" spacing="30.0" stylesheets="@../../../../../../../NetBeansProjects/FxReportManagement/src/fxreportmanagement/css/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <JFXTextField fx:id="txtEquipment" alignment="CENTER" focusColor="WHITE" prefHeight="33.0" prefWidth="171.0" promptText="Equipment" styleClass="textfield" stylesheets="@../../css/Style.css" unFocusColor="WHITE">
+                  <JFXTextField fx:id="txtPoleDistance" alignment="CENTER" focusColor="WHITE" layoutX="10.0" layoutY="25.0" prefHeight="33.0" prefWidth="171.0" promptText="Pole Distance" styleClass="textfield" stylesheets="@../../css/Style.css" unFocusColor="WHITE">
                      <font>
                         <Font size="17.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="15.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="txtEquipment" alignment="CENTER" focusColor="WHITE" prefHeight="33.0" prefWidth="171.0" promptText="Equipment" styleClass="textfield" stylesheets="@../../css/Style.css" unFocusColor="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
                      </VBox.margin>
                   </JFXTextField>
                   <JFXTextField fx:id="txtMpCarrierMedium" alignment="CENTER" focusColor="WHITE" prefHeight="33.0" prefWidth="171.0" promptText="Mp Carrier Medium" styleClass="textfield" stylesheets="@../../css/Style.css" unFocusColor="WHITE">
@@ -67,11 +75,12 @@
             <TableView fx:id="tbvEquipment" layoutX="13.0" layoutY="45.0" onMouseClicked="#handleGetClickedRow" prefHeight="469.0" prefWidth="756.0" styleClass="mainBackground" stylesheets="@../../css/Style.css" AnchorPane.bottomAnchor="87.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="45.0">
                <columns>
                   <TableColumn fx:id="tcId" prefWidth="108.0" text="id" />
-                  <TableColumn fx:id="tcEquipment" prefWidth="86.0" text="equipment" />
-                  <TableColumn fx:id="tcMpCarierMedium" prefWidth="130.0" text="mp carrier medium" />
-                  <TableColumn fx:id="tcMagTech" prefWidth="108.0" text="mag tech" />
-                  <TableColumn fx:id="tcUvLightIntencity" prefWidth="137.0" text="uv light Intencity" />
-                  <TableColumn fx:id="tcDistanceOfLight" prefWidth="79.0" text="distnace of light" />
+                  <TableColumn fx:id="tcPoleDistance" prefWidth="86.0" text="PoleDistance" />
+                  <TableColumn fx:id="tcEquipment" prefWidth="130.0" text="equipment" />
+                  <TableColumn fx:id="tcMpCarierMedium" prefWidth="108.0" text="Mp Carrier Medium" />
+                  <TableColumn fx:id="tcMagTech" prefWidth="137.0" text="Mag Tech" />
+                  <TableColumn fx:id="tcUvLightIntencity" prefWidth="79.0" text="UV Light Intencity" />
+                  <TableColumn fx:id="tcDistanceOfLight" prefWidth="79.0" text="Distance of light" />
                </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

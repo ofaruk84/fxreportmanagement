@@ -4,20 +4,22 @@
  * and open the template in the editor.
  */
 package fxreportmanagement.Report2;
-import javafx.scene.Parent;
-import fxreportmanagement.Report2.Entitates.Customer;
+
+import fxreportmanagement.DatabaseOperations.DatabaseAccess.CustomerDal;
+import fxreportmanagement.DatabaseOperations.DatabaseEntitates.Customer;
+import fxreportmanagement.HelperClasses.ExcelExporter;
+import fxreportmanagement.Report2.Entitates.CustomerTab;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -27,8 +29,7 @@ import javafx.stage.Stage;
 public class Report2CustomerPgFxmlController implements Initializable {
 
     @FXML
-    private ComboBox<?> cmbProjectName;
-    @FXML
+    private ComboBox<String> cmbProjectName;
     private TextField txtInspectionField;
     @FXML
     private TextField txtEvaluationStandart;
@@ -39,11 +40,11 @@ public class Report2CustomerPgFxmlController implements Initializable {
     @FXML
     private TextField txtDrawingNo;
     @FXML
-    private ComboBox<?> cmbSurfaceCondition;
+    private ComboBox<String> cmbSurfaceCondition;
     @FXML
-    private ComboBox<?> cmbCustomer;
+    private ComboBox<String> cmbCustomer;
     @FXML
-    private ComboBox<?> cmbStageOfExamination;
+    private ComboBox<String> cmbStageOfExamination;
     @FXML
     private TextField txtPage;
     @FXML
@@ -51,64 +52,105 @@ public class Report2CustomerPgFxmlController implements Initializable {
     @FXML
     private Label lblReportDate;
     @FXML
-    private ComboBox<?> cmbJobOrderNo;
+    private Label lblInspectionPlace;
     @FXML
-    private ComboBox<?> cmbOfferNo;
+    private ComboBox<String> cmbJobOrderNo;
+    @FXML
+    private ComboBox<String> cmbOfferNo;
     @FXML
     private Button btnSubmit;
     @FXML
     private TextField txtInspectionStandart;
 
+    private ObservableList<String> oblist;
+    private final ObservableList<String> oblistCmb = FXCollections.observableArrayList("Values");
+    ;
+    private Customer customer;
+    private CustomerDal customerDal;
+
     /**
      * Initializes the controller class.
+     *
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        txtPage.setText("5");
-        
-    }
-    
-    public String getPAge(){
-        return txtPage.getText();
+
+        customerDal = new CustomerDal();
+        populateCmbCustomer();
+        setInitialValue();
+
     }
 
-    
-    public Customer getCustomer(){
+    @FXML
+    private void handleBtnCustomer(ActionEvent event) {
+  
+        System.out.println(getCustomer());
         
-        String customer = (String)(cmbCustomer.getValue());
-        String projectName = (String)(cmbProjectName.getValue());
-        String inspectionPlace = txtInspectionField.getText();
+        ExcelExporter.exportCustomer(getCustomer());
+    }
+
+    @FXML
+    private void handleCmbCustomer(ActionEvent event) {
+
+        String value = (String) cmbCustomer.getValue();
+        customer = customerDal.getCustomerCity(value);
+        lblInspectionPlace.setText(customer.getCustomerCity());
+
+    }
+
+    //Get Customer Information From The GUI
+    private CustomerTab getCustomer() {
+
+        String customer = (String) (cmbCustomer.getValue());
+        String projectName = (String) (cmbProjectName.getValue());
+        String inspectionPlace = lblInspectionPlace.getText();
         String inspectionStandart = txtInspectionStandart.getText();
         String evaluationStandart = txtEvaluationStandart.getText();
         String inspectionProcedure = txtInspectionProcedure.getText();
-        String inspectionScope = txtInspectionScope.getText();       
+        String inspectionScope = txtInspectionScope.getText();
         String drawingNo = txtDrawingNo.getText();
-        String surfaceCondition = (String)(cmbSurfaceCondition.getValue());
-        String stageOfExamination = (String)(cmbStageOfExamination.getValue());
-        String page = txtPage.getText();        
+        String surfaceCondition = (String) (cmbSurfaceCondition.getValue());
+        String stageOfExamination = (String) (cmbStageOfExamination.getValue());
+        String page = txtPage.getText();
         String reportNo = lblReportNo.getText();
-        String reportDate = lblReportDate.getText();  
-        String jobOrderNo = (String)(cmbJobOrderNo.getValue());  
-        String offerNo = (String)(cmbOfferNo.getValue());
-        
-        return new Customer(customer, projectName, inspectionPlace, evaluationStandart, inspectionProcedure, drawingNo, surfaceCondition, stageOfExamination, page, reportNo, reportDate, jobOrderNo, offerNo);
-        
-        }
+        String reportDate = lblReportDate.getText();
+        String jobOrderNo = (String) (cmbJobOrderNo.getValue());
+        String offerNo = (String) (cmbOfferNo.getValue());
 
-    @FXML
-    private void handleBtnCustomerPgSubmit(ActionEvent event) throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Report2ResultsPreviewFXML.fxml"));
-        
-        
-        Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
-        
-        
-        
-        
+        return new CustomerTab(customer, projectName, inspectionPlace,inspectionStandart,evaluationStandart, inspectionProcedure,inspectionScope ,drawingNo, surfaceCondition, stageOfExamination, page, reportNo, reportDate, jobOrderNo, offerNo);
+
     }
-    
+
+    //Populate CustomerName ComboBox 
+    private void populateCmbCustomer() {
+
+        oblist = customerDal.getCustomerName();
+        cmbCustomer.setItems(oblist);
+
+    }
+
+    //Set Initial Values
+    private void setInitialValue() {
+
+        txtInspectionStandart.setText("TS EN ISO 17638");
+        txtEvaluationStandart.setText("TS EN ISO 23278 Class B");
+        txtInspectionProcedure.setText("P-101-004");
+        txtInspectionScope.setText("%20");
+        txtDrawingNo.setText("-");
+        txtPage.setText("1");
+
+        cmbProjectName.setItems(oblistCmb);
+        cmbSurfaceCondition.setItems(oblistCmb);
+        cmbStageOfExamination.setItems(oblistCmb);
+        cmbJobOrderNo.setItems(oblistCmb);
+        cmbOfferNo.setItems(oblistCmb);
+
+        lblInspectionPlace.setText("Value");
+        lblReportDate.setText("Value");
+        lblReportNo.setText("Value");
+
+    }
+
 }

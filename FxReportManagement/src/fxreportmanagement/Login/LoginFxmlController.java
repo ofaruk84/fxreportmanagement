@@ -33,10 +33,6 @@ import javafx.stage.Stage;
 public class LoginFxmlController implements Initializable {
 
     @FXML
-    private AnchorPane ancLogin;
-    @FXML
-    private AnchorPane ancLeftSide;
-    @FXML
     private TextField txtUsername;
     @FXML
     private PasswordField txtPassword;
@@ -48,6 +44,8 @@ public class LoginFxmlController implements Initializable {
     private EmployeeDal employeeDal;
     @FXML
     private Button btnAdminLogin;
+    @FXML
+    private AnchorPane ancMain;
 
     /**
      * Initializes the controller class.
@@ -81,12 +79,8 @@ public class LoginFxmlController implements Initializable {
         }
         
         //Openning Home Page
-        Parent root =FXMLLoader.load(getClass().getResource("/fxreportmanagement/HomePage/HomePageFxml.fxml"));
-        
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
-        
+        String fileLoc = "HomePage/HomePageFxml";
+        FxmlPageLoader.loadSameScene(ancMain, fileLoc);
          
         
     }

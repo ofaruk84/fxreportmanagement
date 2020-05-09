@@ -5,6 +5,7 @@
  */
 package fxreportmanagement.Report2;
 
+import fxreportmanagement.DatabaseOperations.DatabaseEntitates.Equipment;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -69,12 +70,51 @@ public class Report2EquipmentPgFxmlController implements Initializable {
     @FXML
     private RadioButton rbtnFilledeld1;
 
-    /**
-     * Initializes the controller class.
-     */
+    private Equipment equipment1;
+
+    private static Report2EquipmentPgFxmlController instance;
+
+    public Report2EquipmentPgFxmlController() {
+        instance = this;
+
+    }
+
+    public static Report2EquipmentPgFxmlController getInstance() {
+
+        return instance;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+
+    }
+
+    public void setEquipmentType(String value) {
+
+        txtEquipment.setText(value);
+
+    }
+
+    public void setEquipment(Equipment eq) {
+
+        equipment1 = eq;
+        System.out.println(equipment1.getDistanceOfLight() + "geldi");
+
+//     String poleDistance = equipment1.getPoleDistance();
+//     String equipment = equipment1.getEquipment();
+//     String mpCarrier = equipment1.getMpCarrierMedium();
+//     String magTech = equipment1.getMagTech();
+//     String uvLight = equipment1.getUvLightIntencity();
+//     String distanceOfLight =equipment1.getDistanceOfLight();
+//     
+//        
+        txtPoleDistance.setText(equipment1.getPoleDistance());
+//      txtEquipment.setText(equipment1.getEquipment());
+        txtCarrierMedium.setText(equipment1.getMpCarrierMedium());
+        txtMagTech.setText(equipment1.getMagTech());
+        txtUvLightIntencity.setText(equipment1.getUvLightIntencity());
+        txtDistanceOfLight.setText(equipment1.getDistanceOfLight());
+
+    }
+
 }

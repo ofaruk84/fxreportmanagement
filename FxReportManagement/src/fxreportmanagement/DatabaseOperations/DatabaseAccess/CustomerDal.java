@@ -52,7 +52,8 @@ public void establishConnection() throws SQLException{
    
      
  }
- 
+
+//Add Customer
 public void addCustomer(Customer customer){
         
     String sqlQuery ="insert into customer (customerName,customerCity,customerCountry) values(?,?,?)";
@@ -131,8 +132,54 @@ public ObservableList<Customer> getData(){
     return oblist;    
         
     }
+
+    //Get CustomerName
+    public ObservableList<String> getCustomerName() {
+
+        ObservableList<String> oblist = FXCollections.observableArrayList();
+        String sqlQuery = "select customerName from customer";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sqlQuery);
+
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                oblist.add(rs.getString("customerName"));
+            }
+
+        } catch (SQLException ex) {
+            DBHelper.showErrorMessage(ex);
+        }
+        return oblist;
+
+    }
     
+    //Get Information Of Selected Customer
+    public Customer getCustomerCity(String customerName) {
+
+        String query = "select customerCity from customer where customerName = ?";
+
+        Customer customer = null;
+        PreparedStatement statement;
+        try {
+
+            statement = connection.prepareStatement(query);
+
+            statement.setString(1, customerName);
+
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                customer = new Customer(rs.getString("customerCity"));}
+            } catch (SQLException ex) {
+            DBHelper.showErrorMessage(ex);
+        }
+
+        return customer;
+    }
+    
+    }  
 
 
 
-}

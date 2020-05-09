@@ -21,6 +21,10 @@ public class Customer {
 
     public Customer() {
     }
+    
+    public Customer(String customerCity){
+        this.customerCity = new SimpleStringProperty(customerCity);
+    }
 
     public Customer(int customerId,String customerName,String customerCity,String customerCountry){
         this.customerId =  new SimpleIntegerProperty(customerId);

@@ -51,6 +51,8 @@ public class AdminEquipmentPageFxmlController implements Initializable {
     @FXML
     private TableColumn<Equipment, SimpleIntegerProperty> tcId;
     @FXML
+    private TableColumn<Equipment, SimpleStringProperty> tcPoleDistance;
+    @FXML
     private TableColumn<Equipment, SimpleStringProperty> tcEquipment;
     @FXML
     private TableColumn<Equipment, SimpleStringProperty> tcMpCarierMedium;
@@ -60,16 +62,18 @@ public class AdminEquipmentPageFxmlController implements Initializable {
     private TableColumn<Equipment, SimpleStringProperty> tcUvLightIntencity;
     @FXML
     private TableColumn<Equipment, SimpleStringProperty> tcDistanceOfLight;
-    
+
     private Equipment equipment;
     private EquipmentDal equipmentDal;
-    private static ObservableList<Equipment> oblist; 
-    
-    private int index=0;
-    
+    private static ObservableList<Equipment> oblist;
+
+    private int index = 0;
+    @FXML
+    private JFXTextField txtPoleDistance;
 
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
@@ -77,15 +81,14 @@ public class AdminEquipmentPageFxmlController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         equipmentDal = new EquipmentDal();
         populateTable();
-    }    
+    }
 
     @FXML
     private void handleBtnAdd(ActionEvent event) {
-        
+
         equipmentDal.add(getEquipment());
         populateTable();
-        
-        
+
     }
 
     @FXML
@@ -101,58 +104,49 @@ public class AdminEquipmentPageFxmlController implements Initializable {
 
     @FXML
     private void handleGetClickedRow(MouseEvent event) {
-        
+
         equipment = tbvEquipment.getSelectionModel().getSelectedItem();
-        
+
+        txtPoleDistance.setText(equipment.getPoleDistance());
         txtEquipment.setText(equipment.getEquipment());
         txtMpCarrierMedium.setText(equipment.getMpCarrierMedium());
         txtMagTech.setText(equipment.getMagTech());
         txtUvLightIntencity.setText(equipment.getUvLightIntencity());
         txtDistanceOfLight.setText(equipment.getDistanceOfLight());
-        
-        
-        
-        
-        index = equipment.getId();
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    //Get Employee From GUI
-    public Equipment getEquipment(){
-     
-     int id=index;
-     String equipment = txtEquipment.getText();
-     String mpCarrier = txtMpCarrierMedium.getText();
-     String magTech = txtMagTech.getText();
-     String uvLight = txtUvLightIntencity.getText();
-     String distanceOfLight =txtDistanceOfLight.getText();
-    
-     
-     return new Equipment(id, equipment, mpCarrier, magTech, uvLight, distanceOfLight);
-        
-    }
-    
-    
-    //Populating Table
-    public void populateTable(){
-        
-     tcId.setCellValueFactory(new PropertyValueFactory<Equipment,SimpleIntegerProperty>("id"));
-     tcEquipment.setCellValueFactory(new PropertyValueFactory<Equipment,SimpleStringProperty>("equipment"));
-     tcMpCarierMedium.setCellValueFactory(new PropertyValueFactory<Equipment,SimpleStringProperty>("mpCarrierMedium"));
-     tcMagTech.setCellValueFactory(new PropertyValueFactory<Equipment,SimpleStringProperty>("magTech"));
-     tcUvLightIntencity.setCellValueFactory(new PropertyValueFactory<Equipment,SimpleStringProperty>("uvLightIntencity"));        
-     tcDistanceOfLight.setCellValueFactory(new PropertyValueFactory<Equipment,SimpleStringProperty>("distanceOfLight"));
 
-     
-     oblist = equipmentDal.getData();
-     
-     tbvEquipment.setItems(oblist);
-    }    
-    
+        index = equipment.getId();
+
+    }
+
+    //Get Employee From GUI
+    public Equipment getEquipment() {
+
+        int id = index;
+        String poleDistance = txtPoleDistance.getText();
+        String equipment = txtEquipment.getText();
+        String mpCarrier = txtMpCarrierMedium.getText();
+        String magTech = txtMagTech.getText();
+        String uvLight = txtUvLightIntencity.getText();
+        String distanceOfLight = txtDistanceOfLight.getText();
+
+        return new Equipment(id, poleDistance, equipment, mpCarrier, magTech, uvLight, distanceOfLight);
+
+    }
+
+    //Populating Table
+    public void populateTable() {
+
+        tcId.setCellValueFactory(new PropertyValueFactory<Equipment, SimpleIntegerProperty>("id"));
+        tcPoleDistance.setCellValueFactory(new PropertyValueFactory<Equipment, SimpleStringProperty>("poleDistance"));
+        tcEquipment.setCellValueFactory(new PropertyValueFactory<Equipment, SimpleStringProperty>("equipment"));
+        tcMpCarierMedium.setCellValueFactory(new PropertyValueFactory<Equipment, SimpleStringProperty>("mpCarrierMedium"));
+        tcMagTech.setCellValueFactory(new PropertyValueFactory<Equipment, SimpleStringProperty>("magTech"));
+        tcUvLightIntencity.setCellValueFactory(new PropertyValueFactory<Equipment, SimpleStringProperty>("uvLightIntencity"));
+        tcDistanceOfLight.setCellValueFactory(new PropertyValueFactory<Equipment, SimpleStringProperty>("distanceOfLight"));
+
+        oblist = equipmentDal.getData();
+
+        tbvEquipment.setItems(oblist);
+    }
+
 }

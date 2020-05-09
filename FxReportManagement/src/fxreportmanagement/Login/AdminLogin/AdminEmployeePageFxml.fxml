@@ -13,7 +13,7 @@
    <children>
       <AnchorPane layoutX="136.0" layoutY="101.0" prefHeight="601.0" prefWidth="243.0" styleClass="sideBackground" stylesheets="@../../css/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox layoutX="26.0" layoutY="36.0" spacing="30.0" stylesheets="@../../css/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox layoutX="26.0" layoutY="36.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <JFXTextField fx:id="txtUsername" alignment="CENTER" focusColor="WHITE" prefHeight="33.0" prefWidth="171.0" promptText="Username" styleClass="textfield" stylesheets="@../../css/Style.css" unFocusColor="WHITE">
                      <font>

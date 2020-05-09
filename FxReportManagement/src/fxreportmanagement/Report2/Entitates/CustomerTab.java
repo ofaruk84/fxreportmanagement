@@ -12,9 +12,8 @@ import javafx.beans.property.SimpleStringProperty;
  *
  * @author Faruk
  */
-public class Customer {
-    
-       
+public class CustomerTab {
+
     //fields
     private SimpleStringProperty customer;
     private SimpleStringProperty projectNanme;
@@ -31,21 +30,32 @@ public class Customer {
     private SimpleStringProperty reportDate;
     private SimpleStringProperty jobOrderNo;
     private SimpleStringProperty offerNo;
-    
-
 
 //Constructor
+    public CustomerTab() {
 
-public Customer(){
+    }
 
+    public CustomerTab(String customer, String projectName, String inspectionPlace, String inspectionStandart, String inspectionScope, String evaluationStandart, String inspectionProcedure, String drawingNo, String surfaceCondition,
+            String stageOfExamination, String page, String reportNo, String reportDate, String jobOrderNo, String offerNo) {
 
-}
+        this.customer = new SimpleStringProperty(customer);
+        this.projectNanme = new SimpleStringProperty(projectName);
+        this.inspectionPlace = new SimpleStringProperty(inspectionPlace);
+        this.inspectionStandart = new SimpleStringProperty(inspectionStandart);
+        this.evaluationStandart = new SimpleStringProperty(evaluationStandart);
+        this.inspectionProcedure = new SimpleStringProperty(inspectionProcedure);
+        this.inspectionScope = new SimpleStringProperty(inspectionScope);
+        this.drawingNo = new SimpleStringProperty(drawingNo);
+        this.surfaceCondition = new SimpleStringProperty(surfaceCondition);
+        this.stageOfExamination = new SimpleStringProperty(stageOfExamination);
+        this.page = new SimpleStringProperty(page);
+        this.reportNo = new SimpleStringProperty(reportNo);
+        this.reportDate = new SimpleStringProperty(reportDate);
+        this.jobOrderNo = new SimpleStringProperty(jobOrderNo);
+        this.offerNo = new SimpleStringProperty(offerNo);
 
-public Customer(String customer,String projectName,String inspectionPlace,String evaluationStandart,String inspectionProcedure,String drawingNo,String surfaceCondition,
-        String stageOfExamination,String page,String reportNo,String reportDate,String jobOrderNo,String offerNo ){
-
-
-}
+    }
 
     public String getCustomer() {
         return customer.getValue();
@@ -142,7 +152,8 @@ public Customer(String customer,String projectName,String inspectionPlace,String
     public void setReportNo(String reportNo) {
         this.reportNo.setValue(reportNo);
     }
-    public String getReportDate(){
+
+    public String getReportDate() {
         return reportDate.getValue();
     }
 
@@ -155,7 +166,7 @@ public Customer(String customer,String projectName,String inspectionPlace,String
     }
 
     public void setJobOrderNo(String jobOrderNo) {
-        this.jobOrderNo.set(jobOrderNo); 
+        this.jobOrderNo.set(jobOrderNo);
     }
 
     public String getOfferNo() {
@@ -165,20 +176,5 @@ public Customer(String customer,String projectName,String inspectionPlace,String
     public void setOfferNo(String offerNo) {
         this.offerNo.setValue(offerNo);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

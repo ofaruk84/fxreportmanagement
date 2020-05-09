@@ -5,6 +5,7 @@
  */
 package fxreportmanagement.Report2;
 
+import fxreportmanagement.DatabaseOperations.DatabaseEntitates.Equipment;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -19,10 +20,7 @@ import javafx.scene.layout.Pane;
  *
  * @author Faruk
  */
-
 //749.6-564.8 #f0932b-turuncu ##273c75-hover;
-
-
 public class Report2FxmlController implements Initializable {
 
     @FXML
@@ -31,47 +29,70 @@ public class Report2FxmlController implements Initializable {
     private BorderPane bpMain;
     @FXML
     private Button btnEquipment;
-    
+
     private fxreportmanagement.HelperClasses.FxmlPageLoader fpl = null;
     @FXML
     private Button btnInspectionResults;
 
-    /**
-     * Initializes the controller class.
-     */
+    private String equipmentName;
+
+    private Equipment equipment;
+
+    private static Report2FxmlController instance;
+
+    public Report2FxmlController() {
+
+        instance = this;
+    }
+
+    public static Report2FxmlController getInstance() {
+        return instance;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void handleBtnCustomerAction(ActionEvent event) {
-        
-       
-        
+
         Pane view = fpl.getPage("Report2CustomerPgFxml");
-        
+
         bpMain.setCenter(view);
-        
+
     }
 
     @FXML
     private void handleBtnEquipmentAction(ActionEvent event) {
-        
+
         Pane view = fpl.getPage("Report2EquipmentPgFxml");
-        
+        Report2EquipmentPgFxmlController.getInstance().setEquipmentType(equipmentName);
+        System.out.println(equipment.getDistanceOfLight());
+        Report2EquipmentPgFxmlController.getInstance().setEquipment(equipment);
+
         bpMain.setCenter(view);
     }
 
     @FXML
     private void handleBtnInspectionResultsAction(ActionEvent event) {
-        
-        
+
         Pane view = fpl.getPage("Report2InspectionResultsPgFxml");
-        
-        bpMain.setCenter(view);    
-        
-        
+
+        bpMain.setCenter(view);
+
     }
-    
+
+    public void loadEqupimentName(String equipmentName) {
+
+        this.equipmentName = equipmentName;
+
+    }
+
+    public void loadEquipment(Equipment eq) {
+        System.out.println(eq.getDistanceOfLight());
+        equipment = eq;
+        System.out.println(equipment.getDistanceOfLight());
+    }
+
 }
