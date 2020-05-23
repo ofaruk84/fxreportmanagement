@@ -9,6 +9,7 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -189,7 +190,10 @@
                                     <Image url="@../Resources/growth.png" />
                                  </image>
                               </ImageView>
-                              <RadioButton fx:id="rbtnButtWeld" mnemonicParsing="false" text=" " />
+                              <RadioButton fx:id="rbtnButtWeld" mnemonicParsing="false" text=" ">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="weldType" />
+                                 </toggleGroup></RadioButton>
                            </children>
                         </VBox>
                         <Label layoutX="20.0" layoutY="464.0" prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Description" textFill="WHITE">
@@ -219,7 +223,7 @@
                               <String fx:value="textfield" />
                            </styleClass></Label>
                         <Separator layoutX="37.0" layoutY="403.0" prefHeight="0.0" prefWidth="667.0" stylesheets="@../css/Style.css" />
-                        <Button fx:id="btnSubmit2" layoutX="578.0" layoutY="503.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Submit" textFill="#fffbfb" />
+                        <Button fx:id="btnEquipmentSubmit" layoutX="578.0" layoutY="503.0" mnemonicParsing="false" onAction="#handleBtnEquipmentSubmit" prefHeight="25.0" prefWidth="149.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Submit" textFill="#fffbfb" />
                         <Label alignment="CENTER" layoutX="47.0" layoutY="231.0" prefHeight="1.0" prefWidth="680.0" stylesheets="@../css/Style.css" text="Location Of Discontinuity" textFill="WHITE">
                            <font>
                               <Font size="19.0" />
@@ -236,7 +240,7 @@
                                     <Image url="@../Resources/growth.png" />
                                  </image>
                               </ImageView>
-                              <RadioButton fx:id="rbtnFilledeld1" mnemonicParsing="false" text=" " />
+                              <RadioButton fx:id="rbtnFilledWeld" mnemonicParsing="false" text=" " toggleGroup="$weldType" />
                            </children>
                         </VBox>
                      </children>

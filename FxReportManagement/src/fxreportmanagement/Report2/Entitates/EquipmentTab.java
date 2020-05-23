@@ -4,7 +4,7 @@ package fxreportmanagement.Report2.Entitates;
 import javafx.beans.property.SimpleStringProperty;
 
 
-public class Equipment {
+public class EquipmentTab {
     
     private SimpleStringProperty poleDistance;
     private SimpleStringProperty equipment;
@@ -28,11 +28,11 @@ public class Equipment {
     private SimpleStringProperty inspectionDates;
     private SimpleStringProperty description;
 
-    public Equipment() {
+    public EquipmentTab() {
     }
     
     
-    public Equipment(String poleDitance,String equipment,String mpCarrierMedium,String magTech,String uvLightIntensity,String distanceOfLight,
+    public EquipmentTab(String poleDitance,String equipment,String mpCarrierMedium,String magTech,String uvLightIntensity,String distanceOfLight,
            String examinationArea,String currentType,String luxmeter,String testMedium,String demagnetization,String heatTreatmenet,
            String surfaceTemperature,String gaussFieldStrength,String surfaceCondition,String identifactionOfLightEquipment,
            String liftingTestDateNo,String weldType,String standartDevitions,String inspectionDates,String description){

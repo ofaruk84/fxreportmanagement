@@ -5,8 +5,11 @@
  */
 package fxreportmanagement.HomePage;
 
+import com.jfoenix.controls.JFXComboBox;
+import fxreportmanagement.DatabaseOperations.DatabaseAccess.EmployeeDal;
 import fxreportmanagement.DatabaseOperations.DatabaseAccess.EquipmentDal;
 import fxreportmanagement.DatabaseOperations.DatabaseEntitates.Equipment;
+import fxreportmanagement.HelperClasses.ExcelExporter;
 import fxreportmanagement.HelperClasses.FxmlPageLoader;
 import fxreportmanagement.Report2.Report2FxmlController;
 import java.io.IOException;
@@ -46,11 +49,19 @@ public class HomePageFxmlController implements Initializable {
 
     private EquipmentDal equipmentDal;
 
+    private EmployeeDal employeeDal;
+
     private ObservableList<String> oblist;
 
     private Equipment equipment;
     @FXML
     private BorderPane bpMain;
+    @FXML
+    private JFXComboBox<String> cmbOpeartor;
+    @FXML
+    private JFXComboBox<String> cmbEvaluated;
+    @FXML
+    private JFXComboBox<String> cmbConfirmation;
 
     /**
      * Initializes the controller class.
@@ -61,8 +72,10 @@ public class HomePageFxmlController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         equipmentDal = new EquipmentDal();
+        employeeDal = new EmployeeDal();
         getDate();
-        populateCmb();
+        populateCmbEquipment();
+        populateCmbEmployees();
 
     }
 
@@ -73,6 +86,11 @@ public class HomePageFxmlController implements Initializable {
         String fileUrl = null;
 
         if (rbMagnetic.isSelected()) {
+
+            ExcelExporter.setOperator(cmbOpeartor.getValue());
+            ExcelExporter.setEvaluated(cmbEvaluated.getValue());
+            ExcelExporter.setConfirmation(cmbConfirmation.getValue());
+            ExcelExporter.setDate(lblDate.getText());
 
             fileUrl = "Report2/Report2Fxml";
             FxmlPageLoader.loadSameScene(bpMain, fileUrl);
@@ -86,7 +104,9 @@ public class HomePageFxmlController implements Initializable {
 
         if (rbRadiographic.isSelected()) {
 
-            //fileUrl = "Report1/Report1Fxml";
+            fileUrl = "Report1/Report1";
+            FxmlPageLoader.loadSameScene(bpMain, fileUrl);
+
         }
 
     }
@@ -101,12 +121,20 @@ public class HomePageFxmlController implements Initializable {
 
     }
 
-    private void populateCmb() {
+    private void populateCmbEquipment() {
 
         oblist = equipmentDal.getEQName();
-        System.out.println(oblist);
+      
         cmbEquipment.setItems(oblist);
 
+    }
+
+    private void populateCmbEmployees() {
+
+        oblist = employeeDal.getEmployeeName();
+        cmbConfirmation.setItems(oblist);
+        cmbEvaluated.setItems(oblist);
+        cmbOpeartor.setItems(oblist);
     }
 
 }

@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.8" prefWidth="749.0" styleClass="mainBackground" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxreportmanagement.Report1.RInspectionResultsController">
+   <children>
+      <TabPane layoutX="142.0" layoutY="41.0" prefHeight="200.0" prefWidth="200.0" styleClass="mainBackground" stylesheets="@../css/Style.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <tabs>
+            <Tab text="Fields">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="2.0" layoutY="32.0" prefHeight="516.0" prefWidth="338.0" spacing="15.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="Shooting Area" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtShootingArea" prefHeight="25.0" prefWidth="237.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="Film No" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtFilmNo" prefHeight="25.0" prefWidth="237.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="Material Type" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtMaterialType" prefHeight="25.0" prefWidth="237.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="Welding Type" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtWeldingType" prefHeight="25.0" prefWidth="237.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="Welder No" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtWelderNo" prefHeight="25.0" prefWidth="237.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="Position" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtPosition" prefHeight="25.0" prefWidth="237.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="Thickness" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtThickness" prefHeight="25.0" prefWidth="237.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="IQI" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtIQI" prefHeight="25.0" prefWidth="237.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="178.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="Visiable IQI" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtVisibleIQI" prefHeight="25.0" prefWidth="237.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="206.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="Density" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtDensity" prefHeight="25.0" prefWidth="237.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="20.0" layoutY="364.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="10x12" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtX12" prefHeight="25.0" prefWidth="237.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="20.0" layoutY="407.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="10x16" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtX16" prefHeight="25.0" prefWidth="237.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </VBox>
+                        <Separator layoutX="372.0" layoutY="10.0" orientation="VERTICAL" prefHeight="523.0" prefWidth="6.0" />
+                        <VBox layoutX="397.0" layoutY="14.0" prefHeight="378.0" prefWidth="338.0" spacing="20.0">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="10x24" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtX24" prefHeight="25.0" prefWidth="237.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="10x36" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtX36" prefHeight="25.0" prefWidth="237.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="10x48" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtX48" prefHeight="25.0" prefWidth="237.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="10x40" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtX40" prefHeight="25.0" prefWidth="237.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="Defect Loc" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtDefectLoc" prefHeight="25.0" prefWidth="237.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="Defect Type" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtDefectType" prefHeight="25.0" prefWidth="237.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="Pre Evaluation" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtPreEvaluation" prefHeight="25.0" prefWidth="237.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="Final Evaluation" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtFinalEvaluation" prefHeight="25.0" prefWidth="237.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <Button fx:id="btnSubmit" layoutX="400.0" layoutY="444.0" mnemonicParsing="false" onAction="#handleBtnSubmitAction" prefHeight="27.0" prefWidth="332.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Submit" textFill="WHITE" />
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Inspection Results">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tbvResults" layoutY="112.0" prefHeight="305.0" prefWidth="749.0" styleClass="sideBackground" stylesheets="@../css/Style.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="112.0">
+                          <columns>
+                            <TableColumn fx:id="tcShootingArea" prefWidth="97.0" text=" " />
+                            <TableColumn fx:id="tcFilmNo" prefWidth="47.0" text=" " />
+                              <TableColumn fx:id="tcMaterialType" prefWidth="29.0" text=" " />
+                              <TableColumn fx:id="tcWeldingType" prefWidth="29.0" text=" " />
+                              <TableColumn fx:id="tcWelderNo" prefWidth="29.0" text=" " />
+                              <TableColumn fx:id="tcPosition" prefWidth="29.0" text=" " />
+                              <TableColumn fx:id="tcThickness" prefWidth="29.0" text=" " />
+                              <TableColumn fx:id="tcIQI" prefWidth="29.0" text=" " />
+                              <TableColumn fx:id="tcVisibleIQI" prefWidth="29.0" text=" " />
+                              <TableColumn fx:id="tcDensity" prefWidth="29.0" text=" " />
+                              <TableColumn fx:id="tcX12" prefWidth="17.0" text=" " />
+                              <TableColumn fx:id="tcX16" prefWidth="17.0" text=" " />
+                              <TableColumn fx:id="tcX24" prefWidth="17.0" text=" " />
+                              <TableColumn fx:id="tcX36" prefWidth="17.0" text=" " />
+                              <TableColumn fx:id="tcX48" prefWidth="17.0" text=" " />
+                              <TableColumn fx:id="tcX40" prefWidth="17.0" text=" " />
+                              <TableColumn fx:id="tcDefectLoc" prefWidth="45.0" text=" " />
+                              <TableColumn fx:id="tcDefectType" prefWidth="45.0" text=" " />
+                              <TableColumn fx:id="tcPreEvaluation" prefWidth="87.0" text=" " />
+                              <TableColumn fx:id="tcFinalEvaluation" prefWidth="93.0" text=" " />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="111.0" layoutY="45.0" prefHeight="19.0" prefWidth="99.0" rotate="-90.0" text="Material Type" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="5.0" layoutY="46.0" prefHeight="19.0" prefWidth="99.0" rotate="-90.0" text="Shooting Area" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="61.0" layoutY="45.0" prefHeight="19.0" prefWidth="99.0" rotate="-90.0" text="Film No" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="198.0" layoutY="45.0" prefHeight="19.0" prefWidth="99.0" rotate="-90.0" text="Position" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="142.0" layoutY="45.0" prefHeight="19.0" prefWidth="99.0" rotate="-90.0" text="Welding Type" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="171.0" layoutY="46.0" prefHeight="19.0" prefWidth="99.0" rotate="-90.0" text="Welder No" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="284.0" layoutY="46.0" prefHeight="19.0" prefWidth="99.0" rotate="-90.0" text="Visible IQI" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="226.0" layoutY="45.0" prefHeight="19.0" prefWidth="99.0" rotate="-90.0" text="Thickness" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="255.0" layoutY="46.0" prefHeight="19.0" prefWidth="99.0" rotate="-90.0" text="IQI" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="558.0" layoutY="46.0" prefHeight="19.0" prefWidth="99.0" rotate="-90.0" text="Pre Evaluation" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="315.0" layoutY="46.0" prefHeight="19.0" prefWidth="99.0" rotate="-90.0" text="Density" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label contentDisplay="CENTER" layoutX="334.0" layoutY="47.0" prefHeight="13.0" prefWidth="99.0" rotate="-90.0" text="10 x 12" textFill="WHITE" />
+                        <Label layoutX="651.0" layoutY="45.0" prefHeight="19.0" prefWidth="99.0" rotate="-90.0" text="Final Evaluation" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="448.0" layoutY="46.0" prefHeight="19.0" prefWidth="99.0" rotate="-90.0" text="Defect  Loc" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="499.0" layoutY="46.0" prefHeight="19.0" prefWidth="99.0" rotate="-90.0" text="Defect Type" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label contentDisplay="CENTER" layoutX="385.0" layoutY="47.0" prefHeight="13.0" prefWidth="99.0" rotate="-90.0" text="10 x 36" textFill="WHITE" />
+                        <Label contentDisplay="CENTER" layoutX="402.0" layoutY="47.0" prefHeight="13.0" prefWidth="99.0" rotate="-90.0" text="10 x 48" textFill="WHITE" />
+                        <Label contentDisplay="CENTER" layoutX="351.0" layoutY="47.0" prefHeight="13.0" prefWidth="99.0" rotate="-90.0" text="10 x 16" textFill="WHITE" />
+                        <Label contentDisplay="CENTER" layoutX="368.0" layoutY="47.0" prefHeight="13.0" prefWidth="99.0" rotate="-90.0" text="10 x 24" textFill="WHITE" />
+                        <Label contentDisplay="CENTER" layoutX="419.0" layoutY="48.0" prefHeight="13.0" prefWidth="99.0" rotate="-90.0" text="30 x 40" textFill="WHITE" />
+                        <Button fx:id="btnSave" alignment="CENTER" layoutX="472.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleBtnSaveAction" prefHeight="25.0" prefWidth="255.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Save" textFill="WHITE" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

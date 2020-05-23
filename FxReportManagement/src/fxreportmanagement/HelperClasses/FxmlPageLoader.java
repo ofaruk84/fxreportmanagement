@@ -28,7 +28,7 @@ public class FxmlPageLoader {
     public static Pane getPage(String fileName) {
 
         try {
-            URL fileUrl = fxreportmanagement.FxReportManagement.class.getResource("/fxreportmanagement/Report2/" + fileName + ".fxml");
+            URL fileUrl = fxreportmanagement.FxReportManagement.class.getResource("/fxreportmanagement/" + fileName + ".fxml");
             view = new FXMLLoader().load(fileUrl);
         } catch (IOException ex) {
             Logger.getLogger(FxmlPageLoader.class.getName()).log(Level.SEVERE, null, ex);

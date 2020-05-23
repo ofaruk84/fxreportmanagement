@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.8" prefWidth="749.0" styleClass="mainBackground" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxreportmanagement.Report1.RTestArrangementsController">
+   <children>
+      <TabPane layoutX="194.0" layoutY="70.0" prefHeight="495.0" prefWidth="749.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+        <tabs>
+          <Tab text="Test Arrangements">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox alignment="CENTER" layoutX="40.0" layoutY="72.0" prefHeight="161.0" prefWidth="670.0" spacing="20.0">
+                           <children>
+                              <ImageView fitHeight="163.0" fitWidth="161.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Resources/ta1.PNG" />
+                                 </image>
+                              </ImageView>
+                              <JFXRadioButton fx:id="rbTa1" text=" " />
+                              <ImageView fitHeight="163.0" fitWidth="161.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Resources/ta2.PNG" />
+                                 </image>
+                              </ImageView>
+                              <JFXRadioButton fx:id="rbTa2" layoutX="214.0" layoutY="83.0" text=" " />
+                              <ImageView fitHeight="163.0" fitWidth="161.0" layoutX="196.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Resources/ta3.PNG" />
+                                 </image>
+                              </ImageView>
+                              <JFXRadioButton fx:id="rbTa3" layoutX="239.0" layoutY="83.0" text=" " />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="40.0" layoutY="285.0" prefHeight="161.0" prefWidth="670.0" spacing="20.0">
+                           <children>
+                              <ImageView fitHeight="145.0" fitWidth="161.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Resources/ta4.PNG" />
+                                 </image>
+                              </ImageView>
+                              <JFXRadioButton fx:id="rbTa4" text=" " />
+                              <ImageView fitHeight="163.0" fitWidth="161.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Resources/ta6.PNG" />
+                                 </image>
+                              </ImageView>
+                              <JFXRadioButton fx:id="rbTa5" layoutX="601.0" layoutY="82.0" text=" " />
+                              <ImageView fitHeight="163.0" fitWidth="161.0" layoutX="196.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Resources/ta6.PNG" />
+                                 </image>
+                              </ImageView>
+                              <JFXRadioButton fx:id="rbTa6" layoutX="446.0" layoutY="82.0" text=" " />
+                           </children>
+                        </HBox>
+                        <Text fill="#fffdfd" layoutX="96.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Test Arrangements" textAlignment="CENTER" wrappingWidth="542.13671875">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Defect Types">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Separator layoutX="14.0" layoutY="330.0" prefHeight="0.0" prefWidth="718.0" />
+                        <Separator layoutX="372.0" layoutY="14.0" orientation="VERTICAL" prefHeight="311.0" prefWidth="1.0" />
+                        <Label alignment="CENTER" layoutX="8.0" layoutY="22.0" prefHeight="17.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="According To" textFill="WHITE" />
+                        <Label alignment="CENTER" layoutX="170.0" layoutY="22.0" prefHeight="41.0" prefWidth="198.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Defect Types" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="8.0" layoutY="47.0" prefHeight="17.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="IIW    6520-1" textFill="WHITE" />
+                        <HBox layoutX="8.0" layoutY="81.0" spacing="10.0">
+                           <children>
+                              <VBox prefHeight="228.0" prefWidth="153.0" spacing="5.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="25.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Aa   2011" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Ab   2016" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="35.0" prefHeight="25.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Ac   2014" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Ad   2013" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="35.0" prefHeight="25.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Ba   3012" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="60.0" prefHeight="25.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Bb   3011" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="85.0" prefHeight="25.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Bc   3013" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="110.0" prefHeight="25.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="C    4011" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="135.0" prefHeight="25.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="D   402,4021,4013" textFill="WHITE" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="230.0" prefWidth="197.0" spacing="5.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="22.0" prefWidth="197.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Porosity" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="22.0" prefWidth="197.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Worm Holes" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="22.0" prefWidth="197.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Aligned Porosity" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="22.0" prefWidth="197.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Porosıty Group" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="22.0" prefWidth="197.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Slag Inclusion" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="54.0" prefHeight="22.0" prefWidth="197.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Slag Line" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="76.0" prefHeight="22.0" prefWidth="197.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Slag Group" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="98.0" prefHeight="22.0" prefWidth="197.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Lack Of Fusion" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="120.0" prefHeight="22.0" prefWidth="197.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Incomplete Penetration" textFill="WHITE" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="378.0" layoutY="81.0" spacing="10.0">
+                           <children>
+                              <VBox prefHeight="228.0" prefWidth="153.0" spacing="5.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="25.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Db   515" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Dc   504" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="35.0" prefHeight="25.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text=" Ea   1011" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Eb 10211023,1" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="35.0" prefHeight="25.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Ec  1046,1047,1054" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="60.0" prefHeight="25.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Fb   517,5091" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="85.0" prefHeight="25.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Fc 5011,5012,5013" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="110.0" prefHeight="25.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="ff   -" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="135.0" prefHeight="25.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="W   3041" textFill="WHITE" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="230.0" prefWidth="197.0" spacing="5.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="22.0" prefWidth="197.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Root Suck Back" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="22.0" prefWidth="197.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Exessive Penetration" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="22.0" prefWidth="197.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Longitudinal Crack" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="22.0" prefWidth="197.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Transverse Crack" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="32.0" prefHeight="22.0" prefWidth="197.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Crater Cracks" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="54.0" prefHeight="22.0" prefWidth="197.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Bad Weld Surface" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="76.0" prefHeight="22.0" prefWidth="197.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Undercut " textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="98.0" prefHeight="22.0" prefWidth="197.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Film Failure" textFill="WHITE" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="120.0" prefHeight="22.0" prefWidth="197.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Tungsten Inclusion" textFill="WHITE" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <Label alignment="CENTER" layoutX="378.0" layoutY="22.0" prefHeight="17.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="According To" textFill="WHITE" />
+                        <Label alignment="CENTER" layoutX="540.0" layoutY="22.0" prefHeight="41.0" prefWidth="198.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Defect Types" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="378.0" layoutY="47.0" prefHeight="17.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="IIW    6520-1" textFill="WHITE" />
+                        <Label layoutX="21.0" layoutY="358.0" prefHeight="29.0" prefWidth="186.0" text="Inspection Dates" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="337.0" layoutY="359.0" prefHeight="29.0" prefWidth="186.0" text="Description and Attachments" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtDescription" layoutX="519.0" layoutY="361.0" prefHeight="25.0" prefWidth="217.0" stylesheets="@../css/Style.css">
+                           <styleClass>
+                              <String fx:value="textfield" />
+                              <String fx:value="sideButtons" />
+                           </styleClass>
+                        </TextField>
+                        <JFXButton fx:id="btnSubmit" buttonType="RAISED" layoutX="521.0" layoutY="427.0" onAction="#handleBtnSubmitAction" prefHeight="25.0" prefWidth="217.0" ripplerFill="#72a365" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Submit" textFill="WHITE" />
+                        <Label fx:id="lblDate" alignment="CENTER" layoutX="186.0" layoutY="361.0" prefHeight="25.0" prefWidth="139.0" styleClass="sideButtons" stylesheets="@../css/Style.css" textFill="WHITE" />
+                        <Separator layoutX="13.0" layoutY="412.0" prefHeight="0.0" prefWidth="718.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <HBox layoutX="76.0" layoutY="3.0" prefHeight="67.0" prefWidth="186.0" spacing="1.0" AnchorPane.bottomAnchor="494.8" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" maxHeight="1.7976931348623157E308" prefHeight="70.0" prefWidth="110.0" styleClass="mainBackground" stylesheets="@../css/Style.css" text="Evaluation Symbols" textFill="WHITE" />
+            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefHeight="70.0" prefWidth="110.0" styleClass="mainBackground" stylesheets="@../css/Style.css" text="Accepted    OK" textFill="WHITE" />
+            <Label alignment="CENTER" layoutX="120.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefHeight="70.0" prefWidth="110.0" styleClass="mainBackground" stylesheets="@../css/Style.css" text="Repair   R" textFill="WHITE" />
+            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefHeight="70.0" prefWidth="110.0" styleClass="mainBackground" stylesheets="@../css/Style.css" text="Cut-Out  C/O" textFill="WHITE" />
+            <Label alignment="CENTER" layoutX="120.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefHeight="70.0" prefWidth="154.0" styleClass="mainBackground" stylesheets="@../css/Style.css" text="Re-Shoot  RS" textFill="WHITE" />
+            <Label alignment="CENTER" layoutX="230.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefHeight="70.0" prefWidth="156.0" styleClass="mainBackground" stylesheets="@../css/Style.css" text="Label" textFill="WHITE" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

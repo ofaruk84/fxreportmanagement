@@ -86,9 +86,13 @@ public class Report2CustomerPgFxmlController implements Initializable {
     @FXML
     private void handleBtnCustomer(ActionEvent event) {
   
-        System.out.println(getCustomer());
+//        System.out.println(getCustomer());
+//        
+//        ExcelExporter.exportCustomer(getCustomer());
+
+        ExcelExporter.setCustomerTab(getCustomer());
+//        ExcelExporter.exportCustomer();
         
-        ExcelExporter.exportCustomer(getCustomer());
     }
 
     @FXML

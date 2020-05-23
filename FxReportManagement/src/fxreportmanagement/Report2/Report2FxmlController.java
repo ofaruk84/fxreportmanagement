@@ -6,6 +6,7 @@
 package fxreportmanagement.Report2;
 
 import fxreportmanagement.DatabaseOperations.DatabaseEntitates.Equipment;
+import fxreportmanagement.Report2.Entitates.CustomerTab;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -37,8 +38,12 @@ public class Report2FxmlController implements Initializable {
     private String equipmentName;
 
     private Equipment equipment;
+    
+    private CustomerTab customerTab;
 
     private static Report2FxmlController instance;
+    @FXML
+    private Button btnTestArrangements;
 
     public Report2FxmlController() {
 
@@ -57,7 +62,7 @@ public class Report2FxmlController implements Initializable {
     @FXML
     private void handleBtnCustomerAction(ActionEvent event) {
 
-        Pane view = fpl.getPage("Report2CustomerPgFxml");
+        Pane view = fpl.getPage("Report2/Report2CustomerPgFxml");
 
         bpMain.setCenter(view);
 
@@ -66,7 +71,7 @@ public class Report2FxmlController implements Initializable {
     @FXML
     private void handleBtnEquipmentAction(ActionEvent event) {
 
-        Pane view = fpl.getPage("Report2EquipmentPgFxml");
+        Pane view = fpl.getPage("Report2/Report2EquipmentPgFxml");
         Report2EquipmentPgFxmlController.getInstance().setEquipmentType(equipmentName);
         System.out.println(equipment.getDistanceOfLight());
         Report2EquipmentPgFxmlController.getInstance().setEquipment(equipment);
@@ -77,7 +82,7 @@ public class Report2FxmlController implements Initializable {
     @FXML
     private void handleBtnInspectionResultsAction(ActionEvent event) {
 
-        Pane view = fpl.getPage("Report2InspectionResultsPgFxml");
+        Pane view = fpl.getPage("Report2/Report2InspectionResultsPgFxml");
 
         bpMain.setCenter(view);
 
@@ -90,9 +95,12 @@ public class Report2FxmlController implements Initializable {
     }
 
     public void loadEquipment(Equipment eq) {
-        System.out.println(eq.getDistanceOfLight());
+        
         equipment = eq;
-        System.out.println(equipment.getDistanceOfLight());
+        System.out.println("R2 controller load Equipment");
     }
-
+    
+    public void setCustomerTab(CustomerTab customerTab){
+        
+    }
 }

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.8" prefWidth="749.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxreportmanagement.Report1.REquipmentController">
+   <children>
+      <TabPane tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <tabs>
+            <Tab text="Page 1">
+               <content>
+                  <AnchorPane id="AnchorPane" prefHeight="564.8" prefWidth="749.0" styleClass="mainBackground" stylesheets="@../css/Style.css">
+                     <children>
+                        <Label layoutX="8.0" layoutY="32.0" prefHeight="32.0" prefWidth="109.0" text="Equipment" textFill="#fff9f9">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="375.0" layoutY="33.0" prefHeight="32.0" prefWidth="109.0" text="Used Device" textFill="#fff9f9">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="txtUsedDevice" layoutX="491.0" layoutY="36.0" prefHeight="25.0" prefWidth="229.0" stylesheets="@../css/Style.css">
+                           <styleClass>
+                              <String fx:value="textfield" />
+                              <String fx:value="sideButtons" />
+                           </styleClass>
+                        </JFXTextField>
+                        <JFXRadioButton fx:id="rbRi192" layoutX="150.0" layoutY="101.0" text="IR-192" textFill="#fffafa" />
+                        <JFXRadioButton fx:id="rbXRay" layoutX="287.0" layoutY="101.0" text="X-Ray" textFill="#fffafa" />
+                        <JFXRadioButton fx:id="rbSe75" layoutX="219.0" layoutY="101.0" text="Se-75" textFill="#fffafa" />
+                        <Label layoutX="8.0" layoutY="93.0" prefHeight="32.0" prefWidth="142.0" text="Devices Energy(CI)" textFill="#fff9f9">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="375.0" layoutY="93.0" prefHeight="32.0" prefWidth="109.0" text="Pb Scenes" textFill="#fff9f9">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="8.0" layoutY="156.0" prefHeight="32.0" prefWidth="109.0" text="Exposure Time" textFill="#fff9f9">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="txtExposureTime" layoutX="123.0" layoutY="159.0" prefHeight="25.0" prefWidth="229.0" stylesheets="@../css/Style.css">
+                           <styleClass>
+                              <String fx:value="textfield" />
+                              <String fx:value="sideButtons" />
+                           </styleClass>
+                        </JFXTextField>
+                        <Label layoutX="375.0" layoutY="156.0" prefHeight="32.0" prefWidth="109.0" text="Film Foxus Distance" textFill="#fff9f9" />
+                        <JFXTextField fx:id="txtFilmFocusDistance" layoutX="491.0" layoutY="160.0" prefHeight="25.0" prefWidth="229.0" stylesheets="@../css/Style.css">
+                           <styleClass>
+                              <String fx:value="textfield" />
+                              <String fx:value="sideButtons" />
+                           </styleClass>
+                        </JFXTextField>
+                        <Label layoutX="8.0" layoutY="209.0" prefHeight="32.0" prefWidth="109.0" text="Filters" textFill="#fff9f9">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="txtFilters" layoutX="123.0" layoutY="212.0" prefHeight="25.0" prefWidth="229.0" stylesheets="@../css/Style.css">
+                           <styleClass>
+                              <String fx:value="textfield" />
+                              <String fx:value="sideButtons" />
+                           </styleClass>
+                        </JFXTextField>
+                        <Label layoutX="375.0" layoutY="209.0" prefHeight="32.0" prefWidth="109.0" text="Heat Treatment" textFill="#fff9f9">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="txtHeatTreatment" layoutX="491.0" layoutY="213.0" prefHeight="25.0" prefWidth="229.0" stylesheets="@../css/Style.css">
+                           <styleClass>
+                              <String fx:value="textfield" />
+                              <String fx:value="sideButtons" />
+                           </styleClass>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtPbScenes" layoutX="491.0" layoutY="97.0" prefHeight="25.0" prefWidth="229.0" stylesheets="@../css/Style.css">
+                           <styleClass>
+                              <String fx:value="textfield" />
+                              <String fx:value="sideButtons" />
+                           </styleClass>
+                        </JFXTextField>
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="277.0" prefHeight="28.0" prefWidth="710.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Geometric un-sharpness :     Ug = 𝑏𝑥𝑑      18mm" textFill="WHITE" />
+                        <Label layoutX="12.0" layoutY="343.0" prefHeight="32.0" prefWidth="109.0" text="Film Brand" textFill="#fff9f9">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="txtFilmBrand" layoutX="121.0" layoutY="347.0" prefHeight="25.0" prefWidth="234.0" stylesheets="@../css/Style.css">
+                           <styleClass>
+                              <String fx:value="textfield" />
+                              <String fx:value="sideButtons" />
+                           </styleClass>
+                        </JFXTextField>
+                        <JFXRadioButton fx:id="rbD4" layoutX="369.0" layoutY="351.0" text="D4(MX-125)" textFill="#fffafa" />
+                        <JFXRadioButton fx:id="rbD7" layoutX="624.0" layoutY="351.0" text="D7(AA 400)" textFill="#fffafa" />
+                        <JFXRadioButton fx:id="rbD5" layoutX="498.0" layoutY="351.0" text="D5(T2000)" textFill="#fffafa" />
+                        <Label layoutX="12.0" layoutY="403.0" prefHeight="32.0" prefWidth="153.0" text="IQI Tech" textFill="#fff9f9">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <JFXRadioButton fx:id="rbEn" layoutX="123.0" layoutY="411.0" prefHeight="17.0" prefWidth="116.0" text="EN" textFill="#fffafa" />
+                        <JFXRadioButton fx:id="rbAstm" layoutX="248.0" layoutY="411.0" prefHeight="17.0" prefWidth="136.0" text="ASTM" textFill="#fffafa" />
+                        <JFXRadioButton fx:id="rbFilmSide" layoutX="498.0" layoutY="411.0" prefHeight="17.0" prefWidth="110.0" text="Film Side" textFill="#fffafa" />
+                        <JFXRadioButton fx:id="rbSourceSide" layoutX="369.0" layoutY="411.0" text="Source Side" textFill="#fffafa" />
+                        <Label layoutX="8.0" layoutY="477.0" prefHeight="32.0" prefWidth="195.0" text="Film Processing Tech" textFill="#fff9f9">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <JFXRadioButton fx:id="rbAutomatic" layoutX="241.0" layoutY="485.0" text="Automatic" textFill="#fffafa" />
+                        <JFXRadioButton fx:id="rbManual" layoutX="369.0" layoutY="485.0" text="Manuel" textFill="#fffafa" />
+                        <Label layoutX="491.0" layoutY="481.0" prefHeight="25.0" prefWidth="115.0" text="Temperature" textFill="#fff9f9">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblTemperature" alignment="CENTER" layoutX="597.0" layoutY="481.0" prefHeight="25.0" prefWidth="115.0" styleClass="sideButtons" stylesheets="@../css/Style.css" textFill="#fff9f9">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblEquipment" alignment="CENTER" layoutX="124.0" layoutY="37.0" prefHeight="25.0" prefWidth="229.0" styleClass="sideButtons" stylesheets="@../css/Style.css" textFill="#fff9f9">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="17.0" layoutY="259.0" prefHeight="3.0" prefWidth="701.0" />
+                        <Separator layoutX="17.0" layoutY="324.0" prefHeight="3.0" prefWidth="702.0" />
+                        <Separator layoutX="17.0" layoutY="393.0" prefHeight="3.0" prefWidth="702.0" />
+                        <Separator layoutX="17.0" layoutY="447.0" prefHeight="3.0" prefWidth="702.0" />
+                        <Separator layoutX="17.0" layoutY="521.0" prefHeight="3.0" prefWidth="702.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Page 2">
+               <content>
+                  <AnchorPane id="AnchorPane" prefHeight="498.0" prefWidth="749.0" styleClass="mainBackground" stylesheets="@../css/Style.css">
+                     <children>
+                        <HBox layoutX="5.0" layoutY="382.0" prefHeight="84.0" prefWidth="737.0" spacing="1.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="7.0">
+                           <children>
+                              <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefHeight="123.0" prefWidth="129.0" styleClass="sideBackground" stylesheets="@../css/Style.css" text="Accepted    OK" textFill="WHITE" />
+                              <Label alignment="CENTER" layoutX="120.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefHeight="123.0" prefWidth="145.0" styleClass="sideBackground" stylesheets="@../css/Style.css" text="Repair   R" textFill="WHITE" />
+                              <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefHeight="123.0" prefWidth="144.0" styleClass="sideBackground" stylesheets="@../css/Style.css" text="Cut-Out  C/O" textFill="WHITE" />
+                              <Label alignment="CENTER" layoutX="120.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefHeight="123.0" prefWidth="205.0" styleClass="sideBackground" stylesheets="@../css/Style.css" text="Re-Shoot  RS" textFill="WHITE" />
+                              <Label alignment="CENTER" layoutX="230.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefHeight="123.0" prefWidth="168.0" styleClass="sideBackground" stylesheets="@../css/Style.css" text="Extra Film   EF" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <Label alignment="CENTER" layoutX="163.0" layoutY="23.0" prefHeight="32.0" prefWidth="403.0" text="Shooting Informations" textFill="#fff9f9">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="14.0" layoutY="68.0" prefHeight="4.0" prefWidth="719.0" />
+                        <HBox layoutX="14.0" layoutY="155.0">
+                           <children>
+                              <Label prefHeight="47.0" prefWidth="96.0" text="Film Size" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                              <HBox prefHeight="46.0" prefWidth="625.0" spacing="2.0">
+                                 <children>
+                                    <Label alignment="CENTER" maxHeight="1.7976931348623157E308" prefHeight="23.0" prefWidth="91.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="10x12" textFill="WHITE" HBox.hgrow="ALWAYS" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefHeight="23.0" prefWidth="87.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="10x16" textFill="WHITE" HBox.hgrow="ALWAYS" />
+                                    <Label alignment="CENTER" layoutX="97.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefHeight="23.0" prefWidth="87.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="10x24" textFill="WHITE" HBox.hgrow="ALWAYS" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefHeight="23.0" prefWidth="87.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="10x36" textFill="WHITE" HBox.hgrow="ALWAYS" />
+                                    <Label alignment="CENTER" layoutX="97.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefHeight="23.0" prefWidth="87.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="10x48" textFill="WHITE" HBox.hgrow="ALWAYS" />
+                                    <Label alignment="CENTER" layoutX="184.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefHeight="23.0" prefWidth="87.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="30x40" textFill="WHITE" HBox.hgrow="ALWAYS" />
+                                    <Label alignment="CENTER" layoutX="362.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefHeight="23.0" prefWidth="87.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Suitible Film" textFill="WHITE" HBox.hgrow="ALWAYS" />
+                                    <Label alignment="CENTER" layoutX="449.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefHeight="23.0" prefWidth="87.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Repair Film" textFill="WHITE" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="13.0" layoutY="219.0">
+                           <children>
+                              <Label prefHeight="47.0" prefWidth="96.0" text="Film Quant" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                              <HBox prefHeight="46.0" prefWidth="625.0" spacing="2.0">
+                                 <children>
+                                    <JFXTextField fx:id="txtX12" alignment="CENTER" prefHeight="46.0" prefWidth="78.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="textfield" />
+                                          <String fx:value="sideButtons" />
+                                       </styleClass>
+                                    </JFXTextField>
+                                    <JFXTextField fx:id="txtX16" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="46.0" prefWidth="78.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="textfield" />
+                                          <String fx:value="sideButtons" />
+                                       </styleClass>
+                                    </JFXTextField>
+                                    <JFXTextField fx:id="txtX24" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="46.0" prefWidth="78.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="textfield" />
+                                          <String fx:value="sideButtons" />
+                                       </styleClass>
+                                    </JFXTextField>
+                                    <JFXTextField fx:id="txtX24" alignment="CENTER" layoutX="90.0" layoutY="10.0" prefHeight="46.0" prefWidth="78.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="textfield" />
+                                          <String fx:value="sideButtons" />
+                                       </styleClass>
+                                    </JFXTextField>
+                                    <JFXTextField fx:id="txtX48" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="46.0" prefWidth="78.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="textfield" />
+                                          <String fx:value="sideButtons" />
+                                       </styleClass>
+                                    </JFXTextField>
+                                    <JFXTextField fx:id="txtX40" alignment="CENTER" layoutX="90.0" layoutY="10.0" prefHeight="46.0" prefWidth="78.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="textfield" />
+                                          <String fx:value="sideButtons" />
+                                       </styleClass>
+                                    </JFXTextField>
+                                    <JFXTextField fx:id="txtSuitibleFilm" alignment="CENTER" layoutX="170.0" layoutY="10.0" prefHeight="46.0" prefWidth="78.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="textfield" />
+                                          <String fx:value="sideButtons" />
+                                       </styleClass>
+                                    </JFXTextField>
+                                    <JFXTextField fx:id="txtRepairFilm" alignment="CENTER" layoutX="250.0" layoutY="10.0" prefHeight="46.0" prefWidth="78.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="textfield" />
+                                          <String fx:value="sideButtons" />
+                                       </styleClass>
+                                    </JFXTextField>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        <Label alignment="CENTER" layoutX="162.0" layoutY="310.0" prefHeight="32.0" prefWidth="403.0" text="Evaluation Symbols" textFill="#fff9f9">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="13.0" layoutY="355.0" prefHeight="4.0" prefWidth="719.0" />
+                        <JFXButton fx:id="btnSubmit" alignment="CENTER" layoutX="525.0" layoutY="491.0" onAction="#handleBtnSubmitAction" prefHeight="25.0" prefWidth="210.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Submit" textFill="#f8f7f7" AnchorPane.bottomAnchor="20.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

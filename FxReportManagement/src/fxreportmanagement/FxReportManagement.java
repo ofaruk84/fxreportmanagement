@@ -20,7 +20,7 @@ public class FxReportManagement extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxreportmanagement/Login/LoginFxml.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxreportmanagement/HomePage/HomePageFxml.fxml"));
         
         Scene scene = new Scene(root);
         

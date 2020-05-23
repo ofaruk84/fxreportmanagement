@@ -5,10 +5,12 @@
  */
 package fxreportmanagement.Report2;
 
-
+import com.jfoenix.controls.JFXButton;
+import fxreportmanagement.HelperClasses.ExcelExporter;
 import fxreportmanagement.Report2.Entitates.InspectionResults;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Vector;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,7 +24,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-
 /**
  * FXML Controller class
  *
@@ -33,23 +34,23 @@ public class Report2InspectionResultsPgFxmlController implements Initializable {
     @FXML
     private TableView<InspectionResults> tbvInspectionResults;
     @FXML
-    private TableColumn<InspectionResults,String> tcId;
+    private TableColumn<InspectionResults, String> tcId;
     @FXML
-    private TableColumn<InspectionResults,String> tcWeldNo;
+    private TableColumn<InspectionResults, String> tcWeldNo;
     @FXML
-    private TableColumn<InspectionResults,String> tcTestLength;
+    private TableColumn<InspectionResults, String> tcTestLength;
     @FXML
-    private TableColumn<InspectionResults,String> tcWeldingProcess;
+    private TableColumn<InspectionResults, String> tcWeldingProcess;
     @FXML
-    private TableColumn<InspectionResults,String> tcThikness;
+    private TableColumn<InspectionResults, String> tcThikness;
     @FXML
-    private TableColumn<InspectionResults,String> tcDiameter;
+    private TableColumn<InspectionResults, String> tcDiameter;
     @FXML
-    private TableColumn<InspectionResults,String> tcDefectType;
+    private TableColumn<InspectionResults, String> tcDefectType;
     @FXML
-    private TableColumn<InspectionResults,String> tcDefectLoc;
+    private TableColumn<InspectionResults, String> tcDefectLoc;
     @FXML
-    private TableColumn<InspectionResults,String> tcResult;
+    private TableColumn<InspectionResults, String> tcResult;
     @FXML
     private TextField txtWeldNo;
     @FXML
@@ -84,33 +85,62 @@ public class Report2InspectionResultsPgFxmlController implements Initializable {
     private Label lblResult;
     @FXML
     private Button btnSubmit;
-    
+
     private static ObservableList<InspectionResults> data;
-
-
+    @FXML
+    private JFXButton btnSave;
     
-    
+    private static Vector<InspectionResults> inspectionResultses = new Vector<InspectionResults>();
 
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
+
         data = FXCollections.observableArrayList();
-        ObservableList<String> cmbRes = FXCollections.observableArrayList("OK","RED");
+        ObservableList<String> cmbRes = FXCollections.observableArrayList("OK", "RED");
         cmbResult.setItems(cmbRes);
 
-        
-        
     }
-    
-    
-    private void populateTable(){
-     
-    
+
+    private void populateTable() {
+
+
+
+        InspectionResults ir = getInspectionResults();
+
+        data.add(ir);
+
+        tcId.setCellValueFactory(new PropertyValueFactory<InspectionResults, String>("id"));
+        tcWeldNo.setCellValueFactory(new PropertyValueFactory<InspectionResults, String>("weldNo"));
+        tcTestLength.setCellValueFactory(new PropertyValueFactory<InspectionResults, String>("testLength"));
+        tcWeldingProcess.setCellValueFactory(new PropertyValueFactory<InspectionResults, String>("weldingProcess"));
+        tcThikness.setCellValueFactory(new PropertyValueFactory<InspectionResults, String>("thickness"));
+        tcDiameter.setCellValueFactory(new PropertyValueFactory<InspectionResults, String>("diameter"));
+        tcDefectType.setCellValueFactory(new PropertyValueFactory<InspectionResults, String>("defectType"));
+        tcDefectLoc.setCellValueFactory(new PropertyValueFactory<InspectionResults, String>("defectLoc"));
+        tcResult.setCellValueFactory(new PropertyValueFactory<InspectionResults, String>("result"));
+
+        //assign
+        tbvInspectionResults.setItems(data);
+
+    }
+
+    @FXML
+    private void handleBtnSubmit(ActionEvent event) {
+
+        
+
+        inspectionResultses.add(getInspectionResults());
+        populateTable();
+
+    }
+
+    private InspectionResults getInspectionResults() {
 
         String weldNo = txtWeldNo.getText();
         String testLength = txtTestLength.getText();
@@ -118,185 +148,25 @@ public class Report2InspectionResultsPgFxmlController implements Initializable {
         String thickness = txtDiameter.getText();
         String diameter = txtDiameter.getText();
         String defectType = txtDefectType.getText();
-        String defectLoc = txtDefectLoc.getText(); 
-        String result = (String)(cmbResult.getValue());
-     
-     
-        InspectionResults ir = new InspectionResults(weldNo, testLength, weldingProcess, thickness, diameter, defectType, defectLoc, result);
-     
-        data.add(ir);
-         
-    
-        tcId.setCellValueFactory(new PropertyValueFactory<InspectionResults,String>("id"));
-        tcWeldNo.setCellValueFactory(new PropertyValueFactory<InspectionResults,String>("weldNo"));        
-        tcTestLength.setCellValueFactory(new PropertyValueFactory<InspectionResults,String>("testLength"));
-        tcWeldingProcess.setCellValueFactory(new PropertyValueFactory<InspectionResults,String>("weldingProcess"));
-        tcThikness.setCellValueFactory(new PropertyValueFactory<InspectionResults,String>("thickness"));
-        tcDiameter.setCellValueFactory(new PropertyValueFactory<InspectionResults,String>("diameter"));
-        tcDefectType.setCellValueFactory(new PropertyValueFactory<InspectionResults,String>("defectType"));
-        tcDefectLoc.setCellValueFactory(new PropertyValueFactory<InspectionResults,String>("defectLoc"));
-        tcResult.setCellValueFactory(new PropertyValueFactory<InspectionResults,String>("result"));
-        
-        
-        
-        //assign
-        tbvInspectionResults.setItems(data);
-        
-     
- }
-    
+        String defectLoc = txtDefectLoc.getText();
+        String result = (String) (cmbResult.getValue());
+
+        return new InspectionResults(weldNo, testLength, weldingProcess, thickness, diameter, defectType, defectLoc, result);
+
+    }
+
     @FXML
-    private void handleBtnSubmit(ActionEvent event) {
-          
-        System.out.println("butona giridi");
-        populateTable();
-
-      
-
-    }
-     
-    
-    
-    
-    //Getter-Setters---------------------------------//
-    /**
-     * @return the txtWeldNo
-     */
-    public TextField getTxtWeldNo() {
-        return txtWeldNo;
-    }
-    /**
-     * @return the txtTestLength
-     */
-    public TextField getTxtTestLength() {
-        return txtTestLength;
+    private void handleBtnSave(ActionEvent event) {
+        
+        System.out.println(inspectionResultses.get(0).getDefectLoc());
+        ExcelExporter.setInspectionResults(inspectionResultses);
+        
+        ExcelExporter.exportGUI();
+        
+        
     }
 
-    /**
-     * @return the txtWeldingProcess
-     */
-    public TextField getTxtWeldingProcess() {
-        return txtWeldingProcess;
-    }
-
-    /**
-     * @return the txtThickness
-     */
-    public TextField getTxtThickness() {
-        return txtThickness;
-    }
-
-    /**
-     * @return the txtDiameter
-     */
-    public TextField getTxtDiameter() {
-        return txtDiameter;
-    }
-
-    /**
-     * @return the txtDefectType
-     */
-    public TextField getTxtDefectType() {
-        return txtDefectType;
-    }
-
-    /**
-     * @return the txtDefectLoc
-     */
-    public TextField getTxtDefectLoc() {
-        return txtDefectLoc;
-    }
-
-    /**
-     * @return the cmbResult
-     */
-    public ComboBox<String> getCmbResult() {
-        return cmbResult;
-    }
-
-    /**
-     * @return the tcWeldNo
-     */
-    public TableColumn getTcWeldNo() {
-        return tcWeldNo;
-    }
-
-    /**
-     * @return the tbvInspectionResults
-     */
-    public TableView getTbvInspectionResults() {
-        return tbvInspectionResults;
-    }
-
-    /**
-     * @return the tcId
-     */
-    public TableColumn getTcId() {
-        return tcId;
-    }
-
-    /**
-     * @return the tcTestLength
-     */
-    public TableColumn getTcTestLength() {
-        return tcTestLength;
-    }
-
-    /**
-     * @return the tcWeldingProcess
-     */
-    public TableColumn getTcWeldingProcess() {
-        return tcWeldingProcess;
-    }
-
-    /**
-     * @return the tcThikness
-     */
-    public TableColumn getTcThikness() {
-        return tcThikness;
-    }
-
-    /**
-     * @return the tcDiameter
-     */
-    public TableColumn getTcDiameter() {
-        return tcDiameter;
-    }
-
-    /**
-     * @return the tcDefectType
-     */
-    public TableColumn getTcDefectType() {
-        return tcDefectType;
-    }
-
-    /**
-     * @return the tcDefectLoc
-     */
-    public TableColumn getTcDefectLoc() {
-        return tcDefectLoc;
-    }
-
-    /**
-     * @return the tcResult
-     */
-    public TableColumn getTcResult() {
-        return tcResult;
-    }
-    //--------------------------------------------//
-    
-
-
-
-    
-
-    
-
- 
- 
- 
- 
-    public void populateTableDeneme(InspectionResults ir){
+    public void populateTableDeneme(InspectionResults ir) {
 //        
 //         data.add(ir);
 //         
@@ -317,12 +187,6 @@ public class Report2InspectionResultsPgFxmlController implements Initializable {
 //        tbvInspectionResults.setItems(data);
 //        
 //        
-   }//Old
+    }//Old
 
- 
-        
-        
-        
 }
-    
-
