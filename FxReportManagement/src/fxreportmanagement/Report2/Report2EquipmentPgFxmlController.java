@@ -101,6 +101,7 @@ public class Report2EquipmentPgFxmlController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         setInitialValues();
+        fill();
 
     }
 
@@ -134,6 +135,7 @@ public class Report2EquipmentPgFxmlController implements Initializable {
         txtIdenOfLightEquip.setText("***");
         lblInspectionDates.setText("value");
         lblSurfaceTemperature.setText("value");
+        
         
     }
     
@@ -179,7 +181,17 @@ public class Report2EquipmentPgFxmlController implements Initializable {
     private void handleBtnEquipmentSubmit(ActionEvent event) {
  
         ExcelExporter.setEquitmentTab(getEquipment());
-        
+   
+       
+    }
+    
+    private void fill(){
+        txtTestMedium.setText("Value");
+        txtDemagnetization.setText("Value");
+        txtHeatTreatment.setText("Value");
+        txtLiftingTestDateNo.setText("Value");
+        txtStandartDerivations.setText("Value");
+        txtDescription.setText("Value");
     }
     
     

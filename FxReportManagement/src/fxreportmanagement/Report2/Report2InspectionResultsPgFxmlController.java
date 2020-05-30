@@ -85,6 +85,7 @@ public class Report2InspectionResultsPgFxmlController implements Initializable {
     private Label lblResult;
     @FXML
     private Button btnSubmit;
+     int i = 25;
 
     private static ObservableList<InspectionResults> data;
     @FXML
@@ -104,6 +105,7 @@ public class Report2InspectionResultsPgFxmlController implements Initializable {
         data = FXCollections.observableArrayList();
         ObservableList<String> cmbRes = FXCollections.observableArrayList("OK", "RED");
         cmbResult.setItems(cmbRes);
+        fill();
 
     }
 
@@ -137,6 +139,7 @@ public class Report2InspectionResultsPgFxmlController implements Initializable {
 
         inspectionResultses.add(getInspectionResults());
         populateTable();
+        
 
     }
 
@@ -163,6 +166,20 @@ public class Report2InspectionResultsPgFxmlController implements Initializable {
         
         ExcelExporter.exportGUI();
         
+        
+    }
+    
+    
+    private void fill(){
+       
+        txtDefectLoc.setText("Value");
+        txtDefectType.setText("Value");
+        txtDiameter.setText("Value");
+        txtDiameter.setText("Value");
+        txtTestLength.setText("Value");
+        txtWeldNo.setText("Value");
+        txtThickness.setText(Integer.toString(i++));
+        txtWeldingProcess.setText("Value");
         
     }
 

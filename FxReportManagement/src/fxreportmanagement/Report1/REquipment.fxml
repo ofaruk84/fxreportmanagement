@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.8" prefWidth="749.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxreportmanagement.Report1.REquipmentController">
    <children>
       <TabPane tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -218,7 +217,7 @@
                                           <String fx:value="sideButtons" />
                                        </styleClass>
                                     </JFXTextField>
-                                    <JFXTextField fx:id="txtX24" alignment="CENTER" layoutX="90.0" layoutY="10.0" prefHeight="46.0" prefWidth="78.0" stylesheets="@../css/Style.css">
+                                    <JFXTextField fx:id="txtX36" alignment="CENTER" layoutX="90.0" layoutY="10.0" prefHeight="46.0" prefWidth="78.0" stylesheets="@../css/Style.css">
                                        <styleClass>
                                           <String fx:value="textfield" />
                                           <String fx:value="sideButtons" />

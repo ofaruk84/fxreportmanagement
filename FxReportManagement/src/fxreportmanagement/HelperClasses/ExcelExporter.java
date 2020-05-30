@@ -59,7 +59,7 @@ public class ExcelExporter {
     private static String evaluated;
     private static String confirmation;
     private static String date;
-
+    private static int rowNo = 0;
     private static int index = 1;
 
     public static void setCustomerTab(CustomerTab customerTab) {
@@ -122,6 +122,7 @@ public class ExcelExporter {
         sheet.addMergedRegion(new CellRangeAddress(0, 0, 3, 13));
         cell[3].setCellStyle(setHeaderFont());
         //Row 2
+        rowNo++;
         row = sheet.createRow(1);
         for (int i = 0; i < 14; i++) {
             cell[i] = row.createCell(i);
@@ -133,145 +134,61 @@ public class ExcelExporter {
         cell[3].setCellStyle(setHeaderFont());
 
         //Row 3
-        row = sheet.createRow(2);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-        }
-
-        cell[0].setCellValue("Customer");
-        cell[0].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(2, 2, 0, 1));//MERGE
-
-        cell[2].setCellValue(customer.getCustomer());
-        sheet.addMergedRegion(new CellRangeAddress(2, 2, 2, 5));//MERGE
-
-        cell[6].setCellValue("Inspection Procedure");
-        cell[6].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(2, 2, 6, 7));//MERGE
-
-        cell[8].setCellValue(customer.getInspectionProcedure());
-        sheet.addMergedRegion(new CellRangeAddress(2, 2, 8, 9));//MERGE
-
-        cell[10].setCellValue("Page");
-        cell[10].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(2, 2, 10, 11));//MERGE
-
-        cell[12].setCellValue(customer.getPage());
-        sheet.addMergedRegion(new CellRangeAddress(2, 2, 12, 13));//MERGE
+        rowNo++;
+        createCustomerRow(rowNo, "Customer", customer.getCustomer(), "Inspection Procedure", customer.getInspectionPlace(), "Page", customer.getPage());
 
         //Row 4
-        row = sheet.createRow(3);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-        }
-        cell[0].setCellValue("ProjectName");
-        cell[0].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(3, 3, 0, 1));//MERGE
-
-        cell[2].setCellValue(customer.getProjectNanme());
-        sheet.addMergedRegion(new CellRangeAddress(3, 3, 2, 5));//MERGE
-
-        cell[6].setCellValue("Inspection Scope");
-        cell[6].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(3, 3, 6, 7));//MERGE
-
-        cell[8].setCellValue(customer.getInspectionScope());
-        sheet.addMergedRegion(new CellRangeAddress(3, 3, 8, 9));//MERGE
-
-        cell[10].setCellValue("Report No");
-        cell[10].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(3, 3, 10, 11));//MERGE
-
-        cell[12].setCellValue(customer.getReportNo());
-        sheet.addMergedRegion(new CellRangeAddress(3, 3, 12, 13));//MERGE
+        rowNo++;
+        createCustomerRow(rowNo, "Project Name", customer.getProjectNanme(), "Inspection Scope", customer.getInspectionScope(), "Report No", customer.getReportNo());
 
         //Row 5
-        row = sheet.createRow(4);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-        }
-        cell[0].setCellValue("Inspection Place");
-        cell[0].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(4, 4, 0, 1));//MERGE
+        rowNo++;
+        createCustomerRow(rowNo, "Inspection Place", customer.getInspectionPlace(), "Drawing No", customer.getDrawingNo(), "Report Date", customer.getReportDate());
 
-        cell[2].setCellValue(customer.getInspectionPlace());
-        sheet.addMergedRegion(new CellRangeAddress(4, 4, 2, 5));//MERGE
-
-        cell[6].setCellValue("Drawing No");
-        cell[6].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(4, 4, 6, 7));//MERGE
-
-        cell[8].setCellValue(customer.getDrawingNo());
-        sheet.addMergedRegion(new CellRangeAddress(4, 4, 8, 9));//MERGE
-
-        cell[10].setCellValue("Report Date");
-        cell[10].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(4, 4, 10, 11));//MERGE
-
-        cell[12].setCellValue(customer.getReportDate());
-        sheet.addMergedRegion(new CellRangeAddress(4, 4, 12, 13));//MERGE
         //Row 6
-        row = sheet.createRow(5);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-        }
-        cell[0].setCellValue("Inspection Standart");
-        cell[0].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(5, 5, 0, 1));//MERGE
+        rowNo++;
+        createCustomerRow(rowNo, "Inspection Standart", customer.getInspectionStandart(), "Surface Condition", customer.getSurfaceCondition(), "Job Order No", customer.getJobOrderNo());
 
-        cell[2].setCellValue(customer.getInspectionStandart());
-        sheet.addMergedRegion(new CellRangeAddress(5, 5, 2, 5));//MERGE
-
-        cell[6].setCellValue("Surface Condition");
-        cell[6].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(5, 5, 6, 7));//MERGE
-
-        cell[8].setCellValue(customer.getSurfaceCondition());
-        sheet.addMergedRegion(new CellRangeAddress(5, 5, 8, 9));//MERGE
-
-        cell[10].setCellValue("Job Order No");
-        cell[10].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(5, 5, 10, 11));//MERGE
-
-        cell[12].setCellValue(customer.getJobOrderNo());
-        sheet.addMergedRegion(new CellRangeAddress(5, 5, 12, 13));//MERGE
         //Row 7
-        row = sheet.createRow(6);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-        }
+        rowNo++;
+        createCustomerRow(rowNo, "Evaluation Standart", customer.getEvaluationStandart(), "Stage Of Examination", customer.getStageOfExamination(), "Offer No", customer.getOfferNo());
 
-        cell[0].setCellValue("Evaluation Standart");
-        cell[0].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(6, 6, 0, 1));//MERGE
-
-        cell[2].setCellValue(customer.getEvaluationStandart());
-        sheet.addMergedRegion(new CellRangeAddress(6, 6, 2, 5));//MERGE
-
-        cell[6].setCellValue("Stage Of Examination");
-        cell[6].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(6, 6, 6, 7));//MERGE
-
-        cell[8].setCellValue(customer.getStageOfExamination());
-        sheet.addMergedRegion(new CellRangeAddress(6, 6, 8, 9));//MERGE
-
-        cell[10].setCellValue("Offer No");
-        cell[10].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(6, 6, 10, 11));//MERGE
-
-        cell[12].setCellValue(customer.getOfferNo());
-        sheet.addMergedRegion(new CellRangeAddress(6, 6, 12, 13));//MERGE
-
-        //Auto Size Collum
+//       // Auto Size Collum
 //        for (int colNum = 0; colNum < 14; colNum++) {
 //            workbook.getSheetAt(0).autoSizeColumn(colNum);
 //        }
 //        createXlsxFile("Customer");
+    }
+
+    private static void createEquipmentRow(int rowNo, String cell0, String cell2, String cell5, String cell7, String cell10, String cell12) {
+
+        row = sheet.createRow(rowNo);
+        for (int i = 0; i < 14; i++) {
+            cell[i] = row.createCell(i);
+            cell[i].setCellStyle(setBorder());
+        }
+
+        cell[0].setCellValue(cell0);
+        cell[0].setCellStyle(setHeaderFont());//SET STYLE
+        sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 1));//MERGE
+
+        cell[2].setCellValue(cell2);
+        sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 2, 4));//MERGE
+
+        cell[5].setCellValue(cell5);
+        cell[5].setCellStyle(setHeaderFont());//SET STYLE
+        sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//MERGE
+
+        cell[7].setCellValue(cell7);
+        sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 7, 9));//MERGE
+
+        cell[10].setCellValue(cell10);
+        cell[10].setCellStyle(setHeaderFont());//SET STYLE
+        sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 11));//MERGE
+
+        cell[12].setCellValue(cell12);
+        sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 12, 13));//MERGE
+
     }
 
     public static void exportEquipment() {
@@ -287,32 +204,7 @@ public class ExcelExporter {
         sheet.addMergedRegion(new CellRangeAddress(7, 7, 0, 13));
 
         //Row 9
-        row = sheet.createRow(8);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-        }
-
-        cell[0].setCellValue("Pole Distance");
-        cell[0].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(8, 8, 0, 1));//MERGE
-
-        cell[2].setCellValue(equipment.getPoleDistance());
-        sheet.addMergedRegion(new CellRangeAddress(8, 8, 2, 4));//MERGE
-
-        cell[5].setCellValue("Stage Of Examination");
-        cell[5].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(8, 8, 5, 6));//MERGE
-
-        cell[7].setCellValue(equipment.getExaminationArea());
-        sheet.addMergedRegion(new CellRangeAddress(8, 8, 7, 9));//MERGE
-
-        cell[10].setCellValue("Surface Temperature");
-        cell[10].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(8, 8, 10, 11));//MERGE
-
-        cell[12].setCellValue(equipment.getSurfaceTemparature());
-        sheet.addMergedRegion(new CellRangeAddress(8, 8, 12, 13));//MERGE
+        createEquipmentRow(8, "Pole Distance", equipment.getPoleDistance(), "Stage Of Examination", equipment.getExaminationArea(), "Surface Temperature", equipment.getSurfaceTemparature());
 
         //Row 10
         row = sheet.createRow(9);
@@ -364,88 +256,13 @@ public class ExcelExporter {
         sheet.addMergedRegion(new CellRangeAddress(10, 10, 7, 9));//MERGE
 
         //Row 12
-        row = sheet.createRow(11);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-        }
-
-        cell[0].setCellValue("Mag Tech");
-        cell[0].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(11, 11, 0, 1));//MERGE
-
-        cell[2].setCellValue(equipment.getMagTech());
-        sheet.addMergedRegion(new CellRangeAddress(11, 11, 2, 4));//MERGE
-
-        cell[5].setCellValue("Test Medium");
-        cell[5].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(11, 11, 5, 6));//MERGE
-
-        cell[7].setCellValue(equipment.getTestMedium());
-        sheet.addMergedRegion(new CellRangeAddress(11, 11, 7, 9));//MERGE
-
-        cell[10].setCellValue("Surface Condition");
-        cell[10].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(11, 11, 10, 11));//MERGE
-
-        cell[12].setCellValue(equipment.getSurfaceCondition());
-        sheet.addMergedRegion(new CellRangeAddress(11, 11, 12, 13));//MERGE
+        createEquipmentRow(11, "Mag Tech", equipment.getMagTech(), "Test Medium", equipment.getTestMedium(), "Surface Condition", equipment.getSurfaceCondition());
 
         //Row 13
-        row = sheet.createRow(12);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-        }
-
-        cell[0].setCellValue("UV Light Intencity");
-        cell[0].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(12, 12, 0, 1));//MERGE
-
-        cell[2].setCellValue(equipment.getUvLightIntesity());
-        sheet.addMergedRegion(new CellRangeAddress(12, 12, 2, 4));//MERGE
-
-        cell[5].setCellValue("Demagnetization");
-        cell[5].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(12, 12, 5, 6));//MERGE
-
-        cell[7].setCellValue(equipment.getDemagnetization());
-        sheet.addMergedRegion(new CellRangeAddress(12, 12, 7, 9));//MERGE
-
-        cell[10].setCellValue("Identification of Light Equipment");
-        cell[10].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(12, 12, 10, 11));//MERGE
-
-        cell[12].setCellValue(equipment.getIdenticationOfLightEquipment());
-        sheet.addMergedRegion(new CellRangeAddress(12, 12, 12, 13));//MERGE
+        createEquipmentRow(12, "UV Light Intensity", equipment.getUvLightIntesity(), "Demagnetization", equipment.getDemagnetization(), "Identication Of Light Equipment", equipment.getIdenticationOfLightEquipment());
 
         //Row 14
-        row = sheet.createRow(13);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-        }
-
-        cell[0].setCellValue("Distance Of Light");
-        cell[0].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(13, 13, 0, 1));//MERGE
-
-        cell[2].setCellValue(equipment.getDistanceOfLight());
-        sheet.addMergedRegion(new CellRangeAddress(13, 13, 2, 4));//MERGE
-
-        cell[5].setCellValue("Heat Treatment");
-        cell[5].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(13, 13, 5, 6));//MERGE
-
-        cell[7].setCellValue(equipment.getHeatTreatment());
-        sheet.addMergedRegion(new CellRangeAddress(13, 13, 7, 9));//MERGE
-
-        cell[10].setCellValue("Lifting Test Date / Number");
-        cell[10].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(13, 13, 10, 11));//MERGE
-
-        cell[12].setCellValue(equipment.getLiftingTestDateNo());
-        sheet.addMergedRegion(new CellRangeAddress(13, 13, 12, 13));//MERGE
+        createEquipmentRow(13, "Distance Of Light", equipment.getDistanceOfLight(), "Heat Treatment", equipment.getHeatTreatment(), "Lifting Test Date/Number", equipment.getLiftingTestDateNo());
 
         //Row 15-19
         row = sheet.createRow(14);
@@ -512,11 +329,6 @@ public class ExcelExporter {
         cell[9].setCellValue("Weld");
         cell[9].setCellStyle(setHeaderFont());
 
-        try {
-            addImage(14, 19, 0, 3);
-        } catch (IOException ex) {
-            Logger.getLogger(ExcelExporter.class.getName()).log(Level.SEVERE, null, ex);
-        }
         sheet.addMergedRegion(new CellRangeAddress(14, 18, 0, 2));//Merge Cell
         sheet.addMergedRegion(new CellRangeAddress(14, 18, 3, 6));//Merge Cell
         sheet.addMergedRegion(new CellRangeAddress(14, 14, 7, 13));//Merge Cell
@@ -579,15 +391,46 @@ public class ExcelExporter {
 //           
 //            
 //      }
-        createXlsxFile("Equipment");
+//        createXlsxFile("Equipment");
+    }
+
+    private static void createCustomerRow(int rowNo, String cell0, String cell2, String cell6, String cell8, String cell10, String cell12) {
+
+        row = sheet.createRow(rowNo);
+        for (int i = 0; i < 14; i++) {
+            cell[i] = row.createCell(i);
+            cell[i].setCellStyle(setBorder());
+        }
+
+        cell[0].setCellValue(cell0);
+        cell[0].setCellStyle(setHeaderFont());//SET STYLE
+        sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 1));//MERGE
+
+        cell[2].setCellValue(cell2);
+        sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 2, 5));//MERGE
+
+        cell[6].setCellValue(cell6);
+        cell[6].setCellStyle(setHeaderFont());//SET STYLE
+        sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 6, 7));//MERGE
+
+        cell[8].setCellValue(cell8);
+        sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 8, 9));//MERGE
+
+        cell[10].setCellValue(cell10);
+        cell[10].setCellStyle(setHeaderFont());//SET STYLE
+        sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 11));//MERGE
+
+        cell[12].setCellValue(cell12);
+        sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 12, 13));//MERGE
+
     }
 
     public static void exportGUI() {
 
         CustomerTab customer = ExcelExporter.customerTab;
-
+        int rowNo = 0;
         //Row  1
-        row = sheet.createRow(0);
+        row = sheet.createRow(rowNo);
         for (int i = 0; i < 14; i++) {
             cell[i] = row.createCell(i);
             cell[i].setCellStyle(setBorder());
@@ -599,151 +442,38 @@ public class ExcelExporter {
 
         sheet.addMergedRegion(new CellRangeAddress(0, 0, 3, 13));
         cell[3].setCellStyle(setHeaderFont());
+
         //Row 2
-        row = sheet.createRow(1);
+        rowNo++;
+        row = sheet.createRow(rowNo);
         for (int i = 0; i < 14; i++) {
             cell[i] = row.createCell(i);
             cell[i].setCellStyle(setBorder());
         }
         cell[3].setCellValue("MAGNETIC PARTICLE INSPECTION REPORT");
 
-        sheet.addMergedRegion(new CellRangeAddress(1, 1, 3, 13));
+        sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 3, 13));
         cell[3].setCellStyle(setHeaderFont());
 
         //Row 3
-        row = sheet.createRow(2);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-        }
-
-        cell[0].setCellValue("Customer");
-        cell[0].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(2, 2, 0, 1));//MERGE
-
-        cell[2].setCellValue(customer.getCustomer());
-        sheet.addMergedRegion(new CellRangeAddress(2, 2, 2, 5));//MERGE
-
-        cell[6].setCellValue("Inspection Procedure");
-        cell[6].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(2, 2, 6, 7));//MERGE
-
-        cell[8].setCellValue(customer.getInspectionProcedure());
-        sheet.addMergedRegion(new CellRangeAddress(2, 2, 8, 9));//MERGE
-
-        cell[10].setCellValue("Page");
-        cell[10].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(2, 2, 10, 11));//MERGE
-
-        cell[12].setCellValue(customer.getPage());
-        sheet.addMergedRegion(new CellRangeAddress(2, 2, 12, 13));//MERGE
+        rowNo++;
+        createCustomerRow(rowNo, "Customer", customer.getCustomer(), "Inspection Procedure", customer.getInspectionPlace(), "Page", customer.getPage());
 
         //Row 4
-        row = sheet.createRow(3);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-        }
-        cell[0].setCellValue("ProjectName");
-        cell[0].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(3, 3, 0, 1));//MERGE
-
-        cell[2].setCellValue(customer.getProjectNanme());
-        sheet.addMergedRegion(new CellRangeAddress(3, 3, 2, 5));//MERGE
-
-        cell[6].setCellValue("Inspection Scope");
-        cell[6].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(3, 3, 6, 7));//MERGE
-
-        cell[8].setCellValue(customer.getInspectionScope());
-        sheet.addMergedRegion(new CellRangeAddress(3, 3, 8, 9));//MERGE
-
-        cell[10].setCellValue("Report No");
-        cell[10].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(3, 3, 10, 11));//MERGE
-
-        cell[12].setCellValue(customer.getReportNo());
-        sheet.addMergedRegion(new CellRangeAddress(3, 3, 12, 13));//MERGE
+        rowNo++;
+        createCustomerRow(rowNo, "Project Name", customer.getProjectNanme(), "Inspection Scope", customer.getInspectionScope(), "Report No", customer.getReportNo());
 
         //Row 5
-        row = sheet.createRow(4);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-        }
-        cell[0].setCellValue("Inspection Place");
-        cell[0].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(4, 4, 0, 1));//MERGE
+        rowNo++;
+        createCustomerRow(rowNo, "Inspection Place", customer.getInspectionPlace(), "Drawing No", customer.getDrawingNo(), "Report Date", customer.getReportDate());
 
-        cell[2].setCellValue(customer.getInspectionPlace());
-        sheet.addMergedRegion(new CellRangeAddress(4, 4, 2, 5));//MERGE
-
-        cell[6].setCellValue("Drawing No");
-        cell[6].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(4, 4, 6, 7));//MERGE
-
-        cell[8].setCellValue(customer.getDrawingNo());
-        sheet.addMergedRegion(new CellRangeAddress(4, 4, 8, 9));//MERGE
-
-        cell[10].setCellValue("Report Date");
-        cell[10].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(4, 4, 10, 11));//MERGE
-
-        cell[12].setCellValue(customer.getReportDate());
-        sheet.addMergedRegion(new CellRangeAddress(4, 4, 12, 13));//MERGE
         //Row 6
-        row = sheet.createRow(5);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-        }
-        cell[0].setCellValue("Inspection Standart");
-        cell[0].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(5, 5, 0, 1));//MERGE
+        rowNo++;
+        createCustomerRow(rowNo, "Inspection Standart", customer.getInspectionStandart(), "Surface Condition", customer.getSurfaceCondition(), "Job Order No", customer.getJobOrderNo());
 
-        cell[2].setCellValue(customer.getInspectionStandart());
-        sheet.addMergedRegion(new CellRangeAddress(5, 5, 2, 5));//MERGE
-
-        cell[6].setCellValue("Surface Condition");
-        cell[6].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(5, 5, 6, 7));//MERGE
-
-        cell[8].setCellValue(customer.getSurfaceCondition());
-        sheet.addMergedRegion(new CellRangeAddress(5, 5, 8, 9));//MERGE
-
-        cell[10].setCellValue("Job Order No");
-        cell[10].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(5, 5, 10, 11));//MERGE
-
-        cell[12].setCellValue(customer.getJobOrderNo());
-        sheet.addMergedRegion(new CellRangeAddress(5, 5, 12, 13));//MERGE
         //Row 7
-        row = sheet.createRow(6);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-        }
-
-        cell[0].setCellValue("Evaluation Standart");
-        cell[0].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(6, 6, 0, 1));//MERGE
-
-        cell[2].setCellValue(customer.getEvaluationStandart());
-        sheet.addMergedRegion(new CellRangeAddress(6, 6, 2, 5));//MERGE
-
-        cell[6].setCellValue("Stage Of Examination");
-        cell[6].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(6, 6, 6, 7));//MERGE
-
-        cell[8].setCellValue(customer.getStageOfExamination());
-        sheet.addMergedRegion(new CellRangeAddress(6, 6, 8, 9));//MERGE
-
-        cell[10].setCellValue("Offer No");
-        cell[10].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(6, 6, 10, 11));//MERGE
-
-        cell[12].setCellValue(customer.getOfferNo());
-        sheet.addMergedRegion(new CellRangeAddress(6, 6, 12, 13));//MERGE
+        rowNo++;
+        createCustomerRow(rowNo, "Evaluation Standart", customer.getEvaluationStandart(), "Stage Of Examination", customer.getStageOfExamination(), "Offer No", customer.getOfferNo());
 
         //---------------------Equipment Part---------------------------------//
         EquipmentTab equipment = ExcelExporter.equipmentTab;
@@ -758,32 +488,7 @@ public class ExcelExporter {
         sheet.addMergedRegion(new CellRangeAddress(7, 7, 0, 13));
 
         //Row 9
-        row = sheet.createRow(8);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-        }
-
-        cell[0].setCellValue("Pole Distance");
-        cell[0].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(8, 8, 0, 1));//MERGE
-
-        cell[2].setCellValue(equipment.getPoleDistance());
-        sheet.addMergedRegion(new CellRangeAddress(8, 8, 2, 4));//MERGE
-
-        cell[5].setCellValue("Stage Of Examination");
-        cell[5].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(8, 8, 5, 6));//MERGE
-
-        cell[7].setCellValue(equipment.getExaminationArea());
-        sheet.addMergedRegion(new CellRangeAddress(8, 8, 7, 9));//MERGE
-
-        cell[10].setCellValue("Surface Temperature");
-        cell[10].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(8, 8, 10, 11));//MERGE
-
-        cell[12].setCellValue(equipment.getSurfaceTemparature());
-        sheet.addMergedRegion(new CellRangeAddress(8, 8, 12, 13));//MERGE
+        createEquipmentRow(8, "Pole Distance", equipment.getPoleDistance(), "Stage Of Examination", equipment.getExaminationArea(), "Surface Temperature", equipment.getSurfaceTemparature());
 
         //Row 10
         row = sheet.createRow(9);
@@ -835,88 +540,13 @@ public class ExcelExporter {
         sheet.addMergedRegion(new CellRangeAddress(10, 10, 7, 9));//MERGE
 
         //Row 12
-        row = sheet.createRow(11);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-        }
-
-        cell[0].setCellValue("Mag Tech");
-        cell[0].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(11, 11, 0, 1));//MERGE
-
-        cell[2].setCellValue(equipment.getMagTech());
-        sheet.addMergedRegion(new CellRangeAddress(11, 11, 2, 4));//MERGE
-
-        cell[5].setCellValue("Test Medium");
-        cell[5].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(11, 11, 5, 6));//MERGE
-
-        cell[7].setCellValue(equipment.getTestMedium());
-        sheet.addMergedRegion(new CellRangeAddress(11, 11, 7, 9));//MERGE
-
-        cell[10].setCellValue("Surface Condition");
-        cell[10].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(11, 11, 10, 11));//MERGE
-
-        cell[12].setCellValue(equipment.getSurfaceCondition());
-        sheet.addMergedRegion(new CellRangeAddress(11, 11, 12, 13));//MERGE
+        createEquipmentRow(11, "Mag Tech", equipment.getMagTech(), "Test Medium", equipment.getTestMedium(), "Surface Condition", equipment.getSurfaceCondition());
 
         //Row 13
-        row = sheet.createRow(12);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-        }
-
-        cell[0].setCellValue("UV Light Intencity");
-        cell[0].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(12, 12, 0, 1));//MERGE
-
-        cell[2].setCellValue(equipment.getUvLightIntesity());
-        sheet.addMergedRegion(new CellRangeAddress(12, 12, 2, 4));//MERGE
-
-        cell[5].setCellValue("Demagnetization");
-        cell[5].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(12, 12, 5, 6));//MERGE
-
-        cell[7].setCellValue(equipment.getDemagnetization());
-        sheet.addMergedRegion(new CellRangeAddress(12, 12, 7, 9));//MERGE
-
-        cell[10].setCellValue("Identification of Light Equipment");
-        cell[10].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(12, 12, 10, 11));//MERGE
-
-        cell[12].setCellValue(equipment.getIdenticationOfLightEquipment());
-        sheet.addMergedRegion(new CellRangeAddress(12, 12, 12, 13));//MERGE
+        createEquipmentRow(12, "UV Light Intensity", equipment.getUvLightIntesity(), "Demagnetization", equipment.getDemagnetization(), "Identication Of Light Equipment", equipment.getIdenticationOfLightEquipment());
 
         //Row 14
-        row = sheet.createRow(13);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-        }
-
-        cell[0].setCellValue("Distance Of Light");
-        cell[0].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(13, 13, 0, 1));//MERGE
-
-        cell[2].setCellValue(equipment.getDistanceOfLight());
-        sheet.addMergedRegion(new CellRangeAddress(13, 13, 2, 4));//MERGE
-
-        cell[5].setCellValue("Heat Treatment");
-        cell[5].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(13, 13, 5, 6));//MERGE
-
-        cell[7].setCellValue(equipment.getHeatTreatment());
-        sheet.addMergedRegion(new CellRangeAddress(13, 13, 7, 9));//MERGE
-
-        cell[10].setCellValue("Lifting Test Date / Number");
-        cell[10].setCellStyle(setHeaderFont());//SET STYLE
-        sheet.addMergedRegion(new CellRangeAddress(13, 13, 10, 11));//MERGE
-
-        cell[12].setCellValue(equipment.getLiftingTestDateNo());
-        sheet.addMergedRegion(new CellRangeAddress(13, 13, 12, 13));//MERGE
+        createEquipmentRow(13, "Distance Of Light", equipment.getDistanceOfLight(), "Heat Treatment", equipment.getHeatTreatment(), "Lifting Test Date/Number", equipment.getLiftingTestDateNo());
 
         //Row 15-19
         row = sheet.createRow(14);
@@ -983,11 +613,6 @@ public class ExcelExporter {
         cell[9].setCellValue("Weld");
         cell[9].setCellStyle(setHeaderFont());
 
-//        try {
-//            addImage(14, 19, 0, 3);
-//        } catch (IOException ex) {
-//            Logger.getLogger(ExcelExporter.class.getName()).log(Level.SEVERE, null, ex);
-//        }
         sheet.addMergedRegion(new CellRangeAddress(14, 18, 0, 2));//Merge Cell
         sheet.addMergedRegion(new CellRangeAddress(14, 18, 3, 6));//Merge Cell
         sheet.addMergedRegion(new CellRangeAddress(14, 14, 7, 13));//Merge Cell
@@ -1090,584 +715,24 @@ public class ExcelExporter {
         cell[13].setCellValue("Result");
         cell[13].setCellStyle(setHeaderFont());//SET STYLE
 
-        //ROW 25
-        int rowNo = 24;
-        row = sheet.createRow(rowNo);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-        }
+        setInspectionResultsRow(24);
+        setInspectionResultsRow(25);
+        setInspectionResultsRow(26);
+        setInspectionResultsRow(27);
+        setInspectionResultsRow(28);
+        setInspectionResultsRow(29);
+        setInspectionResultsRow(30);
+        setInspectionResultsRow(31);
+        setInspectionResultsRow(32);
+        setInspectionResultsRow(33);
+        setInspectionResultsRow(34);
+        setInspectionResultsRow(35);
+        setInspectionResultsRow(36);
+        setInspectionResultsRow(37);
 
-        if (verifyVector(inspectionResultses, index)) {
-
-            for (int i = 0; i < 14; i++) {
-
-                cell[i].setCellStyle(setBorder());
-            }
-
-            cell[0].setCellValue(index);
-
-            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
-
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
-
-            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
-
-            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
-
-            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
-
-            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
-
-            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
-
-            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
-
-            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
-
-            index++;
-        } else {
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
-        }
-
-        //ROW 26
-        rowNo = 25;
-        row = sheet.createRow(rowNo);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-        }
-
-        if (verifyVector(inspectionResultses, index)) {
-
-            for (int i = 0; i < 14; i++) {
-
-                cell[i].setCellStyle(setBorder());
-            }
-
-            cell[0].setCellValue(index);
-
-            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
-
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
-
-            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
-
-            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
-
-            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
-
-            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
-
-            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
-
-            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
-
-            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
-
-            index++;
-        } else {
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
-        }
-
-        //ROW 27
-        rowNo = 26;
-
-        row = sheet.createRow(rowNo);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-        }
-
-        if (verifyVector(inspectionResultses, index)) {
-
-            for (int i = 0; i < 14; i++) {
-
-                cell[i].setCellStyle(setBorder());
-            }
-
-            cell[0].setCellValue(index);
-
-            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
-
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
-
-            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
-
-            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
-
-            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
-
-            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
-
-            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
-
-            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
-
-            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
-
-            index++;
-        } else {
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
-        }
-
-        //ROW 28
-        rowNo = 27;
-        row = sheet.createRow(rowNo);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-        }
-
-        if (verifyVector(inspectionResultses, index)) {
-
-            for (int i = 0; i < 14; i++) {
-
-                cell[i].setCellStyle(setBorder());
-            }
-
-            cell[0].setCellValue(index);
-
-            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
-
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
-
-            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
-
-            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
-
-            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
-
-            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
-
-            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
-
-            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
-
-            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
-
-            index++;
-        } else {
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
-        }
-
-        //ROW 29
-        rowNo = 28;
-
-        row = sheet.createRow(rowNo);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-        }
-
-        if (verifyVector(inspectionResultses, index)) {
-
-            for (int i = 0; i < 14; i++) {
-
-                cell[i].setCellStyle(setBorder());
-            }
-
-            cell[0].setCellValue(index);
-
-            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
-
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
-
-            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
-
-            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
-
-            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
-
-            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
-
-            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
-
-            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
-
-            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
-
-            index++;
-        } else {
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
-        }
-
-        //ROW 30
-        rowNo = 29;
-        row = sheet.createRow(rowNo);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-        }
-
-        if (verifyVector(inspectionResultses, index)) {
-
-            for (int i = 0; i < 14; i++) {
-
-                cell[i].setCellStyle(setBorder());
-            }
-
-            cell[0].setCellValue(index);
-
-            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
-
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
-
-            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
-
-            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
-
-            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
-
-            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
-
-            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
-
-            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
-
-            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
-
-            index++;
-        } else {
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
-        }
-
-        //ROW 31
-        rowNo = 30;
-        row = sheet.createRow(rowNo);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-        }
-
-        if (verifyVector(inspectionResultses, index)) {
-
-            for (int i = 0; i < 14; i++) {
-
-                cell[i].setCellStyle(setBorder());
-            }
-
-            cell[0].setCellValue(index);
-
-            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
-
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
-
-            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
-
-            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
-
-            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
-
-            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
-
-            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
-
-            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
-
-            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
-
-            index++;
-        } else {
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
-        }
-
-        //ROW 32
-        rowNo = 31;
-        row = sheet.createRow(rowNo);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-        }
-
-        if (verifyVector(inspectionResultses, index)) {
-
-            for (int i = 0; i < 14; i++) {
-
-                cell[i].setCellStyle(setBorder());
-            }
-
-            cell[0].setCellValue(index);
-
-            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
-
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
-
-            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
-
-            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
-
-            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
-
-            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
-
-            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
-
-            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
-
-            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
-
-            index++;
-        } else {
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
-        }
-
-        //ROW 33
-        rowNo = 32;
-        row = sheet.createRow(rowNo);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-        }
-
-        if (verifyVector(inspectionResultses, index)) {
-
-            for (int i = 0; i < 14; i++) {
-
-                cell[i].setCellStyle(setBorder());
-            }
-
-            cell[0].setCellValue(index);
-
-            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
-
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
-
-            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
-
-            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
-
-            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
-
-            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
-
-            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
-
-            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
-
-            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
-
-            index++;
-        } else {
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
-        }
-        //ROW 34
-        rowNo = 33;
-        row = sheet.createRow(rowNo);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-        }
-
-        if (verifyVector(inspectionResultses, index)) {
-
-            for (int i = 0; i < 14; i++) {
-
-                cell[i].setCellStyle(setBorder());
-            }
-
-            cell[0].setCellValue(index);
-
-            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
-
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
-
-            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
-
-            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
-
-            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
-
-            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
-
-            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
-
-            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
-
-            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
-
-            index++;
-        } else {
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
-        }
-        //ROW 35
-        rowNo = 34;
-        row = sheet.createRow(rowNo);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-        }
-
-        if (verifyVector(inspectionResultses, index)) {
-
-            for (int i = 0; i < 14; i++) {
-
-                cell[i].setCellStyle(setBorder());
-            }
-
-            cell[0].setCellValue(index);
-
-            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
-
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
-
-            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
-
-            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
-
-            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
-
-            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
-
-            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
-
-            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
-
-            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
-
-            index++;
-        } else {
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
-        }
-
-        //ROW 36
-        rowNo = 35;
-        row = sheet.createRow(rowNo);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-        }
-
-        if (verifyVector(inspectionResultses, index)) {
-
-            for (int i = 0; i < 14; i++) {
-
-                cell[i].setCellStyle(setBorder());
-            }
-
-            cell[0].setCellValue(index);
-
-            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
-
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
-
-            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
-
-            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
-
-            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
-
-            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
-
-            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
-
-            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
-
-            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
-
-            index++;
-        } else {
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
-        }
-
-        //ROW 37
-        rowNo = 36;
-        row = sheet.createRow(rowNo);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-        }
-
-        if (verifyVector(inspectionResultses, index)) {
-
-            for (int i = 0; i < 14; i++) {
-
-                cell[i].setCellStyle(setBorder());
-            }
-
-            cell[0].setCellValue(index);
-
-            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
-
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
-
-            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
-
-            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
-
-            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
-
-            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
-
-            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
-
-            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
-
-            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
-
-            index++;
-        } else {
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
-        }
-
-        //ROW 38
-        rowNo = 37;
-        row = sheet.createRow(rowNo);
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-        }
-
-        if (verifyVector(inspectionResultses, index)) {
-
-            for (int i = 0; i < 14; i++) {
-
-                cell[i].setCellStyle(setBorder());
-            }
-
-            cell[0].setCellValue(index);
-
-            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
-
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
-
-            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
-
-            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
-
-            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
-
-            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
-
-            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
-
-            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
-
-            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
-
-            System.out.println("row 38 calisti");
-            index++;
-        } else {
-            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
-        }
-
-//---------------------------------------------------------------------------//
         //Row 39
-        sheet.createRow(38);
+        
+        row = sheet.createRow(38);
 
         for (int i = 0; i < 14; i++) {
             cell[i] = row.createCell(i);
@@ -1689,97 +754,17 @@ public class ExcelExporter {
         sheet.addMergedRegion(new CellRangeAddress(38, 38, 12, 13));//Merge Cell
 
         //Row 40
-        sheet.createRow(39);
-
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-
-        }
-
-        cell[0].setCellValue("Name Surname");
-        sheet.addMergedRegion(new CellRangeAddress(39, 39, 0, 2));//Merge Cell
-        cell[3].setCellValue(operator);
-        sheet.addMergedRegion(new CellRangeAddress(39, 39, 3, 5));//Merge Cell
-        cell[6].setCellValue(evaluated);
-        sheet.addMergedRegion(new CellRangeAddress(39, 39, 6, 8));//Merge Cell
-
-        cell[9].setCellValue(confirmation);
-        sheet.addMergedRegion(new CellRangeAddress(39, 39, 9, 11));//Merge Cell
-
-        cell[12].setCellValue(customerTab.getCustomer());
-        sheet.addMergedRegion(new CellRangeAddress(39, 39, 12, 13));//Merge Cell
+        createLastSectionRow(39, "Name Surname", operator, evaluated, confirmation, "customer");
 
         //Row 41
-        sheet.createRow(40);
-
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-
-        }
-
-        cell[0].setCellValue("Level");
-        cell[0].setCellStyle(setHeaderFont());
-        sheet.addMergedRegion(new CellRangeAddress(40, 40, 0, 2));//Merge Cell
-
-        cell[3].setCellValue("lev");
-        sheet.addMergedRegion(new CellRangeAddress(40, 40, 3, 5));//Merge Cell
-        cell[6].setCellValue("lev");
-        sheet.addMergedRegion(new CellRangeAddress(40, 40, 6, 8));//Merge Cell
-
-        cell[9].setCellValue("lev");
-        sheet.addMergedRegion(new CellRangeAddress(40, 40, 9, 11));//Merge Cell
-
-        cell[12].setCellValue("lev");
-        sheet.addMergedRegion(new CellRangeAddress(40, 40, 12, 13));//Merge Cell
+        createLastSectionRow(40, "Level", "lev", "lev", "lev", "lev");
 
         //Row 42
-        sheet.createRow(41);
-
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-
-        }
-
-        cell[0].setCellValue("Date");
-        cell[0].setCellStyle(setHeaderFont());
-        sheet.addMergedRegion(new CellRangeAddress(41, 41, 0, 2));//Merge Cell
-
-        cell[3].setCellValue(date);
-        sheet.addMergedRegion(new CellRangeAddress(41, 41, 3, 5));//Merge Cell
-        cell[6].setCellValue(date);
-        sheet.addMergedRegion(new CellRangeAddress(41, 41, 6, 8));//Merge Cell
-
-        cell[9].setCellValue(date);
-        sheet.addMergedRegion(new CellRangeAddress(41, 41, 9, 11));//Merge Cell
-
-        cell[12].setCellValue(date);
-        sheet.addMergedRegion(new CellRangeAddress(41, 41, 12, 13));//Merge Cell
-
+        createLastSectionRow(41, "Date", date, date, date, date);
+        
         //Row 43
-        sheet.createRow(42);
-
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-
-        }
-
-        cell[0].setCellValue("Signature");
-        cell[0].setCellStyle(setHeaderFont());
-        sheet.addMergedRegion(new CellRangeAddress(42, 42, 0, 2));//Merge Cell
-        cell[3].setCellValue("sig");
-        sheet.addMergedRegion(new CellRangeAddress(42, 42, 3, 5));//Merge Cell
-        cell[6].setCellValue("sig");
-        sheet.addMergedRegion(new CellRangeAddress(42, 42, 6, 8));//Merge Cell
-
-        cell[9].setCellValue("sig");
-        sheet.addMergedRegion(new CellRangeAddress(42, 42, 9, 11));//Merge Cell
-
-        cell[12].setCellValue("sig");
-        sheet.addMergedRegion(new CellRangeAddress(42, 42, 12, 13));//Merge Cell
+        createLastSectionRow(42, "Signature", "sig", "sig", "sig", "sig");
+        
 
 //        
         for (int colNum = 0; colNum < 14; colNum++) {
@@ -1790,7 +775,6 @@ public class ExcelExporter {
 //        short height =(int)300;
 //        sheet.setDefaultRowHeight(height);
 //        sheet.setDefaultColumnWidth(width);
-
 //         autoSizeColumns(workbook);
         createXlsxFile("exportGUI1");
 
@@ -1801,6 +785,7 @@ public class ExcelExporter {
         exportCustomer();
         exportEquipment();
         exportInspectionResults();
+        exportLastSection();
         createXlsxFile("exportGUI2");
 
     }
@@ -1855,20 +840,35 @@ public class ExcelExporter {
         cell[13].setCellValue("Result");
         cell[13].setCellStyle(setHeaderFont());//SET STYLE
 
+        //Row 25
         setInspectionResultsRow(24);
+        //Row 25
         setInspectionResultsRow(25);
+        //Row 27
         setInspectionResultsRow(26);
+        //Row 28
         setInspectionResultsRow(27);
+        //Row 29
         setInspectionResultsRow(28);
+        //Row 30
         setInspectionResultsRow(29);
+        //Row 31
         setInspectionResultsRow(30);
+        //Row 32
         setInspectionResultsRow(31);
+        //Row 33
         setInspectionResultsRow(32);
+        //Row 34
         setInspectionResultsRow(33);
+        //Row 35
         setInspectionResultsRow(34);
+        //Row 36
         setInspectionResultsRow(35);
+        //Row 37
         setInspectionResultsRow(36);
+        //Row 38
         setInspectionResultsRow(37);
+        //Row 39
         setInspectionResultsRow(38);
 
         for (int colNum = 0; colNum < 14; colNum++) {
@@ -1979,9 +979,37 @@ public class ExcelExporter {
 
     }
 
-    public static void lastSection() {
+    private static void createLastSectionRow(int rowNo,String cell0 ,String cell3, String cell6, String cell9, String cell12) {
+
+        row = sheet.createRow(rowNo);
+
+        for (int i = 0; i < 14; i++) {
+            cell[i] = row.createCell(i);
+            cell[i].setCellStyle(setBorder());
+
+        }
+
+        cell[0].setCellValue(cell0);
+        
+        sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 2));//Merge Cell
+        
+        cell[3].setCellValue(cell3);
+        sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 3, 5));//Merge Cell
+        cell[6].setCellValue(cell6);
+        sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 6, 8));//Merge Cell
+
+        cell[9].setCellValue(cell9);
+        sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 9, 11));//Merge Cell
+
+        cell[12].setCellValue(cell12);
+        sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 12, 13));//Merge Cell
+
+    }
+
+    public static void exportLastSection() {
 
         //Row 39
+        
         sheet.createRow(38);
 
         for (int i = 0; i < 14; i++) {
@@ -2004,101 +1032,21 @@ public class ExcelExporter {
         sheet.addMergedRegion(new CellRangeAddress(38, 38, 12, 13));//Merge Cell
 
         //Row 40
-        sheet.createRow(39);
-
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-
-        }
-
-        cell[0].setCellValue("Name Surname");
-        sheet.addMergedRegion(new CellRangeAddress(39, 39, 0, 2));//Merge Cell
-        cell[3].setCellValue(operator);
-        sheet.addMergedRegion(new CellRangeAddress(39, 39, 3, 5));//Merge Cell
-        cell[6].setCellValue(evaluated);
-        sheet.addMergedRegion(new CellRangeAddress(39, 39, 6, 8));//Merge Cell
-
-        cell[9].setCellValue(confirmation);
-        sheet.addMergedRegion(new CellRangeAddress(39, 39, 9, 11));//Merge Cell
-
-        cell[12].setCellValue("customer");
-        sheet.addMergedRegion(new CellRangeAddress(39, 39, 12, 13));//Merge Cell
+        createLastSectionRow(39, "Name Surname", operator, evaluated, confirmation, "customer");
 
         //Row 41
-        sheet.createRow(40);
-
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-
-        }
-
-        cell[0].setCellValue("Level");
-        cell[0].setCellStyle(setHeaderFont());
-        sheet.addMergedRegion(new CellRangeAddress(40, 40, 0, 2));//Merge Cell
-
-        cell[3].setCellValue("lev");
-        sheet.addMergedRegion(new CellRangeAddress(40, 40, 3, 5));//Merge Cell
-        cell[6].setCellValue("lev");
-        sheet.addMergedRegion(new CellRangeAddress(40, 40, 6, 8));//Merge Cell
-
-        cell[9].setCellValue("lev");
-        sheet.addMergedRegion(new CellRangeAddress(40, 40, 9, 11));//Merge Cell
-
-        cell[12].setCellValue("lev");
-        sheet.addMergedRegion(new CellRangeAddress(40, 40, 12, 13));//Merge Cell
+        createLastSectionRow(40, "Level", "lev", "lev", "lev", "lev");
 
         //Row 42
-        sheet.createRow(41);
-
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
-
-        }
-
-        cell[0].setCellValue("Date");
-        cell[0].setCellStyle(setHeaderFont());
-        sheet.addMergedRegion(new CellRangeAddress(41, 41, 0, 2));//Merge Cell
-
-        cell[3].setCellValue(date);
-        sheet.addMergedRegion(new CellRangeAddress(41, 41, 3, 5));//Merge Cell
-        cell[6].setCellValue(date);
-        sheet.addMergedRegion(new CellRangeAddress(41, 41, 6, 8));//Merge Cell
-
-        cell[9].setCellValue(date);
-        sheet.addMergedRegion(new CellRangeAddress(41, 41, 9, 11));//Merge Cell
-
-        cell[12].setCellValue(date);
-        sheet.addMergedRegion(new CellRangeAddress(41, 41, 12, 13));//Merge Cell
-
+        createLastSectionRow(41, "Date", date, date, date, date);
+        
         //Row 43
-        sheet.createRow(42);
+        createLastSectionRow(42, "Signature", "sig", "sig", "sig", "sig");
+        
 
-        for (int i = 0; i < 14; i++) {
-            cell[i] = row.createCell(i);
-            cell[i].setCellStyle(setBorder());
 
-        }
 
-        cell[0].setCellValue("Signature");
-        cell[0].setCellStyle(setHeaderFont());
-        sheet.addMergedRegion(new CellRangeAddress(42, 42, 0, 2));//Merge Cell
-        cell[3].setCellValue("sig");
-        sheet.addMergedRegion(new CellRangeAddress(42, 42, 3, 5));//Merge Cell
-        cell[6].setCellValue("sig");
-        sheet.addMergedRegion(new CellRangeAddress(42, 42, 6, 8));//Merge Cell
-
-        cell[9].setCellValue("sig");
-        sheet.addMergedRegion(new CellRangeAddress(42, 42, 9, 11));//Merge Cell
-
-        cell[12].setCellValue("sig");
-        sheet.addMergedRegion(new CellRangeAddress(42, 42, 12, 13));//Merge Cell
-
-        System.out.println("row 38");
-
-        createXlsxFile("last");
+//        createXlsxFile("last");
 
     }
 
@@ -2148,5 +1096,704 @@ public class ExcelExporter {
 
         /* Call resize method, which resizes the image */
 //        my_picture.resize();
+    }
+
+    private void irold() {
+
+//
+//        //ROW 25
+//        int rowNo = 24;
+//        row = sheet.createRow(rowNo);
+//        for (int i = 0; i < 14; i++) {
+//            cell[i] = row.createCell(i);
+//        }
+//
+//        if (verifyVector(inspectionResultses, index)) {
+//
+//            for (int i = 0; i < 14; i++) {
+//
+//                cell[i].setCellStyle(setBorder());
+//            }
+//
+//            cell[0].setCellValue(index);
+//
+//            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
+//
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
+//
+//            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
+//
+//            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
+//
+//            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
+//
+//            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
+//
+//            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
+//
+//            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
+//
+//            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
+//
+//            index++;
+//        } else {
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
+//        }
+//
+//        //ROW 26
+//        rowNo = 25;
+//        row = sheet.createRow(rowNo);
+//        for (int i = 0; i < 14; i++) {
+//            cell[i] = row.createCell(i);
+//        }
+//
+//        if (verifyVector(inspectionResultses, index)) {
+//
+//            for (int i = 0; i < 14; i++) {
+//
+//                cell[i].setCellStyle(setBorder());
+//            }
+//
+//            cell[0].setCellValue(index);
+//
+//            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
+//
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
+//
+//            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
+//
+//            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
+//
+//            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
+//
+//            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
+//
+//            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
+//
+//            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
+//
+//            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
+//
+//            index++;
+//        } else {
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
+//        }
+//
+//        //ROW 27
+//        rowNo = 26;
+//
+//        row = sheet.createRow(rowNo);
+//        for (int i = 0; i < 14; i++) {
+//            cell[i] = row.createCell(i);
+//        }
+//
+//        if (verifyVector(inspectionResultses, index)) {
+//
+//            for (int i = 0; i < 14; i++) {
+//
+//                cell[i].setCellStyle(setBorder());
+//            }
+//
+//            cell[0].setCellValue(index);
+//
+//            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
+//
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
+//
+//            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
+//
+//            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
+//
+//            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
+//
+//            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
+//
+//            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
+//
+//            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
+//
+//            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
+//
+//            index++;
+//        } else {
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
+//        }
+//
+//        //ROW 28
+//        rowNo = 27;
+//        row = sheet.createRow(rowNo);
+//        for (int i = 0; i < 14; i++) {
+//            cell[i] = row.createCell(i);
+//        }
+//
+//        if (verifyVector(inspectionResultses, index)) {
+//
+//            for (int i = 0; i < 14; i++) {
+//
+//                cell[i].setCellStyle(setBorder());
+//            }
+//
+//            cell[0].setCellValue(index);
+//
+//            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
+//
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
+//
+//            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
+//
+//            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
+//
+//            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
+//
+//            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
+//
+//            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
+//
+//            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
+//
+//            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
+//
+//            index++;
+//        } else {
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
+//        }
+//
+//        //ROW 29
+//        rowNo = 28;
+//
+//        row = sheet.createRow(rowNo);
+//        for (int i = 0; i < 14; i++) {
+//            cell[i] = row.createCell(i);
+//        }
+//
+//        if (verifyVector(inspectionResultses, index)) {
+//
+//            for (int i = 0; i < 14; i++) {
+//
+//                cell[i].setCellStyle(setBorder());
+//            }
+//
+//            cell[0].setCellValue(index);
+//
+//            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
+//
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
+//
+//            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
+//
+//            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
+//
+//            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
+//
+//            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
+//
+//            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
+//
+//            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
+//
+//            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
+//
+//            index++;
+//        } else {
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
+//        }
+//
+//        //ROW 30
+//        rowNo = 29;
+//        row = sheet.createRow(rowNo);
+//        for (int i = 0; i < 14; i++) {
+//            cell[i] = row.createCell(i);
+//        }
+//
+//        if (verifyVector(inspectionResultses, index)) {
+//
+//            for (int i = 0; i < 14; i++) {
+//
+//                cell[i].setCellStyle(setBorder());
+//            }
+//
+//            cell[0].setCellValue(index);
+//
+//            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
+//
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
+//
+//            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
+//
+//            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
+//
+//            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
+//
+//            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
+//
+//            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
+//
+//            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
+//
+//            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
+//
+//            index++;
+//        } else {
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
+//        }
+//
+//        //ROW 31
+//        rowNo = 30;
+//        row = sheet.createRow(rowNo);
+//        for (int i = 0; i < 14; i++) {
+//            cell[i] = row.createCell(i);
+//        }
+//
+//        if (verifyVector(inspectionResultses, index)) {
+//
+//            for (int i = 0; i < 14; i++) {
+//
+//                cell[i].setCellStyle(setBorder());
+//            }
+//
+//            cell[0].setCellValue(index);
+//
+//            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
+//
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
+//
+//            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
+//
+//            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
+//
+//            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
+//
+//            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
+//
+//            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
+//
+//            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
+//
+//            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
+//
+//            index++;
+//        } else {
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
+//        }
+//
+//        //ROW 32
+//        rowNo = 31;
+//        row = sheet.createRow(rowNo);
+//        for (int i = 0; i < 14; i++) {
+//            cell[i] = row.createCell(i);
+//        }
+//
+//        if (verifyVector(inspectionResultses, index)) {
+//
+//            for (int i = 0; i < 14; i++) {
+//
+//                cell[i].setCellStyle(setBorder());
+//            }
+//
+//            cell[0].setCellValue(index);
+//
+//            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
+//
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
+//
+//            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
+//
+//            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
+//
+//            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
+//
+//            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
+//
+//            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
+//
+//            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
+//
+//            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
+//
+//            index++;
+//        } else {
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
+//        }
+//
+//        //ROW 33
+//        rowNo = 32;
+//        row = sheet.createRow(rowNo);
+//        for (int i = 0; i < 14; i++) {
+//            cell[i] = row.createCell(i);
+//        }
+//
+//        if (verifyVector(inspectionResultses, index)) {
+//
+//            for (int i = 0; i < 14; i++) {
+//
+//                cell[i].setCellStyle(setBorder());
+//            }
+//
+//            cell[0].setCellValue(index);
+//
+//            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
+//
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
+//
+//            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
+//
+//            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
+//
+//            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
+//
+//            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
+//
+//            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
+//
+//            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
+//
+//            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
+//
+//            index++;
+//        } else {
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
+//        }
+//        //ROW 34
+//        rowNo = 33;
+//        row = sheet.createRow(rowNo);
+//        for (int i = 0; i < 14; i++) {
+//            cell[i] = row.createCell(i);
+//        }
+//
+//        if (verifyVector(inspectionResultses, index)) {
+//
+//            for (int i = 0; i < 14; i++) {
+//
+//                cell[i].setCellStyle(setBorder());
+//            }
+//
+//            cell[0].setCellValue(index);
+//
+//            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
+//
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
+//
+//            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
+//
+//            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
+//
+//            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
+//
+//            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
+//
+//            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
+//
+//            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
+//
+//            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
+//
+//            index++;
+//        } else {
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
+//        }
+//        //ROW 35
+//        rowNo = 34;
+//        row = sheet.createRow(rowNo);
+//        for (int i = 0; i < 14; i++) {
+//            cell[i] = row.createCell(i);
+//        }
+//
+//        if (verifyVector(inspectionResultses, index)) {
+//
+//            for (int i = 0; i < 14; i++) {
+//
+//                cell[i].setCellStyle(setBorder());
+//            }
+//
+//            cell[0].setCellValue(index);
+//
+//            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
+//
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
+//
+//            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
+//
+//            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
+//
+//            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
+//
+//            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
+//
+//            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
+//
+//            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
+//
+//            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
+//
+//            index++;
+//        } else {
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
+//        }
+//
+//        //ROW 36
+//        rowNo = 35;
+//        row = sheet.createRow(rowNo);
+//        for (int i = 0; i < 14; i++) {
+//            cell[i] = row.createCell(i);
+//        }
+//
+//        if (verifyVector(inspectionResultses, index)) {
+//
+//            for (int i = 0; i < 14; i++) {
+//
+//                cell[i].setCellStyle(setBorder());
+//            }
+//
+//            cell[0].setCellValue(index);
+//
+//            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
+//
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
+//
+//            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
+//
+//            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
+//
+//            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
+//
+//            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
+//
+//            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
+//
+//            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
+//
+//            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
+//
+//            index++;
+//        } else {
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
+//        }
+//
+//        //ROW 37
+//        rowNo = 36;
+//        row = sheet.createRow(rowNo);
+//        for (int i = 0; i < 14; i++) {
+//            cell[i] = row.createCell(i);
+//        }
+//
+//        if (verifyVector(inspectionResultses, index)) {
+//
+//            for (int i = 0; i < 14; i++) {
+//
+//                cell[i].setCellStyle(setBorder());
+//            }
+//
+//            cell[0].setCellValue(index);
+//
+//            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
+//
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
+//
+//            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
+//
+//            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
+//
+//            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
+//
+//            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
+//
+//            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
+//
+//            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
+//
+//            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
+//
+//            index++;
+//        } else {
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
+//        }
+//        row = sheet.createRow(37);
+//                for (int i = 0; i < 14; i++) {
+//            cell[i] = row.createCell(i);
+//        }
+//         cell[0].setCellValue("value");
+//
+//        //ROW 38
+//        rowNo = 37;
+//        row = sheet.createRow(rowNo);
+//        for (int i = 0; i < 14; i++) {
+//            cell[i] = row.createCell(i);
+//        }
+//
+//        if (verifyVector(inspectionResultses, index)) {
+//
+//            for (int i = 0; i < 14; i++) {
+//
+//                cell[i].setCellStyle(setBorder());
+//            }
+//
+//            cell[0].setCellValue(index);
+//
+//            cell[1].setCellValue(inspectionResultses.get(index - 1).getWeldNo());
+//
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 1, 3));//Merge Cell
+//
+//            cell[4].setCellValue(inspectionResultses.get(index - 1).getTestLength());
+//
+//            cell[5].setCellValue(inspectionResultses.get(index - 1).getWeldingProcess());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 5, 6));//Merge Cell
+//
+//            cell[7].setCellValue(inspectionResultses.get(index - 1).getThickness());
+//
+//            cell[8].setCellValue(inspectionResultses.get(index - 1).getDiameter());
+//
+//            cell[9].setCellValue(inspectionResultses.get(index - 1).getDefectType());
+//
+//            cell[10].setCellValue(inspectionResultses.get(index - 1).getDefectLoc());
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 10, 12));//Merge Cell
+//
+//            cell[13].setCellValue(inspectionResultses.get(index - 1).getResult());
+//
+//            System.out.println("row 38 calisti");
+//            index++;
+//        } else {
+//            sheet.addMergedRegion(new CellRangeAddress(rowNo, rowNo, 0, 13));//Default Merge Cell
+//        }
+//---------------------------------------------------------------------------//
+//        Row 39
+//        sheet.createRow(38);
+//
+//        for (int i = 0; i < 14; i++) {
+//            cell[i] = row.createCell(i);
+//            cell[i].setCellStyle(setBorder());
+//            cell[i].setCellStyle(setHeaderFont());
+//        }
+//        cell[0].setCellValue("Personel Information");
+//        sheet.addMergedRegion(new CellRangeAddress(38, 38, 0, 2));//Merge Cell
+//        cell[3].setCellValue("Operator");
+//        sheet.addMergedRegion(new CellRangeAddress(38, 38, 3, 5));//Merge Cell
+//        cell[6].setCellValue("Evaluated By");
+//        sheet.addMergedRegion(new CellRangeAddress(38, 38, 6, 8));//Merge Cell
+//
+//        cell[9].setCellValue("Confirmation");
+//        sheet.addMergedRegion(new CellRangeAddress(38, 38, 9, 11));//Merge Cell
+//
+//        cell[12].setCellValue("Customer");
+//        sheet.addMergedRegion(new CellRangeAddress(38, 38, 12, 13));//Merge Cell
+//        //Row 40
+//        sheet.createRow(39);
+//
+//        for (int i = 0; i < 14; i++) {
+//            cell[i] = row.createCell(i);
+//            cell[i].setCellStyle(setBorder());
+//
+//        }
+//
+//        cell[0].setCellValue("Name Surname");
+//        sheet.addMergedRegion(new CellRangeAddress(39, 39, 0, 2));//Merge Cell
+//        cell[3].setCellValue(operator);
+//        sheet.addMergedRegion(new CellRangeAddress(39, 39, 3, 5));//Merge Cell
+//        cell[6].setCellValue(evaluated);
+//        sheet.addMergedRegion(new CellRangeAddress(39, 39, 6, 8));//Merge Cell
+//
+//        cell[9].setCellValue(confirmation);
+//        sheet.addMergedRegion(new CellRangeAddress(39, 39, 9, 11));//Merge Cell
+//
+//        cell[12].setCellValue(customerTab.getCustomer());
+//        sheet.addMergedRegion(new CellRangeAddress(39, 39, 12, 13));//Merge Cell
+//
+//        //Row 41
+//        sheet.createRow(40);
+//
+//        for (int i = 0; i < 14; i++) {
+//            cell[i] = row.createCell(i);
+//            cell[i].setCellStyle(setBorder());
+//
+//        }
+//
+//        cell[0].setCellValue("Level");
+//        cell[0].setCellStyle(setHeaderFont());
+//        sheet.addMergedRegion(new CellRangeAddress(40, 40, 0, 2));//Merge Cell
+//
+//        cell[3].setCellValue("lev");
+//        sheet.addMergedRegion(new CellRangeAddress(40, 40, 3, 5));//Merge Cell
+//        cell[6].setCellValue("lev");
+//        sheet.addMergedRegion(new CellRangeAddress(40, 40, 6, 8));//Merge Cell
+//
+//        cell[9].setCellValue("lev");
+//        sheet.addMergedRegion(new CellRangeAddress(40, 40, 9, 11));//Merge Cell
+//
+//        cell[12].setCellValue("lev");
+//        sheet.addMergedRegion(new CellRangeAddress(40, 40, 12, 13));//Merge Cell
+//
+//        //Row 42
+//        sheet.createRow(41);
+//
+//        for (int i = 0; i < 14; i++) {
+//            cell[i] = row.createCell(i);
+//            cell[i].setCellStyle(setBorder());
+//
+//        }
+//
+//        cell[0].setCellValue("Date");
+//        cell[0].setCellStyle(setHeaderFont());
+//        sheet.addMergedRegion(new CellRangeAddress(41, 41, 0, 2));//Merge Cell
+//
+//        cell[3].setCellValue(date);
+//        sheet.addMergedRegion(new CellRangeAddress(41, 41, 3, 5));//Merge Cell
+//        cell[6].setCellValue(date);
+//        sheet.addMergedRegion(new CellRangeAddress(41, 41, 6, 8));//Merge Cell
+//
+//        cell[9].setCellValue(date);
+//        sheet.addMergedRegion(new CellRangeAddress(41, 41, 9, 11));//Merge Cell
+//
+//        cell[12].setCellValue(date);
+//        sheet.addMergedRegion(new CellRangeAddress(41, 41, 12, 13));//Merge Cell
+//
+//        //Row 43
+//        sheet.createRow(42);
+//
+//        for (int i = 0; i < 14; i++) {
+//            cell[i] = row.createCell(i);
+//            cell[i].setCellStyle(setBorder());
+//
+//        }
+//
+//        cell[0].setCellValue("Signature");
+//        cell[0].setCellStyle(setHeaderFont());
+//        sheet.addMergedRegion(new CellRangeAddress(42, 42, 0, 2));//Merge Cell
+//        cell[3].setCellValue("sig");
+//        sheet.addMergedRegion(new CellRangeAddress(42, 42, 3, 5));//Merge Cell
+//        cell[6].setCellValue("sig");
+//        sheet.addMergedRegion(new CellRangeAddress(42, 42, 6, 8));//Merge Cell
+//
+//        cell[9].setCellValue("sig");
+//        sheet.addMergedRegion(new CellRangeAddress(42, 42, 9, 11));//Merge Cell
+//
+//        cell[12].setCellValue("sig");
+//        sheet.addMergedRegion(new CellRangeAddress(42, 42, 12, 13));//Merge Cell
+//
+////        
     }
 }

@@ -196,34 +196,34 @@
                                  </toggleGroup></RadioButton>
                            </children>
                         </VBox>
-                        <Label layoutX="20.0" layoutY="464.0" prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Description" textFill="WHITE">
+                        <Label layoutX="21.0" layoutY="450.0" prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Description" textFill="WHITE">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtDescription" layoutX="127.0" layoutY="464.0" prefHeight="31.0" prefWidth="600.0" stylesheets="@../css/Style.css">
+                        <TextField fx:id="txtDescription" layoutX="128.0" layoutY="450.0" prefHeight="31.0" prefWidth="600.0" stylesheets="@../css/Style.css">
                            <styleClass>
                               <String fx:value="sideButtons" />
                               <String fx:value="textfield" />
                            </styleClass></TextField>
-                        <Label layoutX="20.0" layoutY="426.0" prefHeight="27.0" prefWidth="104.0" stylesheets="@../css/Style.css" text="Standart Deviations" textFill="WHITE" />
-                        <Label layoutX="392.0" layoutY="427.0" prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Inspection Dates" textFill="WHITE">
+                        <Label layoutX="21.0" layoutY="412.0" prefHeight="27.0" prefWidth="104.0" stylesheets="@../css/Style.css" text="Standart Deviations" textFill="WHITE" />
+                        <Label layoutX="393.0" layoutY="413.0" prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Inspection Dates" textFill="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtStandartDerivations" layoutX="126.0" layoutY="428.0" prefHeight="25.0" prefWidth="249.0" stylesheets="@../css/Style.css">
+                        <TextField fx:id="txtStandartDerivations" layoutX="127.0" layoutY="414.0" prefHeight="25.0" prefWidth="249.0" stylesheets="@../css/Style.css">
                            <styleClass>
                               <String fx:value="sideButtons" />
                               <String fx:value="textfield" />
                            </styleClass></TextField>
-                        <Label fx:id="lblInspectionDates" layoutX="517.0" layoutY="427.0" prefHeight="26.0" prefWidth="210.0" stylesheets="@../css/Style.css" text=" ">
+                        <Label fx:id="lblInspectionDates" layoutX="518.0" layoutY="413.0" prefHeight="26.0" prefWidth="210.0" stylesheets="@../css/Style.css" text=" ">
                            <styleClass>
                               <String fx:value="sideButtons" />
                               <String fx:value="textfield" />
                            </styleClass></Label>
-                        <Separator layoutX="37.0" layoutY="403.0" prefHeight="0.0" prefWidth="667.0" stylesheets="@../css/Style.css" />
-                        <Button fx:id="btnEquipmentSubmit" layoutX="578.0" layoutY="503.0" mnemonicParsing="false" onAction="#handleBtnEquipmentSubmit" prefHeight="25.0" prefWidth="149.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Submit" textFill="#fffbfb" />
+                        <Separator layoutX="41.0" layoutY="388.0" prefHeight="3.0" prefWidth="685.0" stylesheets="@../css/Style.css" />
+                        <Button fx:id="btnEquipmentSubmit" layoutX="577.0" layoutY="494.0" mnemonicParsing="false" onAction="#handleBtnEquipmentSubmit" prefHeight="25.0" prefWidth="149.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Submit" textFill="#fffbfb" />
                         <Label alignment="CENTER" layoutX="47.0" layoutY="231.0" prefHeight="1.0" prefWidth="680.0" stylesheets="@../css/Style.css" text="Location Of Discontinuity" textFill="WHITE">
                            <font>
                               <Font size="19.0" />

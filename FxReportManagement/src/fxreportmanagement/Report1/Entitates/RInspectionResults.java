@@ -101,4 +101,86 @@ public class RInspectionResults {
 
     }
 
+    public String getShootingArea() {
+        return shootingArea.getValue();
+    }
+
+    public String getFilmNo() {
+        return filmNo.getValue();
+    }
+
+    public String getMaterialType() {
+        return materialType.getValue();
+    }
+
+    public String getWeldingType() {
+        return weldingType.getValue();
+    }
+
+    public String getWelderNo() {
+        return welderNo.getValue();
+    }
+
+    public String getPosition() {
+        return position.getValue();
+    }
+
+    public String getThickness() {
+        return thickness.getValue();
+    }
+
+    public String getIQI() {
+        return IQI.getValue();
+    }
+
+    public String getVisibleIQI() {
+        return visibleIQI.getValue();
+    }
+
+    public String getDensity() {
+        return density.getValue();
+    }
+
+    public String getX12() {
+        return x12.getValue();
+    }
+
+    public String getX16() {
+        return x16.getValue();
+    }
+
+    public String getX24() {
+        return x24.getValue();
+    }
+
+    public String getX36() {
+        return x36.getValue();
+    }
+
+    public String getX48() {
+        return x48.getValue();
+    }
+
+    public String getX40() {
+        return x40.getValue();
+    }
+
+    public String getDefectLoc() {
+        return defectLoc.getValue();
+    }
+
+    public String getDefectType() {
+        return defectType.getValue();
+    }
+
+    public String getPreEvaluation() {
+        return preEvaluation.getValue();
+    }
+
+    public String getFinalEvaluation() {
+        return finalEvaluation.getValue();
+    }
+    
+    
+
 }

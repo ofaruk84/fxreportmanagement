@@ -14,13 +14,13 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Faruk /fxreportmanagement/Login/LoginFxml.fxml
+ * @author Faruk /fxreportmanagement/Login/LoginFxml.fxml  /fxreportmanagement/HomePage/HomePageFxml.fxml
  */
 public class FxReportManagement extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxreportmanagement/HomePage/HomePageFxml.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxreportmanagement/Login/LoginFxml.fxml"));
         
         Scene scene = new Scene(root);
         
