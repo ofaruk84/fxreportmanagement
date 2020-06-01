@@ -15,21 +15,19 @@ public class REquipmentTab {
 
     private SimpleStringProperty equipment;
     private SimpleStringProperty usedDevice;
-//    private SimpleStringProperty ri12;
-//    private SimpleStringProperty se75;
-//    private SimpleStringProperty xRay;
-
-    private SimpleStringProperty deviceEnergy;
+    private SimpleStringProperty ir192;
+    private SimpleStringProperty se75;
+    private SimpleStringProperty xRay;
+    private SimpleStringProperty focalSpotSize;
     private SimpleStringProperty pbScenes;
     private SimpleStringProperty exposureTime;
     private SimpleStringProperty filmFocusDistance;
     private SimpleStringProperty filters;
     private SimpleStringProperty heatTreatment;
     private SimpleStringProperty filmBrand;
-    private SimpleStringProperty filmType;
-//    private SimpleStringProperty d4;
-//    private SimpleStringProperty d5;
-//    private SimpleStringProperty d7;
+    private SimpleStringProperty d4;
+    private SimpleStringProperty d5;
+    private SimpleStringProperty d7;
     private SimpleStringProperty en;
     private SimpleStringProperty astm;
     private SimpleStringProperty sourceSide;
@@ -46,27 +44,26 @@ public class REquipmentTab {
     private SimpleStringProperty suitibleFilm;
     private SimpleStringProperty repairFilm;
 
-    public REquipmentTab(String equipment, String usedDevice, /*String ri12, String se75, String xRay*/ String deviceEnergy, String pbScenes, String exposureTime, String filmFocusDistance,
-            String filters, String heatTreatment, String filmBrand, /*String d4, String d5, String d7*/ String filmType, String en, String astm, String sourceSide,
+    public REquipmentTab(String equipment, String usedDevice, String ir192, String se75, String xRay ,String focalSpotSize, String pbScenes, String exposureTime, String filmFocusDistance,
+            String filters, String heatTreatment, String filmBrand, String d4, String d5 , String d7,String en, String astm, String sourceSide,
             String filmSide, String automatic, String manual, String temperature, String x12, String x16, String x24, String x36,
             String x48, String x40, String suitibleFilm, String repairFilm) {
 
         this.equipment = new SimpleStringProperty(equipment);
         this.usedDevice = new SimpleStringProperty(usedDevice);
-        this.deviceEnergy = new SimpleStringProperty(deviceEnergy);
-//        this.ri12 = new SimpleStringProperty(ri12);
-//        this.se75 = new SimpleStringProperty(se75);
-//        this.xRay = new SimpleStringProperty(xRay);
+        this.filmFocusDistance = new SimpleStringProperty(focalSpotSize);
+        this.ir192 = new SimpleStringProperty(ir192);
+        this.se75 = new SimpleStringProperty(se75);
+        this.xRay = new SimpleStringProperty(xRay);
         this.pbScenes = new SimpleStringProperty(pbScenes);
         this.exposureTime = new SimpleStringProperty(exposureTime);
         this.filmFocusDistance = new SimpleStringProperty(filmFocusDistance);
         this.filters = new SimpleStringProperty(filters);
         this.heatTreatment = new SimpleStringProperty(heatTreatment);
         this.filmBrand = new SimpleStringProperty(filmBrand);
-        this.filmType = new SimpleStringProperty(filmType);
-//        this.d4 = new SimpleStringProperty(d4);
-//        this.d5 = new SimpleStringProperty(d5);
-//        this.d7 = new SimpleStringProperty(d7);
+        this.d4 = new SimpleStringProperty(d4);
+        this.d5 = new SimpleStringProperty(d5);
+        this.d7 = new SimpleStringProperty(d7);
         this.en = new SimpleStringProperty(en);
         this.astm = new SimpleStringProperty(astm);
         this.sourceSide = new SimpleStringProperty(sourceSide);
@@ -92,21 +89,24 @@ public class REquipmentTab {
     public String getUsedDevice() {
         return usedDevice.getValue();
     }
-    public String getDeviceEnergy() {
-        return deviceEnergy.getValue();
+
+    public String getIr192() {
+        return ir192.getValue();
     }
-//    public String getRi12() {
-//        return ri12.getValue();
-//    }
-//
-//    public String getSe75() {
-//        return se75.getValue();
-//    }
-//
-//    public String getxRay() {
-//        return xRay.getValue();
-//    }
+
+    public String getSe75() {
+        return se75.getValue();
+    }
+
+    public String getxRay() {
+        return xRay.getValue();
+    }
+
     public String getPbScenes() {
+        return pbScenes.getValue();
+    }
+
+    public String getFocalSpotSize() {
         return pbScenes.getValue();
     }
 
@@ -130,21 +130,17 @@ public class REquipmentTab {
         return filmBrand.getValue();
     }
 
-    public String getFilmType() {
-        return filmType.getValue();
+    public String getD4() {
+        return d4.getValue();
     }
-//
-//    public String getD4() {
-//        return d4.getValue();
-//    }
-//
-//    public String getD5() {
-//        return d5.getValue();
-//    }
-//
-//    public String getD7() {
-//        return d7.getValue();
-//    }
+
+    public String getD5() {
+        return d5.getValue();
+    }
+
+    public String getD7() {
+        return d7.getValue();
+    }
 
     public String getEn() {
         return en.getValue();

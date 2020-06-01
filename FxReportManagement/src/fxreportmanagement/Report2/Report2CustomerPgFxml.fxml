@@ -70,7 +70,11 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cmbCustomer" layoutX="144.0" layoutY="33.0" onAction="#handleCmbCustomer" prefHeight="25.0" prefWidth="224.0" styleClass="sideButtons" stylesheets="@../css/Style.css" />
+      <ComboBox fx:id="cmbCustomer" layoutX="144.0" layoutY="33.0" onAction="#handleCmbCustomer" prefHeight="25.0" prefWidth="224.0" stylesheets="@../css/Style.css">
+         <styleClass>
+            <String fx:value="sideButtons" />
+            <String fx:value="combo-box" />
+         </styleClass></ComboBox>
       <Label layoutX="384.0" layoutY="95.0" prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Stage Of Examination" textFill="#fffdfd" />
       <ComboBox fx:id="cmbStageOfExamination" layoutX="511.0" layoutY="97.0" prefHeight="25.0" prefWidth="224.0" styleClass="sideButtons" stylesheets="@../css/Style.css" />
       <Label layoutX="384.0" layoutY="148.0" prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Page " textFill="#fffdfd">

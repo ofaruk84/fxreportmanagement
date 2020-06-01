@@ -7,6 +7,7 @@ package fxreportmanagement.Report2;
 
 import com.jfoenix.controls.JFXButton;
 import fxreportmanagement.HelperClasses.ExcelExporter;
+import fxreportmanagement.HelperClasses.ExcelExporterAsposeReport2;
 import fxreportmanagement.Report2.Entitates.InspectionResults;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -85,12 +86,12 @@ public class Report2InspectionResultsPgFxmlController implements Initializable {
     private Label lblResult;
     @FXML
     private Button btnSubmit;
-     int i = 25;
+    int i = 25;
 
     private static ObservableList<InspectionResults> data;
     @FXML
     private JFXButton btnSave;
-    
+
     private static Vector<InspectionResults> inspectionResultses = new Vector<InspectionResults>();
 
     /**
@@ -109,9 +110,29 @@ public class Report2InspectionResultsPgFxmlController implements Initializable {
 
     }
 
+    //Inspection Results Submit Button
+    @FXML
+    private void handleBtnSubmit(ActionEvent event) {
+
+        inspectionResultses.add(getInspectionResults());
+        populateTable();
+
+    }
+
+    //Inspection Results Page 2 Save Button
+    @FXML
+    private void handleBtnSave(ActionEvent event) {
+
+//        ExcelExporter.setInspectionResults(inspectionResultses);
+//        ExcelExporter.exportGUI();
+
+          ExcelExporterAsposeReport2.setInspectionResults(inspectionResultses);
+          ExcelExporterAsposeReport2.exportGUI();
+
+    }
+
+    //Populate Table
     private void populateTable() {
-
-
 
         InspectionResults ir = getInspectionResults();
 
@@ -132,17 +153,7 @@ public class Report2InspectionResultsPgFxmlController implements Initializable {
 
     }
 
-    @FXML
-    private void handleBtnSubmit(ActionEvent event) {
-
-        
-
-        inspectionResultses.add(getInspectionResults());
-        populateTable();
-        
-
-    }
-
+    //Get Inspection Results From GUI
     private InspectionResults getInspectionResults() {
 
         String weldNo = txtWeldNo.getText();
@@ -158,20 +169,9 @@ public class Report2InspectionResultsPgFxmlController implements Initializable {
 
     }
 
-    @FXML
-    private void handleBtnSave(ActionEvent event) {
-        
-        System.out.println(inspectionResultses.get(0).getDefectLoc());
-        ExcelExporter.setInspectionResults(inspectionResultses);
-        
-        ExcelExporter.exportGUI();
-        
-        
-    }
-    
-    
-    private void fill(){
-       
+    //Fill Junk Values
+    private void fill() {
+
         txtDefectLoc.setText("Value");
         txtDefectType.setText("Value");
         txtDiameter.setText("Value");
@@ -180,30 +180,6 @@ public class Report2InspectionResultsPgFxmlController implements Initializable {
         txtWeldNo.setText("Value");
         txtThickness.setText(Integer.toString(i++));
         txtWeldingProcess.setText("Value");
-        
+
     }
-
-    public void populateTableDeneme(InspectionResults ir) {
-//        
-//         data.add(ir);
-//         
-//    
-//        tcId.setCellValueFactory(new PropertyValueFactory<InspectionResults,String>("id"));
-//        tcId.setCellValueFactory(new PropertyValueFactory<InspectionResults,String>("weldNo"));        
-//        tcId.setCellValueFactory(new PropertyValueFactory<InspectionResults,String>("testLength"));
-//        tcId.setCellValueFactory(new PropertyValueFactory<InspectionResults,String>("weldingProcess"));
-//        tcId.setCellValueFactory(new PropertyValueFactory<InspectionResults,String>("thickness"));
-//        tcId.setCellValueFactory(new PropertyValueFactory<InspectionResults,String>("diameter"));
-//        tcId.setCellValueFactory(new PropertyValueFactory<InspectionResults,String>("defectType"));
-//        tcId.setCellValueFactory(new PropertyValueFactory<InspectionResults,String>("defectLoc"));
-//        tcId.setCellValueFactory(new PropertyValueFactory<InspectionResults,String>("result"));
-//        
-//        
-//        
-//        //assign
-//        tbvInspectionResults.setItems(data);
-//        
-//        
-    }//Old
-
 }

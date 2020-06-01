@@ -8,6 +8,8 @@ package fxreportmanagement.Report1;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
+import fxreportmanagement.DatabaseOperations.DatabaseEntitates.REquipment;
+import fxreportmanagement.HelperClasses.ExcelExporterAsposeReport1;
 import fxreportmanagement.Report1.Entitates.REquipmentTab;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +17,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToggleGroup;
 
 /**
  * FXML Controller class
@@ -27,7 +30,6 @@ public class REquipmentController implements Initializable {
     private Label lblEquipment;
     @FXML
     private JFXTextField txtUsedDevice;
-    @FXML
     private JFXRadioButton rbRi192;
     @FXML
     private JFXRadioButton rbXRay;
@@ -84,37 +86,81 @@ public class REquipmentController implements Initializable {
     @FXML
     private JFXTextField txtX36;
 
+    private static REquipmentController instance; // Create Instance
+    @FXML
+    private JFXTextField txtFocalSpotsize;
+    @FXML
+    private JFXRadioButton rbIr192;
+    @FXML
+    private ToggleGroup deviceEnergy;
+    @FXML
+    private ToggleGroup IQITech1;
+    @FXML
+    private ToggleGroup filmProcessingTech;
+    @FXML
+    private ToggleGroup filmType;
+    @FXML
+    private ToggleGroup IQITech;
+
+    //Constructor
+    public REquipmentController() {
+
+        instance = this;
+    }
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        fill();
+
     }
 
+    //Get Instance
+    public static REquipmentController getInstance() {
+        return instance;
+    }
+
+    //Equipment Page Submit Button
     @FXML
     private void handleBtnSubmitAction(ActionEvent event) {
+
+        ExcelExporterAsposeReport1.setEquipment(getRequipment());
+        System.out.println("R1 Equipment Setted");
     }
 
+    //Get Equipment Informations From GUI
     private REquipmentTab getRequipment() {
 
         String equipment = lblEquipment.getText();
         String usedDevice = txtUsedDevice.getText();
-        String deviceEnergy = getDeviceEnergy();
+        String ir192 = getIr192();
+        String se75 = getSe75();
+        String xRay = getXray();
+        String focalSpotSize = txtFocalSpotsize.getText();
+
         String pbScenes = txtPbScenes.getText();
         String exposureTime = txtExposureTime.getText();
         String filmFocusDistance = txtFilmFocusDistance.getText();
         String filters = txtFilters.getText();
         String heatTreatment = txtHeatTreatment.getText();
         String filmBrand = txtFilmBrand.getText();
-        String filmType = getFilmType();
-        String en = getIQIType();
-        String astm = getIQIType();
-        String sourceSide = getIQIType();
-        String filmSide = getIQIType();
-        String automatic = getFilmProcessType();
-        String manual = getFilmProcessType();
-        String temperature = getFilmProcessType();
+
+        String d4 = getD4();
+        String d5 = getD5();
+        String d7 = getD7();
+
+        String en = getEn();
+        String astm = getAstm();
+        String sourceSide = getSourceSide();
+        String filmSide = getFilmSide();
+
+        String automatic = getAutomatic();
+        String manual = getManuel();
+        String temperature = lblTemperature.getText();
+
         String x12 = txtX12.getText();
         String x16 = txtX16.getText();
         String x24 = txtX24.getText();
@@ -123,84 +169,169 @@ public class REquipmentController implements Initializable {
         String x40 = txtX40.getText();
         String suitibleFilm = txtSuitibleFilm.getText();
         String repairFilm = txtRepairFilm.getText();
+
+        return new REquipmentTab(equipment, usedDevice, ir192, se75, xRay, focalSpotSize,
+                pbScenes, exposureTime, filmFocusDistance, filters, heatTreatment, filmBrand,
+                d4, d5, d7, en, astm, sourceSide, filmSide, automatic, manual, temperature,
+                x12, x16, x24, x36, x48, x40, suitibleFilm, repairFilm);
+
+    }
+
+    //Set Equipment Type/Name (From Home Page)
+    public void setEquipmentType(String value) {
+
+        lblEquipment.setText(value);
+
+    }
+
+    //Set Equipment(From Home Page)
+    public void setEquipment(REquipment equipment) {
+
+        txtUsedDevice.setText(equipment.getUsedDevice());
+        txtFocalSpotsize.setText(equipment.getFocalSpotSize());
+        txtExposureTime.setText(equipment.getExposureTime());
+        txtFilmFocusDistance.setText(equipment.getFilmFocusDistance());
+        txtPbScenes.setText(equipment.getPbScenes());
+
+    }
+
+    private void fill() {
+
+        lblTemperature.setText("val");
+        txtHeatTreatment.setText("val");
+        txtFilters.setText("filters");
+        txtX12.setText("12");
+        txtX16.setText("12");
+        txtX24.setText("12");
+        txtX36.setText("12");
+        txtX48.setText("12");
+        txtX40.setText("12");
+        txtSuitibleFilm.setText("Value");
+        txtRepairFilm.setText("value");
+        txtFilmBrand.setText("Kodak");
         
-        return new REquipmentTab(equipment, usedDevice, deviceEnergy, pbScenes, 
-                exposureTime, filmFocusDistance, filters, heatTreatment, filmBrand, filmType, en, astm,
-                sourceSide, filmSide, automatic, manual, temperature, x12, x16, x24, x36, x48, x40, suitibleFilm, repairFilm);
 
     }
-    
-    
 
-    private String getDeviceEnergy() {
+    private String getIr192() {
 
-        String result = null;
+        String res = "0";
 
-        if (rbRi192.isSelected()) {
-            result = "0";
+        if (rbIr192.isSelected()) {
+            res = "1";
         }
+        return res;
+    }
+
+    private String getSe75() {
+
+        String res = "0";
+
         if (rbSe75.isSelected()) {
-            result = "1";
+            res = "1";
         }
+        return res;
+    }
+
+    private String getXray() {
+
+        String res = "0";
+
         if (rbXRay.isSelected()) {
-            result = "2";
+            res = "1";
         }
-
-        return result;
+        return res;
     }
 
-    private String getFilmType() {
+    private String getEn() {
 
-        String result = null;
-
-        if (rbD4.isSelected()) {
-            result = "0";
-        }
-        if (rbD5.isSelected()) {
-            result = "1";
-        }
-        if (rbD7.isSelected()) {
-            result = "2";
-        }
-
-        return result;
-
-    }
-
-    private String getIQIType() {
-
-        String result = null;
+        String res = "0";
 
         if (rbEn.isSelected()) {
-            result = "0";
+            res = "1";
         }
-        if (rbAstm.isSelected()) {
-            result = "1";
-        }
-        if (rbSourceSide.isSelected()) {
-            result = "2";
-        }
-        if (rbFilmSide.isSelected()) {
-            result = "3";
-        }
-
-        return result;
-
+        return res;
     }
 
-    private String getFilmProcessType() {
+    private String getAstm() {
 
-        String result = null;
+        String res = "0";
 
-        if (rbAutomatic.isSelected()) {
-            result = "0";
+        if (rbAstm.isSelected()) {
+            res = "1";
         }
-        if (rbManual.isSelected()) {
-            result = "1";
+        return res;
+    }
+
+    private String getD4() {
+
+        String res = "0";
+
+        if (rbD4.isSelected()) {
+            res = "1";
         }
+        return res;
+    }
 
-        return result;
+    private String getD5() {
+        
+        String res = "0";
+        
+        if(rbD5.isSelected()){
+            res = "1";
+        }
+        return res;
+    }
 
+    private String getD7() {
+
+
+        String res = "0";
+        
+        if(rbD7.isSelected()){
+            res = "1";
+        }
+        return res;        
+    }
+
+    private String getSourceSide() {
+        
+        String res = "0";
+        
+        if(rbSourceSide.isSelected()){
+            res = "1";
+        }
+        return res;
+    }
+
+    private String getFilmSide() {
+        
+        String res = "0";
+        
+        if(rbFilmSide.isSelected()){
+            res = "1";
+        }
+        return res;
+    }
+
+    private String getAutomatic() {
+              
+        String res = "0";
+        
+        if(rbAutomatic.isSelected()){
+            res = "1";
+        }
+        return res;
+    }
+
+    private String getManuel() {
+        
+        String res = "0";
+        
+        if(rbManual.isSelected()){
+            res = "1";
+        }
+        return res;
     }
 
 }

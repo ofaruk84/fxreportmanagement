@@ -40,7 +40,19 @@
 .tab-pane .tab-header-area .tab-header-background {
     -fx-background-color: #485460;
 }
+/*
+.sideButtons .list-cell:selected:empty .text{
+    
+    -fx-fill: white;
+}*/
 
+.combo-box .cell{
+    -fx-text-fill: white;
+    -fx-text-alignment : center;
+    
+}
 
-
-
+.label.text-field{
+    -fx-text-fill: white;
+    -fx-text-alignment : center;
+}

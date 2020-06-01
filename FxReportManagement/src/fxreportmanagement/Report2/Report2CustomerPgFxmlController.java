@@ -8,6 +8,8 @@ package fxreportmanagement.Report2;
 import fxreportmanagement.DatabaseOperations.DatabaseAccess.CustomerDal;
 import fxreportmanagement.DatabaseOperations.DatabaseEntitates.Customer;
 import fxreportmanagement.HelperClasses.ExcelExporter;
+import fxreportmanagement.HelperClasses.ExcelExporterAsposeReport1;
+import fxreportmanagement.HelperClasses.ExcelExporterAsposeReport2;
 import fxreportmanagement.Report2.Entitates.CustomerTab;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -63,7 +65,7 @@ public class Report2CustomerPgFxmlController implements Initializable {
     private TextField txtInspectionStandart;
 
     private ObservableList<String> oblist;
-    private final ObservableList<String> oblistCmb = FXCollections.observableArrayList("Values");
+    private final ObservableList<String> oblistCmb = FXCollections.observableArrayList("Values");//Temp Values
     ;
     private Customer customer;
     private CustomerDal customerDal;
@@ -83,24 +85,14 @@ public class Report2CustomerPgFxmlController implements Initializable {
 
     }
 
+    //Customer Submit Button
     @FXML
     private void handleBtnCustomer(ActionEvent event) {
-  
-//        System.out.println(getCustomer());
-//        
-//        ExcelExporter.exportCustomer(getCustomer());
 
-        ExcelExporter.setCustomerTab(getCustomer());
-//        ExcelExporter.exportCustomer();
-        
-    }
-
-    @FXML
-    private void handleCmbCustomer(ActionEvent event) {
-
-        String value = (String) cmbCustomer.getValue();
-        customer = customerDal.getCustomerCity(value);
-        lblInspectionPlace.setText(customer.getCustomerCity());
+//        ExcelExporter.setCustomerTab(getCustomer());
+          ExcelExporterAsposeReport2.setCustomer(getCustomer());
+          ExcelExporterAsposeReport1.setCustomer(getCustomer());
+          System.out.println("R2 Customer Setted");
 
     }
 
@@ -123,7 +115,7 @@ public class Report2CustomerPgFxmlController implements Initializable {
         String jobOrderNo = (String) (cmbJobOrderNo.getValue());
         String offerNo = (String) (cmbOfferNo.getValue());
 
-        return new CustomerTab(customer, projectName, inspectionPlace,inspectionStandart,evaluationStandart, inspectionProcedure,inspectionScope ,drawingNo, surfaceCondition, stageOfExamination, page, reportNo, reportDate, jobOrderNo, offerNo);
+        return new CustomerTab(customer, projectName, inspectionPlace, inspectionStandart, evaluationStandart, inspectionProcedure, inspectionScope, drawingNo, surfaceCondition, stageOfExamination, page, reportNo, reportDate, jobOrderNo, offerNo);
 
     }
 
@@ -132,6 +124,17 @@ public class Report2CustomerPgFxmlController implements Initializable {
 
         oblist = customerDal.getCustomerName();
         cmbCustomer.setItems(oblist);
+        cmbCustomer.getSelectionModel().selectFirst();
+
+    }
+
+    //Get Customer City from Customer Combobox 
+    @FXML
+    private void handleCmbCustomer(ActionEvent event) {
+
+        String value = (String) cmbCustomer.getValue();
+        customer = customerDal.getCustomerCity(value);
+        lblInspectionPlace.setText(customer.getCustomerCity());
 
     }
 
@@ -146,10 +149,19 @@ public class Report2CustomerPgFxmlController implements Initializable {
         txtPage.setText("1");
 
         cmbProjectName.setItems(oblistCmb);
+        cmbProjectName.getSelectionModel().selectFirst();
+        
         cmbSurfaceCondition.setItems(oblistCmb);
+        cmbSurfaceCondition.getSelectionModel().selectFirst();
+        
         cmbStageOfExamination.setItems(oblistCmb);
+        cmbStageOfExamination.getSelectionModel().selectFirst();
+        
         cmbJobOrderNo.setItems(oblistCmb);
+        cmbJobOrderNo.getSelectionModel().selectFirst();
+        
         cmbOfferNo.setItems(oblistCmb);
+        cmbOfferNo.getSelectionModel().selectFirst();
 
         lblInspectionPlace.setText("Value");
         lblReportDate.setText("Value");

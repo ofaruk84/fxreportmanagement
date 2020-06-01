@@ -5,6 +5,7 @@
  */
 package fxreportmanagement.Report1;
 
+import fxreportmanagement.HelperClasses.ExcelExporterAsposeReport1;
 import fxreportmanagement.Report1.Entitates.RInspectionResults;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -135,6 +136,11 @@ public class RInspectionResultsController implements Initializable {
 
     @FXML
     private void handleBtnSaveAction(ActionEvent event) {
+        
+        ExcelExporterAsposeReport1.setInspectionResults(vector);
+        System.out.println("R1 IR Setted");
+        ExcelExporterAsposeReport1.exportGUI();
+        
     }
 
     @FXML

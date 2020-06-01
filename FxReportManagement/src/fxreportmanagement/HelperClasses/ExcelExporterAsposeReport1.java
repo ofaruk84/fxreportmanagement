@@ -24,7 +24,10 @@ import com.aspose.cells.Range;
 import com.aspose.cells.Style;
 import com.aspose.cells.StyleFlag;
 import com.aspose.cells.TextAlignmentType;
+import fxreportmanagement.Report1.Entitates.REquipmentTab;
 import fxreportmanagement.Report1.Entitates.RInspectionResults;
+import fxreportmanagement.Report1.Entitates.RTestArrangements;
+import fxreportmanagement.Report2.Entitates.CustomerTab;
 import java.util.Vector;
 
 /**
@@ -42,6 +45,12 @@ public class ExcelExporterAsposeReport1 {
     private static Cell cell;
 
     private static Color color = Color.fromArgb(255, 209, 209);
+
+    private static CustomerTab customer;
+
+    private static REquipmentTab equipment;
+
+    private static RTestArrangements testArrangements;
 
     private static Vector<RInspectionResults> inspectionResultses;
 
@@ -62,7 +71,27 @@ public class ExcelExporterAsposeReport1 {
         exportInspectionResults();
         exportLastSection();
         try {
-            workbook.save("Report1.xls");
+            workbook.save("Report1.0.1.xlsx");
+            System.out.println("Docoment Report1.0.1.xlsx craeted ");
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+    }
+
+    public static void exportGUI() {
+
+        exportHead();
+        exportCustomer();
+        exportEquipment();
+        exportShootingInformations();
+        exportTestArrangements();
+        exportDefecType();
+        exportInspectionResults();
+        exportLastSection();
+        try {
+            workbook.save("Report1.2.xls");
+            System.out.println("Docoment Report1.2.xlsx craeted ");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
@@ -105,37 +134,35 @@ public class ExcelExporterAsposeReport1 {
         cells.setRowHeight(row, 35);
 
     }
-    
+
     private static void exportCustomer() {
 
         //---------------------Row 3-----------------------------------------//        
         row = 2;
 
-        createCustomerRow(row, "Customer", "", "Inspection Precedure", "", "Page", "");
-
+        createCustomerRow(row, "Customer", customer.getCustomer(), "Inspection Procedure", customer.getInspectionPlace(), "Page", customer.getPage());
         //---------------------Row 4-----------------------------------------//        
         row = 3;
 
-        createCustomerRow(row, "Project Name", "", "Inspection Scope", "", "Report No", "");
+        createCustomerRow(row, "Project Name", customer.getProjectNanme(), "Inspection Scope", customer.getInspectionScope(), "Report No", customer.getReportNo());
 
         //---------------------Row 5-----------------------------------------//        
         row = 4;
 
-        createCustomerRow(row, "Inspection Place", "", "Drawing No", "", "Report Date", "");
+        createCustomerRow(row, "Inspection Place", customer.getInspectionPlace(), "Drawing No", customer.getDrawingNo(), "Report Date", customer.getReportDate());
 
         //---------------------Row 6-----------------------------------------//        
         row = 5;
 
-        createCustomerRow(row, "Inspection Standart", "", "Surface Condition", "", "Job Order No", "");
+        createCustomerRow(row, "Inspection Standart", customer.getInspectionStandart(), "Surface Condition", customer.getSurfaceCondition(), "Job Order No", customer.getJobOrderNo());
 
         //---------------------Row 7-----------------------------------------//        
         row = 6;
 
-        createCustomerRow(row, "Evaluation Standart / Accep.Level", "", "Stage Of Examination", "", "Offer No", "");
+        createCustomerRow(row, "Evaluation Standart", customer.getEvaluationStandart(), "Stage Of Examination", customer.getStageOfExamination(), "Offer No", customer.getOfferNo());
 
     }
 
-    
     private static void exportEquipment() {
 
         setWidthHeight();
@@ -230,24 +257,45 @@ public class ExcelExporterAsposeReport1 {
         //C9-10
         col = 8;
         cells.get(row, col).setValue("Ir-192");
+        setTopLeft(cells.get(row, col));//Set Top Left
+
+        if (equipment.getIr192().equals("1")) {
+            setCheckBoxWithValue(row, 9, 20, 20, equipment.getIr192());//Set Checkbox
+        } else {
+            setCheckBox(row, 9, 20, 20);
+        }
+
         setColor2(cells.get(row, col));//SET COLOR
-        setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 2, 2);//Set Border
         cells.merge(row, col, 2, 2);
 
         //C11-12
         col = 10;
         cells.get(row, col).setValue("Se-75");
+        setTopLeft(cells.get(row, col));//Set Top Left
+
+        if (equipment.getSe75().equals("1")) {
+            setCheckBoxWithValue(row, 11, 20, 20, equipment.getSe75());//Set Checkbox
+        } else {
+            setCheckBox(row, 11, 20, 20);
+        }
+
         setColor2(cells.get(row, col));//SET COLOR
-        setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 2, 2);//Set Border
         cells.merge(row, col, 2, 2);
 
         //C13-14-15
         col = 12;
         cells.get(row, col).setValue("X-Ray");
+        setTopLeft(cells.get(row, col));//Set Top Left
+
+        if (equipment.getxRay().equals("1")) {
+            setCheckBoxWithValue(row, 14, 20, 20, equipment.getxRay());//Set Checkbox
+        } else {
+            setCheckBox(row, 14, 20, 20);
+        }
+
         setColor2(cells.get(row, col));//SET COLOR
-        setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 3);//Set Border
         cells.merge(row, col, 1, 3);
 
@@ -276,7 +324,7 @@ public class ExcelExporterAsposeReport1 {
         //C1-2
         col = 0;
 
-        cells.get(row, col).setValue("Equipment");
+        cells.get(row, col).setValue(equipment.getEquipment());
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 2);//Set Border
         cells.merge(row, col, 1, 2);
@@ -284,7 +332,7 @@ public class ExcelExporterAsposeReport1 {
         //C3-4-5-6-7-8
         col = 2;
 
-        cells.get(row, col).setValue("Used Device");
+        cells.get(row, col).setValue(equipment.getUsedDevice());
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 6);//Set Border
         cells.merge(row, col, 1, 6);
@@ -324,7 +372,7 @@ public class ExcelExporterAsposeReport1 {
         //C16-17-18
         col = 15;
 
-        cells.get(row, col).setValue("Focal Shoot Size");
+        cells.get(row, col).setValue(equipment.getFocalSpotSize());
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 3);//Set Border
         cells.merge(row, col, 1, 3);
@@ -332,14 +380,14 @@ public class ExcelExporterAsposeReport1 {
         //C19-20
         col = 18;
 
-        cells.get(row, col).setValue("Exposure Time");
+        cells.get(row, col).setValue(equipment.getExposureTime());
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 2);//Set Border
         cells.merge(row, col, 1, 2);
         //C21-22-23
         col = 20;
 
-        cells.get(row, col).setValue("Film Focus Distance");
+        cells.get(row, col).setValue(equipment.getFilmFocusDistance());
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 3);//Set Border
         cells.merge(row, col, 1, 3);
@@ -347,7 +395,7 @@ public class ExcelExporterAsposeReport1 {
         //C24-25-26
         col = 23;
 
-        cells.get(row, col).setValue("Pb Scenes");
+        cells.get(row, col).setValue(equipment.getPbScenes());
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 3);//Set Border
         cells.merge(row, col, 1, 3);
@@ -355,7 +403,7 @@ public class ExcelExporterAsposeReport1 {
         //C27-28
         col = 26;
 
-        cells.get(row, col).setValue("Filters");
+        cells.get(row, col).setValue(equipment.getFilters());
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 2);//Set Border
         cells.merge(row, col, 1, 2);
@@ -470,7 +518,7 @@ public class ExcelExporterAsposeReport1 {
         //C1-2
         col = 0;
 
-        cells.get(row, col).setValue("-");
+        cells.get(row, col).setValue(equipment.getHeatTreatment());
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 3, 2);//Set Border
         cells.merge(row, col, 3, 2);
@@ -544,7 +592,7 @@ public class ExcelExporterAsposeReport1 {
         //C8-9
         col = 7;
 
-        cells.get(row, col).setValue(" ");
+        cells.get(row, col).setValue(equipment.getFilmBrand());//filmbrand
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 2);//Set Border
         cells.merge(row, col, 1, 2);
@@ -552,7 +600,14 @@ public class ExcelExporterAsposeReport1 {
         //C10-11-12
         col = 9;
 
-        cells.get(row, col).setValue(" ");
+        cells.get(row, col).setValue(" ");//D4
+
+        if (equipment.getD4().equals("1")) {
+            setCheckBoxWithValue(row, 10, 20, 20, equipment.getD4());//Set Checkbox
+        } else {
+            setCheckBox(row, 10, 20, 20);
+        }
+
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 3);//Set Border
         cells.merge(row, col, 1, 3);
@@ -560,14 +615,28 @@ public class ExcelExporterAsposeReport1 {
         //C13-14
         col = 12;
 
-        cells.get(row, col).setValue(" ");
+        cells.get(row, col).setValue(" ");//d5
+
+        if (equipment.getD5().equals("1")) {
+            setCheckBoxWithValue(row, 13, 20, 20, equipment.getD5());//Set Checkbox
+        } else {
+            setCheckBox(row, 13, 20, 20);
+        }
+
         setBorder(row, col, 1, 2);//Set Border
         cells.merge(row, col, 1, 2);
 
         //C15-16-17
         col = 14;
 
-        cells.get(row, col).setValue(" ");
+        cells.get(row, col).setValue(" ");//d7
+
+        if (equipment.getD7().equals("1")) {
+            setCheckBoxWithValue(row, 15, 20, 20, equipment.getD7());//Set Checkboxes
+        } else {
+            setCheckBox(row, 15, 20, 20);
+        }
+
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 3);//Set Border
         cells.merge(row, col, 1, 3);
@@ -575,7 +644,14 @@ public class ExcelExporterAsposeReport1 {
         //C18-19
         col = 17;
 
-        cells.get(row, col).setValue(" ");
+        cells.get(row, col).setValue(" ");//sourceside
+
+        if (equipment.getSourceSide().equals("1")) {
+            setCheckBoxWithValue(row, 18, 20, 20, equipment.getSourceSide());//Set Checkboxes
+        } else {
+            setCheckBox(row, 18, 20, 20);
+        }
+
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 2);//Set Border
         cells.merge(row, col, 1, 2);
@@ -583,7 +659,14 @@ public class ExcelExporterAsposeReport1 {
         //C20-21
         col = 19;
 
-        cells.get(row, col).setValue("");
+        cells.get(row, col).setValue("");//filmside
+
+        if (equipment.getFilmSide().equals("1")) {
+            setCheckBoxWithValue(row, 20, 20, 20, equipment.getFilmSide());//Set Checkboxes
+        } else {
+            setCheckBox(row, 20, 20, 20);
+        }
+
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 2);//Set Border
         cells.merge(row, col, 1, 2);
@@ -591,7 +674,14 @@ public class ExcelExporterAsposeReport1 {
         //C22-23
         col = 21;
 
-        cells.get(row, col).setValue(" ");
+        cells.get(row, col).setValue(" ");//auto
+
+        if (equipment.getAutomatic().equals("1")) {
+            setCheckBoxWithValue(row, 22, 20, 20, equipment.getAutomatic());//Set Checkboxes
+        } else {
+            setCheckBox(row, 22, 20, 20);
+        }
+
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 2);//Set Border
         cells.merge(row, col, 1, 2);
@@ -599,7 +689,14 @@ public class ExcelExporterAsposeReport1 {
         //C24-25
         col = 23;
 
-        cells.get(row, col).setValue("");
+        cells.get(row, col).setValue("");//manuel
+
+        if (equipment.getManual().equals("1")) {
+            setCheckBoxWithValue(row, 24, 20, 20, equipment.getManual());//Set Checkboxes
+        } else {
+            setCheckBox(row, 24, 20, 20);
+        }
+
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 2);//Set Border
         cells.merge(row, col, 1, 2);
@@ -607,7 +704,7 @@ public class ExcelExporterAsposeReport1 {
         //C26-27-28
         col = 25;
 
-        cells.get(row, col).setValue("");
+        cells.get(row, col).setValue(equipment.getTemperature());//temp
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 3);//Set Border
         cells.merge(row, col, 1, 3);
@@ -728,7 +825,7 @@ public class ExcelExporterAsposeReport1 {
         //C3-4-5-6-7
         col = 2;
 
-        cells.get(row, col).setValue(" ");
+        cells.get(row, col).setValue(equipment.getX12());
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 5);//Set Border
         cells.merge(row, col, 1, 5);
@@ -736,7 +833,7 @@ public class ExcelExporterAsposeReport1 {
         //C8-9
         col = 7;
 
-        cells.get(row, col).setValue(" ");
+        cells.get(row, col).setValue(equipment.getX16());
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 2);//Set Border
         cells.merge(row, col, 1, 2);
@@ -744,7 +841,7 @@ public class ExcelExporterAsposeReport1 {
         //C10-11-12
         col = 9;
 
-        cells.get(row, col).setValue(" ");
+        cells.get(row, col).setValue(equipment.getX24());
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 3);//Set Border
         cells.merge(row, col, 1, 3);
@@ -752,7 +849,7 @@ public class ExcelExporterAsposeReport1 {
         //13-14-15
         col = 12;
 
-        cells.get(row, col).setValue(" ");
+        cells.get(row, col).setValue(equipment.getX36());
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 3);//Set Border
         cells.merge(row, col, 1, 3);
@@ -760,7 +857,7 @@ public class ExcelExporterAsposeReport1 {
         //C16-17-18
         col = 15;
 
-        cells.get(row, col).setValue(" ");
+        cells.get(row, col).setValue(equipment.getX48());
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 3);//Set Border
         cells.merge(row, col, 1, 3);
@@ -768,7 +865,7 @@ public class ExcelExporterAsposeReport1 {
         //C19-20
         col = 18;
 
-        cells.get(row, col).setValue(" ");
+        cells.get(row, col).setValue(equipment.getX40());
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 2);//Set Border
         cells.merge(row, col, 1, 2);
@@ -776,7 +873,7 @@ public class ExcelExporterAsposeReport1 {
         //C21-22-23
         col = 20;
 
-        cells.get(row, col).setValue("");
+        cells.get(row, col).setValue(equipment.getSuitibleFilm());
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 3);//Set Border
         cells.merge(row, col, 1, 3);
@@ -784,7 +881,7 @@ public class ExcelExporterAsposeReport1 {
         //24-25-26-27-28
         col = 23;
 
-        cells.get(row, col).setValue("");
+        cells.get(row, col).setValue(equipment.getRepairFilm());
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 5);//Set Border
         cells.merge(row, col, 1, 5);
@@ -907,32 +1004,82 @@ public class ExcelExporterAsposeReport1 {
         //C2-3-4-5
         col = 1;
         cells.merge(row, col, 2, 4);
-        setCheckBox(row, 3, 20, 40);//Set Checkbox
+
+        if (testArrangements.getTa1().equals("1")) {
+
+            setCheckBoxWithValue(row, 3, 20, 40, testArrangements.getTa1());//Set Checkbox
+        } else {
+
+            setCheckBox(row, 3, 20, 40);
+        }
 
         //C6-7-8-9
         col = 5;
         cells.merge(row, col, 2, 4);
-        setCheckBox(row, 7, 20, 40);//Set Checkbox
+
+        if (testArrangements.getTa2().equals("1")) {
+
+            setCheckBoxWithValue(row, 7, 20, 40, testArrangements.getTa2());
+        } else {
+
+            setCheckBox(row, 7, 20, 40);
+        }
 
         //C10-11-12-13
         col = 9;
         cells.merge(row, col, 2, 4);
-        setCheckBox(row, 11, 20, 40);//Set Checkbox
+
+        if (testArrangements.getTa3().equals("1")) {
+
+            setCheckBoxWithValue(row, 11, 20, 40, testArrangements.getTa3());//Set Checkbox
+        } else {
+
+            setCheckBox(row, 11, 20, 40);
+        }
+
+      
 
         //C14-15-16-17-18
         col = 13;
         cells.merge(row, col, 2, 5);
-        setCheckBox(row, 15, 20, 40);//Set Checkbox
+
+        if (testArrangements.getTa4().equals("1")) {
+
+            setCheckBoxWithValue(row, 15, 20, 40, testArrangements.getTa4());//Set Checkbox
+        } else {
+
+            setCheckBox(row, 15, 20, 40);
+        }
+
+      
 
         //C19-20-21-22-23
         col = 18;
         cells.merge(row, col, 2, 5);
-        setCheckBox(row, 20, 20, 40);//Set Checkbox
+
+        if (testArrangements.getTa5().equals("1")) {
+
+            setCheckBoxWithValue(row, 20, 20, 40, testArrangements.getTa5());//Set Checkbox
+        } else {
+
+            setCheckBox(row, 20, 20, 40);
+        }
+
+        
 
         //C24-25-26-27-28
         col = 23;
         cells.merge(row, col, 2, 5);
-        setCheckBox(row, 25, 20, 40);//Set Checkbox
+
+        if (testArrangements.getTa6().equals("1")) {
+
+            setCheckBoxWithValue(row, 25, 20, 40, testArrangements.getTa6());//Set Checkbox
+        } else {
+
+            setCheckBox(row, 25, 20, 40);
+        }
+
+       
 
     }
 
@@ -1443,129 +1590,234 @@ public class ExcelExporterAsposeReport1 {
 
         cells.setRowHeight(row, 25);
 
-        //C1
-        col = 0;
+        if (verifyVector(inspectionResultses, index)) {
+            //C1
+            col = 0;
 
-        cells.get(row, col).setValue(index);
-        setBorder(row, col, 1, 1);//Set Border
+            cells.get(row, col).setValue(index);
+            setBorder(row, col, 1, 1);//Set Border
 
-        //C2-3-4-5-6
-        col = 1;
+            //C2-3-4-5-6
+            col = 1;
 
-        cells.get(row, col).setValue("");
-        setBorder(row, col, 1, 5);//Set Border
-        cells.merge(row, col, 1, 5);
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getShootingArea());
+            setBorder(row, col, 1, 5);//Set Border
+            cells.merge(row, col, 1, 5);
 
-        //C7-8
-        col = 6;
+            //C7-8
+            col = 6;
 
-        cells.get(row, col).setValue("");
-        setBorder(row, col, 1, 2);//Set Border
-        cells.merge(row, col, 1, 2);
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getFilmNo());
+            setBorder(row, col, 1, 2);//Set Border
+            cells.merge(row, col, 1, 2);
 
-        //C9
-        col = 8;
+            //C9
+            col = 8;
 
-        cells.get(row, col).setValue("");
-        setBorder(row, col, 1, 1);//Set Border
-        //C10
-        col = 9;
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getMaterialType());
+            setBorder(row, col, 1, 1);//Set Border
+            //C10
+            col = 9;
 
-        cells.get(row, col).setValue("");
-        setBorder(row, col, 1, 1);//Set Border
-        //C11
-        col = 10;
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getWeldingType());
+            setBorder(row, col, 1, 1);//Set Border
+            //C11
+            col = 10;
 
-        cells.get(row, col).setValue("");
-        setBorder(row, col, 1, 1);//Set Border
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getWelderNo());
+            setBorder(row, col, 1, 1);//Set Border
 
-        //C12
-        col = 11;
+            //C12
+            col = 11;
 
-        cells.get(row, col).setValue("");
-        setBorder(row, col, 1, 1);//Set Border
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getPosition());
+            setBorder(row, col, 1, 1);//Set Border
 
-        //C13
-        col = 12;
+            //C13
+            col = 12;
 
-        cells.get(row, col).setValue("");
-        setBorder(row, col, 1, 1);//Set Border
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getThickness());
+            setBorder(row, col, 1, 1);//Set Border
 
-        //C14
-        col = 13;
+            //C14
+            col = 13;
 
-        cells.get(row, col).setValue("");
-        setBorder(row, col, 1, 1);//Set Border
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getIQI());
+            setBorder(row, col, 1, 1);//Set Border
 
-        //C15
-        col = 14;
+            //C15
+            col = 14;
 
-        cells.get(row, col).setValue("");
-        setBorder(row, col, 1, 1);//Set Border
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getVisibleIQI());
+            setBorder(row, col, 1, 1);//Set Border
 
-        //C16
-        col = 15;
+            //C16
+            col = 15;
 
-        cells.get(row, col).setValue("");
-        setBorder(row, col, 1, 1);//Set Border
-        //C17
-        col = 16;
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getDensity());
+            setBorder(row, col, 1, 1);//Set Border
+            //C17
+            col = 16;
 
-        cells.get(row, col).setValue("");
-        setBorder(row, col, 1, 1);//Set Border
-        //C18
-        col = 17;
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getX12());
+            setBorder(row, col, 1, 1);//Set Border
+            //C18
+            col = 17;
 
-        cells.get(row, col).setValue("");
-        setBorder(row, col, 1, 1);//Set Border
-        //C19
-        col = 18;
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getX16());
+            setBorder(row, col, 1, 1);//Set Border
+            //C19
+            col = 18;
 
-        cells.get(row, col).setValue("");
-        setBorder(row, col, 1, 1);//Set Border
-        //C20
-        col = 19;
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getX24());
+            setBorder(row, col, 1, 1);//Set Border
+            //C20
+            col = 19;
 
-        cells.get(row, col).setValue("");
-        setBorder(row, col, 1, 1);//Set Border
-        //C21
-        col = 20;
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getX36());
+            setBorder(row, col, 1, 1);//Set Border
+            //C21
+            col = 20;
 
-        cells.get(row, col).setValue("");
-        setBorder(row, col, 1, 1);//Set Border
-        //C22
-        col = 21;
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getX48());
+            setBorder(row, col, 1, 1);//Set Border
+            //C22
+            col = 21;
 
-        cells.get(row, col).setValue("");
-        setBorder(row, col, 1, 1);//Set Border
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getX40());
+            setBorder(row, col, 1, 1);//Set Border
 
-        //C23
-        col = 22;
+            //C23
+            col = 22;
 
-        cells.get(row, col).setValue("");
-        setBorder(row, col, 1, 1);//Set Border
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getDefectLoc());
+            setBorder(row, col, 1, 1);//Set Border
 
-        //C24
-        col = 23;
+            //C24
+            col = 23;
 
-        cells.get(row, col).setValue("");
-        setBorder(row, col, 1, 1);//Set Border
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getDefectType());
+            setBorder(row, col, 1, 1);//Set Border
 
-        //C25-26
-        col = 24;
+            //C25-26
+            col = 24;
 
-        cells.get(row, col).setValue("");
-        setBorder(row, col, 1, 2);//Set Border
-        cells.merge(row, col, 1, 2);
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getPreEvaluation());
+            setBorder(row, col, 1, 2);//Set Border
+            cells.merge(row, col, 1, 2);
 
-        //C27-28
-        col = 26;
+            //C27-28
+            col = 26;
 
-        cells.get(row, col).setValue("");
-        setBorder(row, col, 1, 2);//Set Border
-        cells.merge(row, col, 1, 2);
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getFinalEvaluation());
+            setBorder(row, col, 1, 2);//Set Border
+            cells.merge(row, col, 1, 2);
 
-        index++;
+            index++;
+        } else {
+
+            //C1
+            col = 0;
+
+            setBorder(row, col, 1, 1);//Set Border
+
+            //C2-3-4-5-6
+            col = 1;
+
+            setBorder(row, col, 1, 5);//Set Border
+            cells.merge(row, col, 1, 5);
+
+            //C7-8
+            col = 6;
+
+            setBorder(row, col, 1, 2);//Set Border
+            cells.merge(row, col, 1, 2);
+
+            //C9
+            col = 8;
+
+            setBorder(row, col, 1, 1);//Set Border
+            //C10
+            col = 9;
+
+            setBorder(row, col, 1, 1);//Set Border
+            //C11
+            col = 10;
+
+            setBorder(row, col, 1, 1);//Set Border
+
+            //C12
+            col = 11;
+
+            setBorder(row, col, 1, 1);//Set Border
+
+            //C13
+            col = 12;
+
+            setBorder(row, col, 1, 1);//Set Border
+
+            //C14
+            col = 13;
+
+            setBorder(row, col, 1, 1);//Set Border
+
+            //C15
+            col = 14;
+
+            setBorder(row, col, 1, 1);//Set Border
+
+            //C16
+            col = 15;
+
+            setBorder(row, col, 1, 1);//Set Border
+            //C17
+            col = 16;
+
+            setBorder(row, col, 1, 1);//Set Border
+            //C18
+            col = 17;
+
+            setBorder(row, col, 1, 1);//Set Border
+            //C19
+            col = 18;
+
+            setBorder(row, col, 1, 1);//Set Border
+            //C20
+            col = 19;
+
+            setBorder(row, col, 1, 1);//Set Border
+            //C21
+            col = 20;
+
+            setBorder(row, col, 1, 1);//Set Border
+            //C22
+            col = 21;
+
+            setBorder(row, col, 1, 1);//Set Border
+
+            //C23
+            col = 22;
+
+            setBorder(row, col, 1, 1);//Set Border
+
+            //C24
+            col = 23;
+
+            setBorder(row, col, 1, 1);//Set Border
+
+            //C25-26
+            col = 24;
+
+            setBorder(row, col, 1, 2);//Set Border
+            cells.merge(row, col, 1, 2);
+
+            //C27-28
+            col = 26;
+
+            setBorder(row, col, 1, 2);//Set Border
+            cells.merge(row, col, 1, 2);
+
+        }
 
     }
 
@@ -1670,6 +1922,173 @@ public class ExcelExporterAsposeReport1 {
 
     }
 
+    private static void checkCheckboxOfEquipment(int row, int col) {
+
+        /*  String temp = equipment.getFilmType();
+
+        //Film Type Checkboxes
+        if (temp.equals("0")) {
+            s
+            if (temp.equals("0")) {
+
+                setCheckBoxWithValue(row, col, 20, 20, 1);
+            } else {
+
+                setCheckBoxWithValue(row, col, 20, 20, 0);
+            }
+
+            temp = equipment.getAstm();
+
+            if (temp.equals("1")) {
+
+                setCheckBoxWithValue(row, col, 20, 20, 1);
+            } else {
+
+            }
+
+            temp = equipment.getSourceSide();
+
+            if (temp.equals("2")) {
+
+                setCheckBoxWithValue(row, col, 20, 20, 1);
+
+            } else {
+
+                setCheckBoxWithValue(row, col, 20, 20, 0);
+            }
+
+            temp = equipment.getFilmSide();
+
+            if (temp.equals("3")) {
+
+                setCheckBoxWithValue(row, col, 20, 20, 1);
+
+            } else {
+
+                setCheckBoxWithValue(row, col, 20, 20, 0);
+            }
+
+            //Film Process Type Checkboxes
+            temp = equipment.getAutomatic();
+
+            if (temp.equals("0")) {
+
+                setCheckBoxWithValue(row, col, 20, 20, 1);
+
+            } else {
+
+                setCheckBoxWithValue(row, col, 20, 20, 0);
+            }
+
+            temp = equipment.getManual();
+
+            if (temp.equals("1")) {
+
+                setCheckBoxWithValue(row, col, 20, 20, 1);
+
+            } else {
+
+                setCheckBoxWithValue(row, col, 20, 20, 0);
+            }
+            setCheckBoxWithValue(row, col, 20, 20, 1);
+
+        } else if (temp.equals("1")) {
+
+            setCheckBoxWithValue(row, col, 20, 20, 1);
+        } else if (temp.equals("2")) {
+
+            setCheckBoxWithValue(row, col, 20, 20, 1);
+        } else {
+            setCheckBoxWithValue(row, col, 20, 20, 0);
+        }
+
+        //IQI Checkboxes
+        temp = equipment.getEn();
+
+        if (temp.equals("0")) {
+
+            setCheckBoxWithValue(row, col, 20, 20, 1);
+        } else {
+
+            setCheckBoxWithValue(row, col, 20, 20, 0);
+        }
+
+        temp = equipment.getAstm();
+
+        if (temp.equals("1")) {
+
+            setCheckBoxWithValue(row, col, 20, 20, 1);
+        } else {
+
+        }
+
+        temp = equipment.getSourceSide();
+
+        if (temp.equals("2")) {
+
+            setCheckBoxWithValue(row, col, 20, 20, 1);
+
+        } else {
+
+            setCheckBoxWithValue(row, col, 20, 20, 0);
+        }
+
+        temp = equipment.getFilmSide();
+
+        if (temp.equals("3")) {
+
+            setCheckBoxWithValue(row, col, 20, 20, 1);
+
+        } else {
+
+            setCheckBoxWithValue(row, col, 20, 20, 0);
+        }
+
+        //Film Process Type Checkboxes
+        temp = equipment.getAutomatic();
+
+        if (temp.equals("0")) {
+
+            setCheckBoxWithValue(row, col, 20, 20, 1);
+
+        } else {
+
+            setCheckBoxWithValue(row, col, 20, 20, 0);
+        }
+
+        temp = equipment.getManual();
+
+        if (temp.equals("1")) {
+
+            setCheckBoxWithValue(row, col, 20, 20, 1);
+
+        } else {
+
+            setCheckBoxWithValue(row, col, 20, 20, 0);
+        }
+         */
+    }
+
+    public static void setCustomer(CustomerTab customer) {
+
+        ExcelExporterAsposeReport1.customer = customer;
+    }
+
+    public static void setEquipment(REquipmentTab equipment) {
+
+        ExcelExporterAsposeReport1.equipment = equipment;
+    }
+
+    public static void setTestArrangements(RTestArrangements testArrangements) {
+
+        ExcelExporterAsposeReport1.testArrangements = testArrangements;
+    }
+
+    public static void setInspectionResults(Vector<RInspectionResults> inspectionResultses) {
+
+        ExcelExporterAsposeReport1.inspectionResultses = inspectionResultses;
+    }
+
     private static Style setColor() {
 
         Color color = Color.fromArgb(255, 209, 209);
@@ -1770,6 +2189,18 @@ public class ExcelExporterAsposeReport1 {
 
     }
 
+    private static void setTopLeft(Cell cell) {
+
+        Style style = cell.getStyle();
+
+        style.setVerticalAlignment(TextAlignmentType.TOP);
+
+        style.setHorizontalAlignment(TextAlignmentType.LEFT);
+
+        cell.setStyle(style);
+
+    }
+
     private static void setWidthHeight() {
 
         worksheet.getCells().setStandardWidth(6);
@@ -1795,4 +2226,14 @@ public class ExcelExporterAsposeReport1 {
         CheckBox checkBox = worksheet.getCheckBoxes().get(index);
 
     }
+
+    private static void setCheckBoxWithValue(int upperLeftRow, int upperLeftColumn, int height, int width, String value) {
+
+        int index = worksheet.getCheckBoxes().add(upperLeftRow, upperLeftColumn, height, width);
+        CheckBox checkBox = worksheet.getCheckBoxes().get(index);
+
+        checkBox.setCheckedValue(Integer.parseInt(value));
+
+    }
+
 }

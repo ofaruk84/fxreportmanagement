@@ -8,6 +8,7 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
@@ -30,23 +31,26 @@
                               <Font size="19.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="txtUsedDevice" layoutX="491.0" layoutY="36.0" prefHeight="25.0" prefWidth="229.0" stylesheets="@../css/Style.css">
+                        <JFXTextField fx:id="txtUsedDevice" alignment="CENTER" layoutX="491.0" layoutY="36.0" prefHeight="25.0" prefWidth="229.0" stylesheets="@../css/Style.css">
                            <styleClass>
                               <String fx:value="textfield" />
                               <String fx:value="sideButtons" />
                            </styleClass>
                         </JFXTextField>
-                        <JFXRadioButton fx:id="rbRi192" layoutX="150.0" layoutY="101.0" text="IR-192" textFill="#fffafa" />
-                        <JFXRadioButton fx:id="rbXRay" layoutX="287.0" layoutY="101.0" text="X-Ray" textFill="#fffafa" />
-                        <JFXRadioButton fx:id="rbSe75" layoutX="219.0" layoutY="101.0" text="Se-75" textFill="#fffafa" />
+                        <JFXRadioButton fx:id="rbIr192" layoutX="150.0" layoutY="101.0" text="IR-192" textFill="#fffafa">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="deviceEnergy" />
+                           </toggleGroup></JFXRadioButton>
+                        <JFXRadioButton fx:id="rbXRay" layoutX="287.0" layoutY="101.0" text="X-Ray" textFill="#fffafa" toggleGroup="$deviceEnergy" />
+                        <JFXRadioButton fx:id="rbSe75" layoutX="219.0" layoutY="101.0" text="Se-75" textFill="#fffafa" toggleGroup="$deviceEnergy" />
                         <Label layoutX="8.0" layoutY="93.0" prefHeight="32.0" prefWidth="142.0" text="Devices Energy(CI)" textFill="#fff9f9">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="375.0" layoutY="93.0" prefHeight="32.0" prefWidth="109.0" text="Pb Scenes" textFill="#fff9f9">
+                        <Label layoutX="375.0" layoutY="93.0" prefHeight="32.0" prefWidth="109.0" text="Focal Spot Size" textFill="#fff9f9">
                            <font>
-                              <Font size="19.0" />
+                              <Font size="16.0" />
                            </font>
                         </Label>
                         <Label layoutX="8.0" layoutY="156.0" prefHeight="32.0" prefWidth="109.0" text="Exposure Time" textFill="#fff9f9">
@@ -54,14 +58,14 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="txtExposureTime" layoutX="123.0" layoutY="159.0" prefHeight="25.0" prefWidth="229.0" stylesheets="@../css/Style.css">
+                        <JFXTextField fx:id="txtExposureTime" alignment="CENTER" layoutX="123.0" layoutY="159.0" prefHeight="25.0" prefWidth="229.0" stylesheets="@../css/Style.css">
                            <styleClass>
                               <String fx:value="textfield" />
                               <String fx:value="sideButtons" />
                            </styleClass>
                         </JFXTextField>
                         <Label layoutX="375.0" layoutY="156.0" prefHeight="32.0" prefWidth="109.0" text="Film Foxus Distance" textFill="#fff9f9" />
-                        <JFXTextField fx:id="txtFilmFocusDistance" layoutX="491.0" layoutY="160.0" prefHeight="25.0" prefWidth="229.0" stylesheets="@../css/Style.css">
+                        <JFXTextField fx:id="txtFilmFocusDistance" alignment="CENTER" layoutX="491.0" layoutY="160.0" prefHeight="25.0" prefWidth="229.0" stylesheets="@../css/Style.css">
                            <styleClass>
                               <String fx:value="textfield" />
                               <String fx:value="sideButtons" />
@@ -72,7 +76,7 @@
                               <Font size="19.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="txtFilters" layoutX="123.0" layoutY="212.0" prefHeight="25.0" prefWidth="229.0" stylesheets="@../css/Style.css">
+                        <JFXTextField fx:id="txtFilters" alignment="CENTER" layoutX="123.0" layoutY="212.0" prefHeight="25.0" prefWidth="229.0" stylesheets="@../css/Style.css">
                            <styleClass>
                               <String fx:value="textfield" />
                               <String fx:value="sideButtons" />
@@ -83,49 +87,61 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="txtHeatTreatment" layoutX="491.0" layoutY="213.0" prefHeight="25.0" prefWidth="229.0" stylesheets="@../css/Style.css">
+                        <JFXTextField fx:id="txtHeatTreatment" alignment="CENTER" layoutX="491.0" layoutY="213.0" prefHeight="25.0" prefWidth="229.0" stylesheets="@../css/Style.css">
                            <styleClass>
                               <String fx:value="textfield" />
                               <String fx:value="sideButtons" />
                            </styleClass>
                         </JFXTextField>
-                        <JFXTextField fx:id="txtPbScenes" layoutX="491.0" layoutY="97.0" prefHeight="25.0" prefWidth="229.0" stylesheets="@../css/Style.css">
+                        <JFXTextField fx:id="txtFocalSpotsize" alignment="CENTER" layoutX="491.0" layoutY="97.0" prefHeight="25.0" prefWidth="229.0" stylesheets="@../css/Style.css">
                            <styleClass>
                               <String fx:value="textfield" />
                               <String fx:value="sideButtons" />
                            </styleClass>
                         </JFXTextField>
-                        <Label alignment="CENTER" layoutX="14.0" layoutY="277.0" prefHeight="28.0" prefWidth="710.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Geometric un-sharpness :     Ug = 𝑏𝑥𝑑      18mm" textFill="WHITE" />
+                        <Label alignment="CENTER" layoutX="376.0" layoutY="277.0" prefHeight="28.0" prefWidth="348.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Geometric un-sharpness :     Ug = 𝑏𝑥𝑑      18mm" textFill="WHITE" />
                         <Label layoutX="12.0" layoutY="343.0" prefHeight="32.0" prefWidth="109.0" text="Film Brand" textFill="#fff9f9">
                            <font>
                               <Font size="19.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="txtFilmBrand" layoutX="121.0" layoutY="347.0" prefHeight="25.0" prefWidth="234.0" stylesheets="@../css/Style.css">
+                        <JFXTextField fx:id="txtFilmBrand" alignment="CENTER" layoutX="121.0" layoutY="347.0" prefHeight="25.0" prefWidth="234.0" stylesheets="@../css/Style.css">
                            <styleClass>
                               <String fx:value="textfield" />
                               <String fx:value="sideButtons" />
                            </styleClass>
                         </JFXTextField>
-                        <JFXRadioButton fx:id="rbD4" layoutX="369.0" layoutY="351.0" text="D4(MX-125)" textFill="#fffafa" />
-                        <JFXRadioButton fx:id="rbD7" layoutX="624.0" layoutY="351.0" text="D7(AA 400)" textFill="#fffafa" />
-                        <JFXRadioButton fx:id="rbD5" layoutX="498.0" layoutY="351.0" text="D5(T2000)" textFill="#fffafa" />
+                        <JFXRadioButton fx:id="rbD4" layoutX="369.0" layoutY="351.0" text="D4(MX-125)" textFill="#fffafa">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="filmType" />
+                           </toggleGroup></JFXRadioButton>
+                        <JFXRadioButton fx:id="rbD7" layoutX="624.0" layoutY="351.0" text="D7(AA 400)" textFill="#fffafa" toggleGroup="$filmType" />
+                        <JFXRadioButton fx:id="rbD5" layoutX="498.0" layoutY="351.0" text="D5(T2000)" textFill="#fffafa" toggleGroup="$filmType" />
                         <Label layoutX="12.0" layoutY="403.0" prefHeight="32.0" prefWidth="153.0" text="IQI Tech" textFill="#fff9f9">
                            <font>
                               <Font size="19.0" />
                            </font>
                         </Label>
-                        <JFXRadioButton fx:id="rbEn" layoutX="123.0" layoutY="411.0" prefHeight="17.0" prefWidth="116.0" text="EN" textFill="#fffafa" />
-                        <JFXRadioButton fx:id="rbAstm" layoutX="248.0" layoutY="411.0" prefHeight="17.0" prefWidth="136.0" text="ASTM" textFill="#fffafa" />
-                        <JFXRadioButton fx:id="rbFilmSide" layoutX="498.0" layoutY="411.0" prefHeight="17.0" prefWidth="110.0" text="Film Side" textFill="#fffafa" />
-                        <JFXRadioButton fx:id="rbSourceSide" layoutX="369.0" layoutY="411.0" text="Source Side" textFill="#fffafa" />
+                        <JFXRadioButton fx:id="rbEn" layoutX="123.0" layoutY="411.0" prefHeight="17.0" prefWidth="116.0" text="EN" textFill="#fffafa">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="IQITech" />
+                           </toggleGroup></JFXRadioButton>
+                        <JFXRadioButton fx:id="rbAstm" layoutX="248.0" layoutY="411.0" prefHeight="17.0" prefWidth="136.0" text="ASTM" textFill="#fffafa" toggleGroup="$IQITech" />
+                        <JFXRadioButton fx:id="rbFilmSide" layoutX="498.0" layoutY="411.0" prefHeight="17.0" prefWidth="110.0" text="Film Side" textFill="#fffafa">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="IQITech1" />
+                           </toggleGroup></JFXRadioButton>
+                        <JFXRadioButton fx:id="rbSourceSide" layoutX="369.0" layoutY="411.0" text="Source Side" textFill="#fffafa" toggleGroup="$IQITech1" />
                         <Label layoutX="8.0" layoutY="477.0" prefHeight="32.0" prefWidth="195.0" text="Film Processing Tech" textFill="#fff9f9">
                            <font>
                               <Font size="19.0" />
                            </font>
                         </Label>
-                        <JFXRadioButton fx:id="rbAutomatic" layoutX="241.0" layoutY="485.0" text="Automatic" textFill="#fffafa" />
-                        <JFXRadioButton fx:id="rbManual" layoutX="369.0" layoutY="485.0" text="Manuel" textFill="#fffafa" />
+                        <JFXRadioButton fx:id="rbAutomatic" layoutX="241.0" layoutY="485.0" text="Automatic" textFill="#fffafa">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="filmProcessingTech" />
+                           </toggleGroup></JFXRadioButton>
+                        <JFXRadioButton fx:id="rbManual" layoutX="369.0" layoutY="485.0" text="Manuel" textFill="#fffafa" toggleGroup="$filmProcessingTech" />
                         <Label layoutX="491.0" layoutY="481.0" prefHeight="25.0" prefWidth="115.0" text="Temperature" textFill="#fff9f9">
                            <font>
                               <Font size="16.0" />
@@ -141,11 +157,21 @@
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <Separator layoutX="17.0" layoutY="259.0" prefHeight="3.0" prefWidth="701.0" />
                         <Separator layoutX="17.0" layoutY="324.0" prefHeight="3.0" prefWidth="702.0" />
                         <Separator layoutX="17.0" layoutY="393.0" prefHeight="3.0" prefWidth="702.0" />
                         <Separator layoutX="17.0" layoutY="447.0" prefHeight="3.0" prefWidth="702.0" />
                         <Separator layoutX="17.0" layoutY="521.0" prefHeight="3.0" prefWidth="702.0" />
+                        <Label layoutX="9.0" layoutY="275.0" prefHeight="32.0" prefWidth="109.0" text="Pb Scenes" textFill="#fff9f9">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="txtPbScenes" alignment="CENTER" layoutX="124.0" layoutY="278.0" prefHeight="25.0" prefWidth="229.0" stylesheets="@../css/Style.css">
+                           <styleClass>
+                              <String fx:value="textfield" />
+                              <String fx:value="sideButtons" />
+                           </styleClass>
+                        </JFXTextField>
                      </children>
                   </AnchorPane>
                </content>

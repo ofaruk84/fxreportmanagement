@@ -8,6 +8,7 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -31,19 +32,22 @@
                                     <Image url="@../Resources/ta1.PNG" />
                                  </image>
                               </ImageView>
-                              <JFXRadioButton fx:id="rbTa1" text=" " />
+                              <JFXRadioButton fx:id="rbTa1" text=" ">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="testArrangements" />
+                                 </toggleGroup></JFXRadioButton>
                               <ImageView fitHeight="163.0" fitWidth="161.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Resources/ta2.PNG" />
                                  </image>
                               </ImageView>
-                              <JFXRadioButton fx:id="rbTa2" layoutX="214.0" layoutY="83.0" text=" " />
+                              <JFXRadioButton fx:id="rbTa2" layoutX="214.0" layoutY="83.0" text=" " toggleGroup="$testArrangements" />
                               <ImageView fitHeight="163.0" fitWidth="161.0" layoutX="196.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Resources/ta3.PNG" />
                                  </image>
                               </ImageView>
-                              <JFXRadioButton fx:id="rbTa3" layoutX="239.0" layoutY="83.0" text=" " />
+                              <JFXRadioButton fx:id="rbTa3" layoutX="239.0" layoutY="83.0" text=" " toggleGroup="$testArrangements" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" layoutX="40.0" layoutY="285.0" prefHeight="161.0" prefWidth="670.0" spacing="20.0">
@@ -53,19 +57,19 @@
                                     <Image url="@../Resources/ta4.PNG" />
                                  </image>
                               </ImageView>
-                              <JFXRadioButton fx:id="rbTa4" text=" " />
+                              <JFXRadioButton fx:id="rbTa4" text=" " toggleGroup="$testArrangements" />
                               <ImageView fitHeight="163.0" fitWidth="161.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Resources/ta6.PNG" />
                                  </image>
                               </ImageView>
-                              <JFXRadioButton fx:id="rbTa5" layoutX="601.0" layoutY="82.0" text=" " />
+                              <JFXRadioButton fx:id="rbTa5" layoutX="601.0" layoutY="82.0" text=" " toggleGroup="$testArrangements" />
                               <ImageView fitHeight="163.0" fitWidth="161.0" layoutX="196.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Resources/ta6.PNG" />
                                  </image>
                               </ImageView>
-                              <JFXRadioButton fx:id="rbTa6" layoutX="446.0" layoutY="82.0" text=" " />
+                              <JFXRadioButton fx:id="rbTa6" layoutX="446.0" layoutY="82.0" text=" " toggleGroup="$testArrangements" />
                            </children>
                         </HBox>
                         <Text fill="#fffdfd" layoutX="96.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Test Arrangements" textAlignment="CENTER" wrappingWidth="542.13671875">

@@ -8,9 +8,13 @@ package fxreportmanagement.HomePage;
 import com.jfoenix.controls.JFXComboBox;
 import fxreportmanagement.DatabaseOperations.DatabaseAccess.EmployeeDal;
 import fxreportmanagement.DatabaseOperations.DatabaseAccess.EquipmentDal;
+import fxreportmanagement.DatabaseOperations.DatabaseAccess.REquipmentDal;
 import fxreportmanagement.DatabaseOperations.DatabaseEntitates.Equipment;
+import fxreportmanagement.DatabaseOperations.DatabaseEntitates.REquipment;
 import fxreportmanagement.HelperClasses.ExcelExporter;
 import fxreportmanagement.HelperClasses.FxmlPageLoader;
+import fxreportmanagement.Report1.Entitates.REquipmentTab;
+import fxreportmanagement.Report1.Report1Controller;
 import fxreportmanagement.Report2.Report2FxmlController;
 import java.io.IOException;
 import java.net.URL;
@@ -54,6 +58,12 @@ public class HomePageFxmlController implements Initializable {
     private ObservableList<String> oblist;
 
     private Equipment equipment;
+
+    private REquipmentDal requipmentDal;
+
+    private REquipment requipment;
+
+    private REquipmentTab requipmentTab;
     @FXML
     private BorderPane bpMain;
     @FXML
@@ -62,6 +72,8 @@ public class HomePageFxmlController implements Initializable {
     private JFXComboBox<String> cmbEvaluated;
     @FXML
     private JFXComboBox<String> cmbConfirmation;
+    @FXML
+    private JFXComboBox<String> cmbREquipment;
 
     /**
      * Initializes the controller class.
@@ -73,9 +85,12 @@ public class HomePageFxmlController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         equipmentDal = new EquipmentDal();
         employeeDal = new EmployeeDal();
+        requipmentDal = new REquipmentDal();
+
         getDate();
         populateCmbEquipment();
         populateCmbEmployees();
+        populateCmbREquipment();
 
     }
 
@@ -107,6 +122,11 @@ public class HomePageFxmlController implements Initializable {
             fileUrl = "Report1/Report1";
             FxmlPageLoader.loadSameScene(bpMain, fileUrl);
 
+            String value = (String) cmbREquipment.getValue();
+            requipment = requipmentDal.getEquipment(value);
+            Report1Controller.getInstance().loadEqupimentName(value);
+            Report1Controller.getInstance().loadEquipment(requipment);            
+
         }
 
     }
@@ -124,8 +144,16 @@ public class HomePageFxmlController implements Initializable {
     private void populateCmbEquipment() {
 
         oblist = equipmentDal.getEQName();
-      
+
         cmbEquipment.setItems(oblist);
+
+    }
+
+    private void populateCmbREquipment() {
+
+        oblist = requipmentDal.getEQName();
+
+        cmbREquipment.setItems(oblist);
 
     }
 

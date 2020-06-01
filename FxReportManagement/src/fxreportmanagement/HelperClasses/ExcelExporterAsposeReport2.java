@@ -20,6 +20,9 @@ import com.aspose.cells.Style;
 import com.aspose.cells.StyleFlag;
 import com.aspose.cells.TextAlignmentType;
 import fxreportmanagement.Report1.Entitates.RInspectionResults;
+import fxreportmanagement.Report2.Entitates.CustomerTab;
+import fxreportmanagement.Report2.Entitates.EquipmentTab;
+import fxreportmanagement.Report2.Entitates.InspectionResults;
 import java.util.Vector;
 
 /**
@@ -44,6 +47,12 @@ public class ExcelExporterAsposeReport2 {
 
     private static int index = 1;
 
+    private static CustomerTab customer;
+
+    private static EquipmentTab equipment;
+
+    private static Vector<InspectionResults> inspectionResultses = new Vector<InspectionResults>();
+
     public static void main(String[] args) {
 
         exportHead();
@@ -53,6 +62,23 @@ public class ExcelExporterAsposeReport2 {
         exportLastSection();
         try {
             workbook.save("Report2.xls");
+        } catch (Exception ex) {
+            
+            System.out.println("Docoment Report2 created ");
+            System.out.println(ex.getMessage());
+        }
+
+    }
+
+    public static void exportGUI() {
+
+        exportHead();
+        exportCustomer();
+        exportEquipment();
+        exportInspectionResults();
+        exportLastSection();
+        try {
+            workbook.save("Report2.1.xls");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
@@ -102,27 +128,26 @@ public class ExcelExporterAsposeReport2 {
         //---------------------Row 3-----------------------------------------//        
         row = 2;
 
-        createCustomerRow(row, "Customer", "", "Inspection Precedure", "", "Page", "");
-
+        createCustomerRow(row, "Customer", customer.getCustomer(), "Inspection Procedure", customer.getInspectionPlace(), "Page", customer.getPage());
         //---------------------Row 4-----------------------------------------//        
         row = 3;
 
-        createCustomerRow(row, "Project Name", "", "Inspection Scope", "", "Report No", "");
+        createCustomerRow(row, "Project Name", customer.getProjectNanme(), "Inspection Scope", customer.getInspectionScope(), "Report No", customer.getReportNo());
 
         //---------------------Row 5-----------------------------------------//        
         row = 4;
 
-        createCustomerRow(row, "Inspection Place", "", "Drawing No", "", "Report Date", "");
+        createCustomerRow(row, "Inspection Place", customer.getInspectionPlace(), "Drawing No", customer.getDrawingNo(), "Report Date", customer.getReportDate());
 
         //---------------------Row 6-----------------------------------------//        
         row = 5;
 
-        createCustomerRow(row, "Inspection Standart", "", "Surface Condition", "", "Job Order No", "");
+        createCustomerRow(row, "Inspection Standart", customer.getInspectionStandart(), "Surface Condition", customer.getSurfaceCondition(), "Job Order No", customer.getJobOrderNo());
 
         //---------------------Row 7-----------------------------------------//        
         row = 6;
 
-        createCustomerRow(row, "Evaluation Standart / Accep.Level", "", "Stage Of Examination", "", "Offer No", "");
+        createCustomerRow(row, "Evaluation Standart", customer.getEvaluationStandart(), "Stage Of Examination", customer.getStageOfExamination(), "Offer No", customer.getOfferNo());
 
     }
 
@@ -142,7 +167,7 @@ public class ExcelExporterAsposeReport2 {
         //---------------------Row 9-----------------------------------------//        
         row = 8;
 
-        createEquipmentRow(row, "Pole Distance", "", "Examination Area", "", "Surface Temperature", "");
+        createEquipmentRow(row, "Pole Distance", equipment.getPoleDistance(), "Stage Of Examination", equipment.getExaminationArea(), "Surface Temperature", equipment.getSurfaceTemparature());
 
         //---------------------Row 10-----------------------------------------//        
         row = 9;
@@ -159,7 +184,7 @@ public class ExcelExporterAsposeReport2 {
         //C6-7-8
         col = 5;
 
-        cells.get(row, col).setValue("");
+        cells.get(row, col).setValue(equipment.getEquipment());
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 3);//Set Border
         cells.merge(row, col, 1, 3);
@@ -176,7 +201,7 @@ public class ExcelExporterAsposeReport2 {
         //14-15-16-17-18-19-20-21
         col = 13;
 
-        cells.get(row, col).setValue("");
+        cells.get(row, col).setValue(equipment.getCurrentType());
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 8);//Set Border
         cells.merge(row, col, 1, 8);
@@ -193,7 +218,7 @@ public class ExcelExporterAsposeReport2 {
         //C26-27-28
         col = 25;
 
-        cells.get(row, col).setValue("");
+        cells.get(row, col).setValue(equipment.getGaussFieldStrength());
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 2, 3);//Set Border
         cells.merge(row, col, 2, 3);
@@ -213,7 +238,7 @@ public class ExcelExporterAsposeReport2 {
         //C6-7-8
         col = 5;
 
-        cells.get(row, col).setValue("");
+        cells.get(row, col).setValue(equipment.getMpCarrierMedium());
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 3);//Set Border
         cells.merge(row, col, 1, 3);
@@ -230,7 +255,7 @@ public class ExcelExporterAsposeReport2 {
         //14-15-16-17-18-19-20-21
         col = 13;
 
-        cells.get(row, col).setValue("");
+        cells.get(row, col).setValue(equipment.getLuxmeter());
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 8);//Set Border
         cells.merge(row, col, 1, 8);
@@ -238,17 +263,17 @@ public class ExcelExporterAsposeReport2 {
         //---------------------Row 12-----------------------------------------//        
         row = 11;
 
-        createEquipmentRow(row, "Mag Tech", "", "Test Medium", "", "Surface Condition", "");
+        createEquipmentRow(row, "Mag Tech", equipment.getMagTech(), "Test Medium", equipment.getTestMedium(), "Surface Condition", equipment.getSurfaceCondition());
 
         //---------------------Row 13-----------------------------------------//        
         row = 12;
 
-        createEquipmentRow(row, "UV Light Intensity", "", "Demagnetization", "", "Identification of Light Equip", "");
+        createEquipmentRow(row, "UV Light Intensity", equipment.getUvLightIntesity(), "Demagnetization", equipment.getDemagnetization(), "Identication Of Light Equipment", equipment.getIdenticationOfLightEquipment());
 
         //---------------------Row 14-----------------------------------------//        
         row = 13;
 
-        createEquipmentRow(13, "Distance Of Light", "", "Heat Treatment", "", "Lifting Test Date/Number", "");
+        createEquipmentRow(row, "Distance Of Light", equipment.getDistanceOfLight(), "Heat Treatment", equipment.getHeatTreatment(), "Lifting Test Date/Number", equipment.getLiftingTestDateNo());
 
         //---------------------Row 15-----------------------------------------//        
         row = 14;
@@ -274,6 +299,7 @@ public class ExcelExporterAsposeReport2 {
 
         cells.get(row, col).setValue("Location Of Discontinuity");
         setColor2(cells.get(row, col));//SET COLOR
+        setCenter(cells.get(row, col));//SET Center
         setBorder(row, col, 1, 15);//Set Border
         cells.merge(row, col, 1, 15);
 
@@ -376,7 +402,7 @@ public class ExcelExporterAsposeReport2 {
         //C8-28
         col = 7;
 
-        cells.get(row, col).setValue("");
+        cells.get(row, col).setValue(equipment.getStandartDevitions());
         setBorder(row, col, 1, 21);//Set Border
         cells.merge(row, col, 1, 21);
 
@@ -395,7 +421,7 @@ public class ExcelExporterAsposeReport2 {
         //C8-28
         col = 7;
 
-        cells.get(row, col).setValue("");
+        cells.get(row, col).setValue(equipment.getInspectionDates());
         setBorder(row, col, 1, 21);//Set Border
         cells.merge(row, col, 1, 21);
 
@@ -414,7 +440,7 @@ public class ExcelExporterAsposeReport2 {
         //C8-28
         col = 7;
 
-        cells.get(row, col).setValue("");
+        cells.get(row, col).setValue(equipment.getDescription());
         setBorder(row, col, 1, 21);//Set Border
         cells.merge(row, col, 1, 21);
 
@@ -697,78 +723,138 @@ public class ExcelExporterAsposeReport2 {
 
     private static void createInspectionResultsRow(int row) {
 
-        //C1-2
-        col = 0;
+        if (verifyVector(inspectionResultses, index)) {
 
-        cells.get(row, col).setValue(index);
-        setCenter(cells.get(row, col));//Set Center
-        setBorder(row, col, 1, 2);//Set Border
-        cells.merge(row, col, 1, 2);
+            //C1-2
+            col = 0;
 
-        //C3-4-5-6-7-8
-        col = 2;
+            cells.get(row, col).setValue(index);
+            setCenter(cells.get(row, col));//Set Center
+            setBorder(row, col, 1, 2);//Set Border
+            cells.merge(row, col, 1, 2);
 
-        cells.get(row, col).setValue("");
-        setCenter(cells.get(row, col));//Set Center
-        setBorder(row, col, 1, 6);//Set Border
-        cells.merge(row, col, 1, 6);
+            //C3-4-5-6-7-8
+            col = 2;
 
-        //C9-10-11
-        col = 8;
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getWeldNo());
+            setCenter(cells.get(row, col));//Set Center
+            setBorder(row, col, 1, 6);//Set Border
+            cells.merge(row, col, 1, 6);
 
-        cells.get(row, col).setValue("");
-        setCenter(cells.get(row, col));//Set Center
-        setBorder(row, col, 1, 3);//Set Border
-        cells.merge(row, col, 1, 3);
+            //C9-10-11
+            col = 8;
 
-        //C12-13-14-15
-        col = 11;
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getTestLength());
+            setCenter(cells.get(row, col));//Set Center
+            setBorder(row, col, 1, 3);//Set Border
+            cells.merge(row, col, 1, 3);
 
-        cells.get(row, col).setValue("");
-        setCenter(cells.get(row, col));//Set Center
-        setBorder(row, col, 1, 4);//Set Border
-        cells.merge(row, col, 1, 4);
+            //C12-13-14-15
+            col = 11;
 
-        //C16-17
-        col = 15;
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getWeldingProcess());
+            setCenter(cells.get(row, col));//Set Center
+            setBorder(row, col, 1, 4);//Set Border
+            cells.merge(row, col, 1, 4);
 
-        cells.get(row, col).setValue("");
-        setCenter(cells.get(row, col));//Set Center
-        setBorder(row, col, 1, 2);//Set Border
-        cells.merge(row, col, 1, 2);
+            //C16-17
+            col = 15;
 
-        //C18-19
-        col = 17;
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getThickness());
+            setCenter(cells.get(row, col));//Set Center
+            setBorder(row, col, 1, 2);//Set Border
+            cells.merge(row, col, 1, 2);
 
-        cells.get(row, col).setValue("");
-        setCenter(cells.get(row, col));//Set Center
-        setBorder(row, col, 1, 2);//Set Border
-        cells.merge(row, col, 1, 2);
+            //C18-19
+            col = 17;
 
-        //C20-21-22
-        col = 19;
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getDiameter());
+            setCenter(cells.get(row, col));//Set Center
+            setBorder(row, col, 1, 2);//Set Border
+            cells.merge(row, col, 1, 2);
 
-        cells.get(row, col).setValue("");
-        setCenter(cells.get(row, col));//Set Center
-        setBorder(row, col, 1, 3);//Set Border
-        cells.merge(row, col, 1, 3);
-        //C23-24-25-26
-        col = 22;
+            //C20-21-22
+            col = 19;
 
-        cells.get(row, col).setValue("");
-        setCenter(cells.get(row, col));//Set Center
-        setBorder(row, col, 1, 4);//Set Border
-        cells.merge(row, col, 1, 4);
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getDefectType());
+            setCenter(cells.get(row, col));//Set Center
+            setBorder(row, col, 1, 3);//Set Border
+            cells.merge(row, col, 1, 3);
+            //C23-24-25-26
+            col = 22;
 
-        //C27-28
-        col = 26;
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getDefectLoc());
+            setCenter(cells.get(row, col));//Set Center
+            setBorder(row, col, 1, 4);//Set Border
+            cells.merge(row, col, 1, 4);
 
-        cells.get(row, col).setValue("");
-        setCenter(cells.get(row, col));//Set Center
-        setBorder(row, col, 1, 2);//Set Border
-        cells.merge(row, col, 1, 2);
+            //C27-28
+            col = 26;
 
-        index++;
+            cells.get(row, col).setValue(inspectionResultses.get(index - 1).getResult());
+            setCenter(cells.get(row, col));//Set Center
+            setBorder(row, col, 1, 2);//Set Border
+            cells.merge(row, col, 1, 2);
+
+            index++;
+        } else {
+
+            //C1-2
+            col = 0;
+
+            setBorder(row, col, 1, 2);//Set Border
+            cells.merge(row, col, 1, 2);
+
+            //C3-4-5-6-7-8
+            col = 2;
+
+            setBorder(row, col, 1, 6);//Set Border
+            cells.merge(row, col, 1, 6);
+
+            //C9-10-11
+            col = 8;
+
+            setBorder(row, col, 1, 3);//Set Border
+            cells.merge(row, col, 1, 3);
+
+            //C12-13-14-15
+            col = 11;
+
+            setBorder(row, col, 1, 4);//Set Border
+            cells.merge(row, col, 1, 4);
+
+            //C16-17
+            col = 15;
+
+            setBorder(row, col, 1, 2);//Set Border
+            cells.merge(row, col, 1, 2);
+
+            //C18-19
+            col = 17;
+
+            setBorder(row, col, 1, 2);//Set Border
+            cells.merge(row, col, 1, 2);
+
+            //C20-21-22
+            col = 19;
+
+            setBorder(row, col, 1, 3);//Set Border
+            cells.merge(row, col, 1, 3);
+
+            //C23-24-25-26
+            col = 22;
+
+            setBorder(row, col, 1, 4);//Set Border
+            cells.merge(row, col, 1, 4);
+
+            //C27-28
+            col = 26;
+
+            setBorder(row, col, 1, 2);//Set Border
+            cells.merge(row, col, 1, 2);
+
+        }
+
         cells.setRowHeight(row, 25);
     }
 
@@ -817,6 +903,17 @@ public class ExcelExporterAsposeReport2 {
         cells.setRowHeight(row, 25);
         cells.setRowHeight(42, 50);
 
+    }
+
+    private static boolean verifyVector(Vector<InspectionResults> vector, int index) {
+
+        System.out.println("index " + index + "size  " + vector.size());
+        boolean result = true;
+        if (index > vector.size()) {
+            return false;
+        }
+        System.out.println("index<size");
+        return result;
     }
 
     private static Style setColor() {
@@ -945,4 +1042,96 @@ public class ExcelExporterAsposeReport2 {
 
     }
 
+    public static void setCustomer(CustomerTab customer) {
+
+        ExcelExporterAsposeReport2.customer = customer;
+    }
+
+    public static void setEquipment(EquipmentTab equipment) {
+
+        ExcelExporterAsposeReport2.equipment = equipment;
+    }
+
+    public static void setInspectionResults(Vector<InspectionResults> inspectionResultses) {
+
+        ExcelExporterAsposeReport2.inspectionResultses = inspectionResultses;
+    }
+
+    private void exportIr() {
+
+        //C1-2
+        col = 0;
+
+        cells.get(row, col).setValue(index);
+        setCenter(cells.get(row, col));//Set Center
+        setBorder(row, col, 1, 2);//Set Border
+        cells.merge(row, col, 1, 2);
+
+        //C3-4-5-6-7-8
+        col = 2;
+
+        cells.get(row, col).setValue("");
+        setCenter(cells.get(row, col));//Set Center
+        setBorder(row, col, 1, 6);//Set Border
+        cells.merge(row, col, 1, 6);
+
+        //C9-10-11
+        col = 8;
+
+        cells.get(row, col).setValue("");
+        setCenter(cells.get(row, col));//Set Center
+        setBorder(row, col, 1, 3);//Set Border
+        cells.merge(row, col, 1, 3);
+
+        //C12-13-14-15
+        col = 11;
+
+        cells.get(row, col).setValue("");
+        setCenter(cells.get(row, col));//Set Center
+        setBorder(row, col, 1, 4);//Set Border
+        cells.merge(row, col, 1, 4);
+
+        //C16-17
+        col = 15;
+
+        cells.get(row, col).setValue("");
+        setCenter(cells.get(row, col));//Set Center
+        setBorder(row, col, 1, 2);//Set Border
+        cells.merge(row, col, 1, 2);
+
+        //C18-19
+        col = 17;
+
+        cells.get(row, col).setValue("");
+        setCenter(cells.get(row, col));//Set Center
+        setBorder(row, col, 1, 2);//Set Border
+        cells.merge(row, col, 1, 2);
+
+        //C20-21-22
+        col = 19;
+
+        cells.get(row, col).setValue("");
+        setCenter(cells.get(row, col));//Set Center
+        setBorder(row, col, 1, 3);//Set Border
+        cells.merge(row, col, 1, 3);
+        //C23-24-25-26
+        col = 22;
+
+        cells.get(row, col).setValue("");
+        setCenter(cells.get(row, col));//Set Center
+        setBorder(row, col, 1, 4);//Set Border
+        cells.merge(row, col, 1, 4);
+
+        //C27-28
+        col = 26;
+
+        cells.get(row, col).setValue("");
+        setCenter(cells.get(row, col));//Set Center
+        setBorder(row, col, 1, 2);//Set Border
+        cells.merge(row, col, 1, 2);
+
+        index++;
+        cells.setRowHeight(row, 25);
+        //carry on with row 39
+    }//Old
 }

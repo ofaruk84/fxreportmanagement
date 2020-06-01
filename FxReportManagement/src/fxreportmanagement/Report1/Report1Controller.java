@@ -5,6 +5,7 @@
  */
 package fxreportmanagement.Report1;
 
+import fxreportmanagement.DatabaseOperations.DatabaseEntitates.REquipment;
 import fxreportmanagement.HelperClasses.FxmlPageLoader;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -32,7 +33,20 @@ public class Report1Controller implements Initializable {
     private Button btnInspectionResults;
     @FXML
     private Button btnREquipment;
-
+    
+    private REquipment equipment;
+    
+    private String equipmentName;
+    
+    private static Report1Controller instance;
+    
+    public Report1Controller() {
+        
+        instance = this;
+    }
+    
+    
+    
     /**
      * Initializes the controller class.
      */
@@ -40,7 +54,11 @@ public class Report1Controller implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-
+    
+    public static Report1Controller getInstance(){
+        return instance;
+    }
+    
     @FXML
     private void handleBtnCustomerAction(ActionEvent event) {
 
@@ -67,12 +85,27 @@ public class Report1Controller implements Initializable {
 
     @FXML
     private void handleBtnREquipmentAction(ActionEvent event) {
+        
+        
         Pane view = FxmlPageLoader.getPage("Report1/REquipment");
-
+        REquipmentController.getInstance().setEquipmentType(equipmentName);
+        REquipmentController.getInstance().setEquipment(equipment);
         bpMain.setCenter(view);
         
-        System.out.println("yuk");
+        
 
     }
+    
+    public void loadEqupimentName(String equipmentName) {
+
+        this.equipmentName = equipmentName;
+
+    }
+
+    public void loadEquipment(REquipment eq) {
+        
+        equipment = eq;
+        
+    }    
 
 }

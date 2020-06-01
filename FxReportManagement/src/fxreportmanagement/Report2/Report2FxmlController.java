@@ -58,7 +58,8 @@ public class Report2FxmlController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-
+    
+    //Customer Page Button
     @FXML
     private void handleBtnCustomerAction(ActionEvent event) {
 
@@ -67,18 +68,20 @@ public class Report2FxmlController implements Initializable {
         bpMain.setCenter(view);
 
     }
-
+    
+    //Equipment Page Button
     @FXML
     private void handleBtnEquipmentAction(ActionEvent event) {
 
         Pane view = fpl.getPage("Report2/Report2EquipmentPgFxml");
         Report2EquipmentPgFxmlController.getInstance().setEquipmentType(equipmentName);
-        System.out.println(equipment.getDistanceOfLight());
+        System.out.println("Main R2  Equipment Button");
         Report2EquipmentPgFxmlController.getInstance().setEquipment(equipment);
 
         bpMain.setCenter(view);
     }
-
+    
+    //Inspection Results Page Button
     @FXML
     private void handleBtnInspectionResultsAction(ActionEvent event) {
 
@@ -87,13 +90,15 @@ public class Report2FxmlController implements Initializable {
         bpMain.setCenter(view);
 
     }
-
+    
+    //Load Equipment Name(To Equipment Page)
     public void loadEqupimentName(String equipmentName) {
 
         this.equipmentName = equipmentName;
 
     }
-
+    
+    //Load Equipment(To Equipment Page)
     public void loadEquipment(Equipment eq) {
         
         equipment = eq;
