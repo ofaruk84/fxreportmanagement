@@ -7,145 +7,222 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.8" prefWidth="749.0" styleClass="mainBackground" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxreportmanagement.Report2.Report2CustomerPgFxmlController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1050.0" styleClass="mainBackground" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxreportmanagement.Report2.Report2CustomerPgFxmlController">
    <children>
-      <Label layoutX="17.0" layoutY="83.0" prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Project Name:" textFill="#fffdfd">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="cmbProjectName" layoutX="144.0" layoutY="84.0" prefHeight="25.0" prefWidth="224.0" styleClass="sideButtons" stylesheets="@../css/Style.css" />
-      <Separator layoutX="372.0" layoutY="8.0" opacity="0.3" orientation="VERTICAL" prefHeight="565.0" prefWidth="0.0" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Label layoutX="17.0" layoutY="142.0" prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Inspection Place:" textFill="#fffdfd">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="17.0" layoutY="272.0" prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Evaluatiıon Standart:" textFill="#fffdfd">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtEvaluationStandart" alignment="CENTER" layoutX="144.0" layoutY="274.0" prefHeight="25.0" prefWidth="224.0" promptText="TS EN ISO 23278 Class B" stylesheets="@../css/Style.css">
-         <styleClass>
-            <String fx:value="sideButtons" />
-            <String fx:value="textfield" />
-         </styleClass></TextField>
-      <Label layoutX="17.0" layoutY="335.0" prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Inspection Procedure:" textFill="#fffdfd" />
-      <TextField fx:id="txtInspectionProcedure" alignment="CENTER" layoutX="144.0" layoutY="337.0" prefHeight="25.0" prefWidth="224.0" promptText="P-101-004" stylesheets="@../css/Style.css">
-         <styleClass>
-            <String fx:value="sideButtons" />
-            <String fx:value="textfield" />
-         </styleClass></TextField>
-      <Label layoutX="17.0" layoutY="408.0" prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Inspection Scope:" textFill="#fffdfd">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtInspectionScope" alignment="CENTER" layoutX="144.0" layoutY="410.0" prefHeight="25.0" prefWidth="224.0" promptText="20%" stylesheets="@../css/Style.css">
-         <styleClass>
-            <String fx:value="sideButtons" />
-            <String fx:value="textfield" />
-         </styleClass></TextField>
-      <Label layoutX="17.0" layoutY="471.0" prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Drawing No:" textFill="#fffdfd">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtDrawingNo" alignment="CENTER" layoutX="144.0" layoutY="473.0" prefHeight="25.0" prefWidth="224.0" promptText="-" stylesheets="@../css/Style.css">
-         <styleClass>
-            <String fx:value="sideButtons" />
-            <String fx:value="textfield" />
-         </styleClass></TextField>
-      <Label layoutX="384.0" layoutY="32.0" prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Surface Condition:" textFill="#fffdfd">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="cmbSurfaceCondition" layoutX="511.0" layoutY="33.0" prefHeight="25.0" prefWidth="224.0" styleClass="sideButtons" stylesheets="@../css/Style.css" />
-      <Label layoutX="17.0" layoutY="32.0" prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Customer:" textFill="#fffdfd">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="cmbCustomer" layoutX="144.0" layoutY="33.0" onAction="#handleCmbCustomer" prefHeight="25.0" prefWidth="224.0" stylesheets="@../css/Style.css">
-         <styleClass>
-            <String fx:value="sideButtons" />
-            <String fx:value="combo-box" />
-         </styleClass></ComboBox>
-      <Label layoutX="384.0" layoutY="95.0" prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Stage Of Examination" textFill="#fffdfd" />
-      <ComboBox fx:id="cmbStageOfExamination" layoutX="511.0" layoutY="97.0" prefHeight="25.0" prefWidth="224.0" styleClass="sideButtons" stylesheets="@../css/Style.css" />
-      <Label layoutX="384.0" layoutY="148.0" prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Page " textFill="#fffdfd">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtPage" alignment="CENTER" layoutX="511.0" layoutY="149.0" prefHeight="25.0" prefWidth="224.0" promptText="1" stylesheets="@../css/Style.css">
-         <styleClass>
-            <String fx:value="sideButtons" />
-            <String fx:value="textfield" />
-         </styleClass></TextField>
-      <Label layoutX="384.0" layoutY="208.0" prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Report No:" textFill="#fffdfd">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblReportNo" alignment="CENTER" layoutX="511.0" layoutY="208.0" prefHeight="25.0" prefWidth="224.0" stylesheets="@../css/Style.css" text=" " textFill="#fff9f9">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <styleClass>
-            <String fx:value="sideButtons" />
-            <String fx:value="textfield" />
-         </styleClass>
-      </Label>
-      <Label layoutX="384.0" layoutY="272.0" prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Report Date:" textFill="#fffdfd">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblReportDate" alignment="CENTER" layoutX="511.0" layoutY="272.0" prefHeight="25.0" prefWidth="224.0" stylesheets="@../css/Style.css" text=" " textFill="#fff9f9">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <styleClass>
-            <String fx:value="sideButtons" />
-            <String fx:value="textfield" />
-         </styleClass>
-      </Label>
-      <Label layoutX="384.0" layoutY="335.0" prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Job Order No:" textFill="#fffdfd">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="cmbJobOrderNo" layoutX="511.0" layoutY="335.0" prefHeight="25.0" prefWidth="224.0" styleClass="sideButtons" stylesheets="@../css/Style.css" />
-      <Label layoutX="384.0" layoutY="395.0" prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Offer No:" textFill="#fffdfd">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="cmbOfferNo" layoutX="511.0" layoutY="395.0" prefHeight="25.0" prefWidth="224.0" styleClass="sideButtons" stylesheets="@../css/Style.css" />
-      <Button fx:id="btnSubmit" layoutX="381.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleBtnCustomer" prefHeight="28.0" prefWidth="359.0" style="-fx-border-radius: 50%;" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Submit" textFill="WHITE" />
-      <Label layoutX="17.0" layoutY="208.0" prefHeight="28.0" prefWidth="119.0" text="Inspection Standart:" textFill="#fffdfd">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtInspectionStandart" alignment="CENTER" layoutX="144.0" layoutY="210.0" prefHeight="25.0" prefWidth="224.0" promptText="TS EN ISO 17638" stylesheets="@../css/Style.css">
-         <styleClass>
-            <String fx:value="sideButtons" />
-            <String fx:value="textfield" />
-         </styleClass></TextField>
-      <Label fx:id="lblInspectionPlace" alignment="CENTER" contentDisplay="CENTER" layoutX="144.0" layoutY="143.0" prefHeight="25.0" prefWidth="224.0" stylesheets="@../css/Style.css" text=" " textAlignment="CENTER" textFill="#fff9f9">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <styleClass>
-            <String fx:value="sideButtons" />
-            <String fx:value="textfield" />
-         </styleClass>
-      </Label>
+      <VBox layoutX="17.0" layoutY="23.0" prefHeight="714.0" prefWidth="483.0" spacing="60.0">
+         <children>
+            <HBox spacing="8.0">
+               <children>
+                  <Label prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Customer:" textFill="#fffdfd">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cmbCustomer" onAction="#handleCmbCustomer" prefHeight="25.0" prefWidth="357.0" stylesheets="@../css/Style.css">
+                     <styleClass>
+                        <String fx:value="sideButtons" />
+                        <String fx:value="combo-box" />
+                     </styleClass>
+                  </ComboBox>
+               </children>
+            </HBox>
+            <HBox spacing="8.0">
+               <children>
+                  <Label prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Project Name:" textFill="#fffdfd">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cmbProjectName" prefHeight="25.0" prefWidth="357.0" styleClass="sideButtons" stylesheets="@../css/Style.css" />
+               </children>
+            </HBox>
+            <HBox spacing="8.0">
+               <children>
+                  <Label prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Inspection Place:" textFill="#fffdfd">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblInspectionPlace" alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="355.0" stylesheets="@../css/Style.css" text=" " textAlignment="CENTER" textFill="#fff9f9">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="sideButtons" />
+                        <String fx:value="textfield" />
+                     </styleClass>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox spacing="8.0">
+               <children>
+                  <Label prefHeight="28.0" prefWidth="119.0" text="Inspection Standart:" textFill="#fffdfd">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtInspectionStandart" alignment="CENTER" prefHeight="25.0" prefWidth="356.0" promptText="TS EN ISO 17638" stylesheets="@../css/Style.css">
+                     <styleClass>
+                        <String fx:value="sideButtons" />
+                        <String fx:value="textfield" />
+                     </styleClass>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox spacing="8.0">
+               <children>
+                  <Label prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Evaluatiıon Standart:" textFill="#fffdfd">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtEvaluationStandart" alignment="CENTER" prefHeight="25.0" prefWidth="356.0" promptText="TS EN ISO 23278 Class B" stylesheets="@../css/Style.css">
+                     <styleClass>
+                        <String fx:value="sideButtons" />
+                        <String fx:value="textfield" />
+                     </styleClass>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox spacing="8.0">
+               <children>
+                  <Label prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Inspection Procedure:" textFill="#fffdfd" />
+                  <TextField fx:id="txtInspectionProcedure" alignment="CENTER" prefHeight="25.0" prefWidth="357.0" promptText="P-101-004" stylesheets="@../css/Style.css">
+                     <styleClass>
+                        <String fx:value="sideButtons" />
+                        <String fx:value="textfield" />
+                     </styleClass>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox spacing="8.0">
+               <children>
+                  <Label prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Inspection Scope:" textFill="#fffdfd">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtInspectionScope" alignment="CENTER" prefHeight="25.0" prefWidth="356.0" promptText="20%" stylesheets="@../css/Style.css">
+                     <styleClass>
+                        <String fx:value="sideButtons" />
+                        <String fx:value="textfield" />
+                     </styleClass>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox spacing="8.0">
+               <children>
+                  <Label prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Drawing No:" textFill="#fffdfd">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtDrawingNo" alignment="CENTER" prefHeight="25.0" prefWidth="357.0" promptText="-" stylesheets="@../css/Style.css">
+                     <styleClass>
+                        <String fx:value="sideButtons" />
+                        <String fx:value="textfield" />
+                     </styleClass>
+                  </TextField>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Separator layoutX="522.0" opacity="0.3" orientation="VERTICAL" prefHeight="565.0" prefWidth="0.0" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <VBox layoutX="545.0" layoutY="23.0" prefHeight="569.0" prefWidth="483.0" spacing="60.0">
+         <children>
+            <HBox spacing="8.0">
+               <children>
+                  <Label prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Surface Condition:" textFill="#fffdfd">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cmbSurfaceCondition" prefHeight="25.0" prefWidth="357.0" styleClass="sideButtons" stylesheets="@../css/Style.css" />
+               </children>
+            </HBox>
+            <HBox spacing="8.0">
+               <children>
+                  <Label prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Stage Of Examination" textFill="#fffdfd" />
+                  <ComboBox fx:id="cmbStageOfExamination" prefHeight="25.0" prefWidth="358.0" styleClass="sideButtons" stylesheets="@../css/Style.css" />
+               </children>
+            </HBox>
+            <HBox spacing="8.0">
+               <children>
+                  <Label prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Page " textFill="#fffdfd">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtPage" alignment="CENTER" prefHeight="25.0" prefWidth="359.0" promptText="1" stylesheets="@../css/Style.css">
+                     <styleClass>
+                        <String fx:value="sideButtons" />
+                        <String fx:value="textfield" />
+                     </styleClass>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox spacing="8.0">
+               <children>
+                  <Label prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Report No:" textFill="#fffdfd">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblReportNo" alignment="CENTER" prefHeight="27.0" prefWidth="355.0" stylesheets="@../css/Style.css" text=" " textFill="#fff9f9">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="sideButtons" />
+                        <String fx:value="textfield" />
+                     </styleClass>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox spacing="8.0">
+               <children>
+                  <Label prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Report Date:" textFill="#fffdfd">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblReportDate" alignment="CENTER" prefHeight="27.0" prefWidth="361.0" stylesheets="@../css/Style.css" text=" " textFill="#fff9f9">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="sideButtons" />
+                        <String fx:value="textfield" />
+                     </styleClass>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox spacing="8.0">
+               <children>
+                  <Label prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Job Order No:" textFill="#fffdfd">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cmbJobOrderNo" prefHeight="25.0" prefWidth="356.0" styleClass="sideButtons" stylesheets="@../css/Style.css" />
+               </children>
+            </HBox>
+            <HBox spacing="8.0">
+               <children>
+                  <Label prefHeight="28.0" prefWidth="119.0" stylesheets="@../css/Style.css" text="Offer No:" textFill="#fffdfd">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cmbOfferNo" prefHeight="25.0" prefWidth="356.0" styleClass="sideButtons" stylesheets="@../css/Style.css" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Button fx:id="btnSubmit" layoutX="536.0" layoutY="640.0" mnemonicParsing="false" onAction="#handleBtnCustomer" prefHeight="28.0" prefWidth="496.0" style="-fx-border-radius: 50%;" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Submit" textFill="WHITE" />
    </children>
 </AnchorPane>

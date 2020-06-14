@@ -13,10 +13,11 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="564.8" prefWidth="749.6" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxreportmanagement.Report2.Report2EquipmentPgFxmlController">
+<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="1050.0" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxreportmanagement.Report2.Report2EquipmentPgFxmlController">
    <children>
       <TabPane layoutX="236.0" layoutY="129.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
@@ -24,157 +25,248 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #1e272e;">
                      <children>
-                        <Separator layoutX="372.0" opacity="0.29" orientation="VERTICAL" prefHeight="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                        <Label layoutX="21.0" layoutY="38.0" prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Pole Distance:" textFill="WHITE">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtPoleDistance" layoutX="146.0" layoutY="39.0" prefHeight="25.0" prefWidth="211.0" stylesheets="@../css/Style.css">
-                           <styleClass>
-                              <String fx:value="sideButtons" />
-                              <String fx:value="textfield" />
-                           </styleClass></TextField>
-                        <Label layoutX="21.0" layoutY="86.0" prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Equipment" textFill="WHITE">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtEquipment" layoutX="146.0" layoutY="87.0" prefHeight="25.0" prefWidth="211.0" stylesheets="@../css/Style.css">
-                           <styleClass>
-                              <String fx:value="sideButtons" />
-                              <String fx:value="textfield" />
-                           </styleClass></TextField>
-                        <Label layoutX="21.0" layoutY="143.0" prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Mp Carrier Medium" textFill="WHITE">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtCarrierMedium" layoutX="146.0" layoutY="144.0" prefHeight="25.0" prefWidth="211.0" stylesheets="@../css/Style.css">
-                           <styleClass>
-                              <String fx:value="sideButtons" />
-                              <String fx:value="textfield" />
-                           </styleClass></TextField>
-                        <Label layoutX="21.0" layoutY="191.0" prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Mag. Tech" textFill="WHITE">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtMagTech" layoutX="146.0" layoutY="192.0" prefHeight="25.0" prefWidth="211.0" stylesheets="@../css/Style.css">
-                           <styleClass>
-                              <String fx:value="sideButtons" />
-                              <String fx:value="textfield" />
-                           </styleClass></TextField>
-                        <Label layoutX="21.0" layoutY="246.0" prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="UV Light Intencity" textFill="WHITE">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtUvLightIntencity" layoutX="146.0" layoutY="247.0" prefHeight="25.0" prefWidth="211.0" stylesheets="@../css/Style.css">
-                           <styleClass>
-                              <String fx:value="sideButtons" />
-                              <String fx:value="textfield" />
-                           </styleClass></TextField>
-                        <Label layoutX="21.0" layoutY="294.0" prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Distance Of Light" textFill="WHITE">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtDistanceOfLight" layoutX="146.0" layoutY="295.0" prefHeight="25.0" prefWidth="211.0" stylesheets="@../css/Style.css">
-                           <styleClass>
-                              <String fx:value="sideButtons" />
-                              <String fx:value="textfield" />
-                           </styleClass></TextField>
-                        <Label layoutX="21.0" layoutY="351.0" prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Examination Area" textFill="WHITE">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtExaminationArea" alignment="CENTER" layoutX="146.0" layoutY="352.0" prefHeight="25.0" prefWidth="211.0" promptText="Kaynak + Haz" stylesheets="@../css/Style.css">
-                           <styleClass>
-                              <String fx:value="sideButtons" />
-                              <String fx:value="textfield" />
-                           </styleClass></TextField>
-                        <Label layoutX="21.0" layoutY="399.0" prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Current Type" textFill="WHITE">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="21.0" layoutY="455.0" prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Luxmeter" textFill="WHITE">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtLuxmeter" alignment="CENTER" layoutX="146.0" layoutY="456.0" prefHeight="25.0" prefWidth="211.0" promptText="1200 Lux" stylesheets="@../css/Style.css">
-                           <styleClass>
-                              <String fx:value="sideButtons" />
-                              <String fx:value="textfield" />
-                           </styleClass></TextField>
-                        <Label layoutX="387.0" layoutY="39.0" prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Test Medium" textFill="WHITE">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtTestMedium" layoutX="512.0" layoutY="40.0" prefHeight="25.0" prefWidth="211.0" stylesheets="@../css/Style.css">
-                           <styleClass>
-                              <String fx:value="sideButtons" />
-                              <String fx:value="textfield" />
-                           </styleClass></TextField>
-                        <Label layoutX="387.0" layoutY="96.0" prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Demagnetization" textFill="WHITE">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtDemagnetization" layoutX="512.0" layoutY="97.0" prefHeight="25.0" prefWidth="211.0" stylesheets="@../css/Style.css">
-                           <styleClass>
-                              <String fx:value="sideButtons" />
-                              <String fx:value="textfield" />
-                           </styleClass></TextField>
-                        <Label layoutX="387.0" layoutY="144.0" prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Heat Treatment" textFill="WHITE">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtHeatTreatment" layoutX="512.0" layoutY="145.0" prefHeight="25.0" prefWidth="211.0" stylesheets="@../css/Style.css">
-                           <styleClass>
-                              <String fx:value="sideButtons" />
-                              <String fx:value="textfield" />
-                           </styleClass></TextField>
-                        <Label layoutX="387.0" layoutY="199.0" prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Surface Temperature" textFill="WHITE" />
-                        <Label layoutX="387.0" layoutY="247.0" prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Gauss Field Strength" textFill="WHITE" />
-                        <TextField fx:id="txtGaussFieldStrength" alignment="CENTER" layoutX="512.0" layoutY="248.0" prefHeight="25.0" prefWidth="211.0" promptText="3.2 kA/m" stylesheets="@../css/Style.css">
-                           <styleClass>
-                              <String fx:value="sideButtons" />
-                              <String fx:value="textfield" />
-                           </styleClass></TextField>
-                        <Label layoutX="387.0" layoutY="304.0" prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Surface Condition" textFill="WHITE">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtSurfaceCondition" alignment="CENTER" layoutX="512.0" layoutY="305.0" prefHeight="25.0" prefWidth="211.0" promptText="GRINDING" stylesheets="@../css/Style.css">
-                           <styleClass>
-                              <String fx:value="sideButtons" />
-                              <String fx:value="textfield" />
-                           </styleClass></TextField>
-                        <Label layoutX="380.0" layoutY="352.0" prefHeight="25.0" prefWidth="125.0" stylesheets="@../css/Style.css" text="Identification of Light Equip" textFill="WHITE">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtIdenOfLightEquip" alignment="CENTER" layoutX="512.0" layoutY="353.0" prefHeight="25.0" prefWidth="211.0" promptText="***" stylesheets="@../css/Style.css">
-                           <styleClass>
-                              <String fx:value="sideButtons" />
-                              <String fx:value="textfield" />
-                           </styleClass></TextField>
-                        <ComboBox fx:id="cmbCurrentType" layoutX="146.0" layoutY="401.0" prefHeight="25.0" prefWidth="213.0" styleClass="sideButtons" stylesheets="@../css/Style.css" />
-                        <Label fx:id="lblSurfaceTemperature" layoutX="512.0" layoutY="198.0" prefHeight="26.0" prefWidth="210.0" stylesheets="@../css/Style.css" text=" ">
-                           <styleClass>
-                              <String fx:value="sideButtons" />
-                              <String fx:value="textfield" />
-                           </styleClass></Label>
-                        <Label layoutX="387.0" layoutY="401.0" prefHeight="20.0" prefWidth="117.0" text="Lifting Test Date / No" textFill="WHITE" />
-                        <TextField fx:id="txtLiftingTestDateNo" layoutX="512.0" layoutY="402.0" prefHeight="25.0" prefWidth="211.0" styleClass="sideButtons" stylesheets="@../css/Style.css" />
+                        <Separator layoutX="522.0" opacity="0.29" orientation="VERTICAL" prefHeight="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <VBox layoutX="21.0" layoutY="38.0" prefHeight="683.0" prefWidth="498.0" spacing="60.0">
+                           <children>
+                              <HBox spacing="8.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Pole Distance:" textFill="WHITE">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtPoleDistance" prefHeight="25.0" prefWidth="381.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="8.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Equipment" textFill="WHITE">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtEquipment" prefHeight="25.0" prefWidth="382.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="8.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Mp Carrier Medium" textFill="WHITE">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtCarrierMedium" prefHeight="25.0" prefWidth="381.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="8.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Mag. Tech" textFill="WHITE">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtMagTech" prefHeight="25.0" prefWidth="381.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="8.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="UV Light Intencity" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtUvLightIntencity" prefHeight="25.0" prefWidth="386.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="8.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Distance Of Light" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtDistanceOfLight" prefHeight="25.0" prefWidth="382.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="8.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Examination Area" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtExaminationArea" alignment="CENTER" prefHeight="25.0" prefWidth="382.0" promptText="Kaynak + Haz" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="8.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Current Type" textFill="WHITE">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="cmbCurrentType" prefHeight="25.0" prefWidth="382.0" styleClass="sideButtons" stylesheets="@../css/Style.css" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="8.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Luxmeter" textFill="WHITE">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtLuxmeter" alignment="CENTER" prefHeight="25.0" prefWidth="211.0" promptText="1200 Lux" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="556.0" layoutY="38.0" prefHeight="622.0" prefWidth="477.0" spacing="60.0">
+                           <children>
+                              <HBox spacing="8.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Test Medium" textFill="WHITE">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtTestMedium" prefHeight="25.0" prefWidth="364.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="8.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Demagnetization" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtDemagnetization" prefHeight="25.0" prefWidth="360.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="8.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Heat Treatment" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtHeatTreatment" prefHeight="25.0" prefWidth="363.0" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="8.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Surface Temperature" textFill="WHITE" />
+                                    <Label fx:id="lblSurfaceTemperature" prefHeight="26.0" prefWidth="361.0" stylesheets="@../css/Style.css" text=" ">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="8.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Gauss Field Strength" textFill="WHITE" />
+                                    <TextField fx:id="txtGaussFieldStrength" alignment="CENTER" prefHeight="25.0" prefWidth="368.0" promptText="3.2 kA/m" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="8.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Surface Condition" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtSurfaceCondition" alignment="CENTER" prefHeight="25.0" prefWidth="360.0" promptText="GRINDING" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="8.0">
+                                 <children>
+                                    <Label prefHeight="25.0" prefWidth="125.0" stylesheets="@../css/Style.css" text="Identification of Light Equip" textFill="WHITE">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtIdenOfLightEquip" alignment="CENTER" prefHeight="25.0" prefWidth="353.0" promptText="***" stylesheets="@../css/Style.css">
+                                       <styleClass>
+                                          <String fx:value="sideButtons" />
+                                          <String fx:value="textfield" />
+                                       </styleClass>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="8.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="117.0" text="Lifting Test Date / No" textFill="WHITE" />
+                                    <TextField fx:id="txtLiftingTestDateNo" prefHeight="25.0" prefWidth="361.0" styleClass="sideButtons" stylesheets="@../css/Style.css" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
                      </children>
                   </AnchorPane>
             </content>
@@ -183,7 +275,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #1e272e;">
                      <children>
-                        <VBox layoutX="59.0" layoutY="50.0" spacing="5.0" stylesheets="@../css/Style.css">
+                        <VBox layoutX="137.0" layoutY="42.0" prefHeight="172.0" prefWidth="176.0" spacing="5.0" stylesheets="@../css/Style.css">
                            <children>
                               <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -193,47 +285,71 @@
                               <RadioButton fx:id="rbtnButtWeld" mnemonicParsing="false" text=" ">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="weldType" />
-                                 </toggleGroup></RadioButton>
+                                 </toggleGroup>
+                              </RadioButton>
                            </children>
                         </VBox>
-                        <Label layoutX="21.0" layoutY="450.0" prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Description" textFill="WHITE">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtDescription" layoutX="128.0" layoutY="450.0" prefHeight="31.0" prefWidth="600.0" stylesheets="@../css/Style.css">
-                           <styleClass>
-                              <String fx:value="sideButtons" />
-                              <String fx:value="textfield" />
-                           </styleClass></TextField>
-                        <Label layoutX="21.0" layoutY="412.0" prefHeight="27.0" prefWidth="104.0" stylesheets="@../css/Style.css" text="Standart Deviations" textFill="WHITE" />
-                        <Label layoutX="393.0" layoutY="413.0" prefHeight="20.0" prefWidth="117.0" stylesheets="@../css/Style.css" text="Inspection Dates" textFill="WHITE">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtStandartDerivations" layoutX="127.0" layoutY="414.0" prefHeight="25.0" prefWidth="249.0" stylesheets="@../css/Style.css">
-                           <styleClass>
-                              <String fx:value="sideButtons" />
-                              <String fx:value="textfield" />
-                           </styleClass></TextField>
-                        <Label fx:id="lblInspectionDates" layoutX="518.0" layoutY="413.0" prefHeight="26.0" prefWidth="210.0" stylesheets="@../css/Style.css" text=" ">
-                           <styleClass>
-                              <String fx:value="sideButtons" />
-                              <String fx:value="textfield" />
-                           </styleClass></Label>
-                        <Separator layoutX="41.0" layoutY="388.0" prefHeight="3.0" prefWidth="685.0" stylesheets="@../css/Style.css" />
-                        <Button fx:id="btnEquipmentSubmit" layoutX="577.0" layoutY="494.0" mnemonicParsing="false" onAction="#handleBtnEquipmentSubmit" prefHeight="25.0" prefWidth="149.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Submit" textFill="#fffbfb" />
-                        <Label alignment="CENTER" layoutX="47.0" layoutY="231.0" prefHeight="1.0" prefWidth="680.0" stylesheets="@../css/Style.css" text="Location Of Discontinuity" textFill="WHITE">
-                           <font>
-                              <Font size="19.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" layoutX="60.0" layoutY="270.0" prefHeight="17.0" prefWidth="655.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="BM : Base Metal" textFill="#fffafa" />
-                        <Label alignment="CENTER" layoutX="60.0" layoutY="298.0" prefHeight="17.0" prefWidth="655.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="HAZ: Heat Affected  Zone" textFill="#fffafa" />
-                        <Label alignment="CENTER" layoutX="60.0" layoutY="352.0" prefHeight="17.0" prefWidth="655.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="B:Bevel" textFill="#fffafa" />
-                        <Label alignment="CENTER" layoutX="60.0" layoutY="323.0" prefHeight="17.0" prefWidth="655.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="W:Weld" textFill="#fffafa" />
-                        <VBox layoutX="451.0" layoutY="50.0" spacing="5.0">
+                        <HBox layoutX="42.0" layoutY="607.0" prefHeight="26.0" prefWidth="990.0">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="212.0" stylesheets="@../css/Style.css" text="Description" textFill="WHITE">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtDescription" prefHeight="26.0" prefWidth="771.0" stylesheets="@../css/Style.css">
+                                 <styleClass>
+                                    <String fx:value="sideButtons" />
+                                    <String fx:value="textfield" />
+                                 </styleClass>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="43.0" layoutY="492.0" prefHeight="27.0" prefWidth="978.0">
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="261.0" stylesheets="@../css/Style.css" text="Standart Deviations" textFill="WHITE">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtStandartDerivations" prefHeight="25.0" prefWidth="819.0" stylesheets="@../css/Style.css">
+                                 <styleClass>
+                                    <String fx:value="sideButtons" />
+                                    <String fx:value="textfield" />
+                                 </styleClass>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="41.0" layoutY="544.0" prefHeight="28.0" prefWidth="983.0">
+                           <children>
+                              <Label prefHeight="20.0" prefWidth="227.0" stylesheets="@../css/Style.css" text="Inspection Dates" textFill="WHITE">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblInspectionDates" prefHeight="26.0" prefWidth="788.0" stylesheets="@../css/Style.css" text=" ">
+                                 <styleClass>
+                                    <String fx:value="sideButtons" />
+                                    <String fx:value="textfield" />
+                                 </styleClass>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Separator layoutX="19.0" layoutY="457.0" prefHeight="7.0" prefWidth="1018.0" stylesheets="@../css/Style.css" />
+                        <Button fx:id="btnEquipmentSubmit" layoutX="838.0" layoutY="671.0" mnemonicParsing="false" onAction="#handleBtnEquipmentSubmit" prefHeight="25.0" prefWidth="189.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Submit" textFill="#fffbfb" />
+                        <VBox layoutX="47.0" layoutY="231.0" prefHeight="176.0" prefWidth="977.0" spacing="20.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="55.0" prefWidth="976.0" stylesheets="@../css/Style.css" text="Location Of Discontinuity" textFill="WHITE">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="975.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="BM : Base Metal" textFill="#fffafa" />
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="977.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="HAZ: Heat Affected  Zone" textFill="#fffafa" />
+                              <Label alignment="CENTER" prefHeight="29.0" prefWidth="975.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="W:Weld" textFill="#fffafa" />
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="979.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="B:Bevel" textFill="#fffafa" />
+                           </children>
+                        </VBox>
+                        <VBox layoutX="763.0" layoutY="42.0" spacing="5.0">
                            <children>
                               <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -243,6 +359,7 @@
                               <RadioButton fx:id="rbtnFilledWeld" mnemonicParsing="false" text=" " toggleGroup="$weldType" />
                            </children>
                         </VBox>
+                        <Separator layoutX="16.0" layoutY="650.0" prefHeight="7.0" prefWidth="1018.0" stylesheets="@../css/Style.css" />
                      </children>
                   </AnchorPane>
             </content>

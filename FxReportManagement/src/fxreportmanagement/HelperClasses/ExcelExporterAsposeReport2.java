@@ -53,6 +53,14 @@ public class ExcelExporterAsposeReport2 {
 
     private static Vector<InspectionResults> inspectionResultses = new Vector<InspectionResults>();
 
+    private static String operator;
+
+    private static String evaluated;
+
+    private static String confirmation;
+
+    
+
     public static void main(String[] args) {
 
         exportHead();
@@ -63,14 +71,15 @@ public class ExcelExporterAsposeReport2 {
         try {
             workbook.save("Report2.xls");
         } catch (Exception ex) {
-            
+
             System.out.println("Docoment Report2 created ");
             System.out.println(ex.getMessage());
         }
 
     }
 
-    public static void exportGUI() {
+    //Export GUI
+    public static void exportGUI(String fileName) {
 
         exportHead();
         exportCustomer();
@@ -78,13 +87,15 @@ public class ExcelExporterAsposeReport2 {
         exportInspectionResults();
         exportLastSection();
         try {
-            workbook.save("Report2.1.xls");
+            workbook.save(fileName + ".xlsx");
+            System.out.println("Docoment " + fileName + " craeted ");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
 
     }
 
+    //Export Head
     private static void exportHead() {
 
         setWidthHeight();
@@ -123,6 +134,7 @@ public class ExcelExporterAsposeReport2 {
 
     }
 
+    //Export Customer
     private static void exportCustomer() {
 
         //---------------------Row 3-----------------------------------------//        
@@ -151,6 +163,7 @@ public class ExcelExporterAsposeReport2 {
 
     }
 
+    //Export Equipment
     private static void exportEquipment() {
 
         //---------------------Row 8-----------------------------------------//   
@@ -446,6 +459,7 @@ public class ExcelExporterAsposeReport2 {
 
     }
 
+    //Export Inspection Results
     private static void exportInspectionResults() {
 
         //---------------------Row 23-----------------------------------------//   
@@ -554,6 +568,7 @@ public class ExcelExporterAsposeReport2 {
         //carry on with row 39
     }
 
+    //Export Last Section
     private static void exportLastSection() {
 
         //---------------------Row 39-----------------------------------------//   
@@ -611,6 +626,8 @@ public class ExcelExporterAsposeReport2 {
 
     }
 
+    //--------------------------------------------------------------------------
+    //Create Customer Row
     private static void createCustomerRow(int row, String c0, String c5, String c13, String c17, String c21, String c24) {
 
         //C1-2-3-4-5
@@ -665,6 +682,7 @@ public class ExcelExporterAsposeReport2 {
 
     }
 
+    //Create Equipment Row
     private static void createEquipmentRow(int row, String c0, String c5, String c8, String c13, String c21, String c24) {
 
         //C1-2-3-4-5
@@ -721,6 +739,7 @@ public class ExcelExporterAsposeReport2 {
 
     }
 
+    //Create Inspection Results Row
     private static void createInspectionResultsRow(int row) {
 
         if (verifyVector(inspectionResultses, index)) {
@@ -858,6 +877,7 @@ public class ExcelExporterAsposeReport2 {
         cells.setRowHeight(row, 25);
     }
 
+    //Create Last Section Row
     private static void createLastSectionRow(int row, String field) {
 
         //C1-2-3-4-5-6
@@ -905,6 +925,7 @@ public class ExcelExporterAsposeReport2 {
 
     }
 
+    //Verify IR Vector
     private static boolean verifyVector(Vector<InspectionResults> vector, int index) {
 
         System.out.println("index " + index + "size  " + vector.size());
@@ -916,6 +937,9 @@ public class ExcelExporterAsposeReport2 {
         return result;
     }
 
+    //-------------------------------------------------------------------------
+    //Set Styles
+    //Set Color  Old
     private static Style setColor() {
 
         Color color = Color.fromArgb(255, 209, 209);
@@ -939,6 +963,7 @@ public class ExcelExporterAsposeReport2 {
         return style;
     }
 
+    //Set Color 2
     private static void setColor2(Cell cell) {
 
         Style style = cell.getStyle();
@@ -948,6 +973,7 @@ public class ExcelExporterAsposeReport2 {
 
     }
 
+    //Set Border
     private static void setBorder(int firstRow, int firstColumn, int totalRow, int totalColumn) {
 
         Range range = worksheet.getCells().createRange(firstRow, firstColumn, totalRow, totalColumn);
@@ -957,6 +983,7 @@ public class ExcelExporterAsposeReport2 {
 
     }
 
+    //Set Border Right
     private static void setBorderRight(int firstRow, int firstColumn, int totalRow, int totalColumn) {
 
         Range range = worksheet.getCells().createRange(firstRow, firstColumn, totalRow, totalColumn);
@@ -966,6 +993,7 @@ public class ExcelExporterAsposeReport2 {
 
     }
 
+    //Set Border General
     private static void setBorderG() {
 
         Range range = worksheet.getCells().getMaxDisplayRange();
@@ -997,6 +1025,7 @@ public class ExcelExporterAsposeReport2 {
 
     }
 
+    //Set Center
     private static void setCenter(Cell cell) {
 
         Style style = cell.getStyle();
@@ -1006,6 +1035,7 @@ public class ExcelExporterAsposeReport2 {
 
     }
 
+    //Set Vertical
     private static void setVertical(Cell cell) {
 
         Style style = cell.getStyle();
@@ -1016,12 +1046,14 @@ public class ExcelExporterAsposeReport2 {
 
     }
 
+    //Set Width
     private static void setWidthHeight() {
 
         worksheet.getCells().setStandardWidth(5);
 
     }
 
+    //Set Picture
     private static void setPicture(int upperLeftRow, int upperLeftCol, int lowerRightRow, int lowerRightcol, String fileName) {
 
         String dataDir = "C:/Users/ofaar/Documents/GitHub/fxreportmanagement/FxReportManagement/src/fxreportmanagement/Resources/" + fileName + ".PNG";
@@ -1035,6 +1067,7 @@ public class ExcelExporterAsposeReport2 {
 
     }
 
+    //Set Checkbox
     private static void setCheckBox(int upperLeftRow, int upperLeftColumn, int height, int width) {
 
         int index = worksheet.getCheckBoxes().add(upperLeftRow, upperLeftColumn, height, width);
@@ -1042,21 +1075,44 @@ public class ExcelExporterAsposeReport2 {
 
     }
 
+    //------------------------------------------------------------------------
+    //Getter Setters
+    //Set Customer
     public static void setCustomer(CustomerTab customer) {
 
         ExcelExporterAsposeReport2.customer = customer;
     }
 
+    //Set Equipment
     public static void setEquipment(EquipmentTab equipment) {
 
         ExcelExporterAsposeReport2.equipment = equipment;
     }
 
+    //Set Inspection Results
     public static void setInspectionResults(Vector<InspectionResults> inspectionResultses) {
 
         ExcelExporterAsposeReport2.inspectionResultses = inspectionResultses;
     }
 
+    //Set Operator
+    public static void setOperator(String operator) {
+        ExcelExporterAsposeReport2.operator = operator;
+    }
+
+    //Set Evaluated
+    public static void setEvaluated(String evaluated) {
+        ExcelExporterAsposeReport2.evaluated = evaluated;
+    }
+
+    //Set Confiramtion
+    public static void setConfirmation(String confirmation) {
+        ExcelExporterAsposeReport2.confirmation = confirmation;
+
+    }
+
+
+    //Export IR Old
     private void exportIr() {
 
         //C1-2

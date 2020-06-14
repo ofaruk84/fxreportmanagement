@@ -17,15 +17,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.8" prefWidth="749.0" styleClass="mainBackground" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxreportmanagement.Report1.RTestArrangementsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1050.0" styleClass="mainBackground" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxreportmanagement.Report1.RTestArrangementsController">
    <children>
-      <TabPane layoutX="194.0" layoutY="70.0" prefHeight="495.0" prefWidth="749.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+      <TabPane layoutY="266.0" prefHeight="489.0" prefWidth="1050.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
           <Tab text="Test Arrangements">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <HBox alignment="CENTER" layoutX="40.0" layoutY="72.0" prefHeight="161.0" prefWidth="670.0" spacing="20.0">
+                        <HBox alignment="CENTER" layoutX="40.0" layoutY="120.0" prefHeight="267.0" prefWidth="947.0" spacing="20.0">
                            <children>
                               <ImageView fitHeight="163.0" fitWidth="161.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -50,7 +50,7 @@
                               <JFXRadioButton fx:id="rbTa3" layoutX="239.0" layoutY="83.0" text=" " toggleGroup="$testArrangements" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" layoutX="40.0" layoutY="285.0" prefHeight="161.0" prefWidth="670.0" spacing="20.0">
+                        <HBox alignment="CENTER" layoutX="40.0" layoutY="409.0" prefHeight="281.0" prefWidth="947.0" spacing="20.0">
                            <children>
                               <ImageView fitHeight="145.0" fitWidth="161.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -72,9 +72,9 @@
                               <JFXRadioButton fx:id="rbTa6" layoutX="446.0" layoutY="82.0" text=" " toggleGroup="$testArrangements" />
                            </children>
                         </HBox>
-                        <Text fill="#fffdfd" layoutX="96.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Test Arrangements" textAlignment="CENTER" wrappingWidth="542.13671875">
+                        <Text fill="#fffdfd" layoutX="63.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Test Arrangements" textAlignment="CENTER" wrappingWidth="901.13671875">
                            <font>
-                              <Font size="25.0" />
+                              <Font size="50.0" />
                            </font>
                         </Text>
                      </children>
@@ -85,16 +85,16 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Separator layoutX="14.0" layoutY="330.0" prefHeight="0.0" prefWidth="718.0" />
-                        <Separator layoutX="372.0" layoutY="14.0" orientation="VERTICAL" prefHeight="311.0" prefWidth="1.0" />
-                        <Label alignment="CENTER" layoutX="8.0" layoutY="22.0" prefHeight="17.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="According To" textFill="WHITE" />
-                        <Label alignment="CENTER" layoutX="170.0" layoutY="22.0" prefHeight="41.0" prefWidth="198.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Defect Types" textFill="WHITE">
+                        <Separator layoutX="24.0" layoutY="426.0" prefHeight="0.0" prefWidth="983.0" />
+                        <Separator layoutX="534.0" layoutY="109.0" orientation="VERTICAL" prefHeight="297.0" prefWidth="2.0" />
+                        <Label alignment="CENTER" layoutX="30.0" layoutY="113.0" prefHeight="17.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="According To" textFill="WHITE" />
+                        <Label alignment="CENTER" layoutX="262.0" layoutY="113.0" prefHeight="41.0" prefWidth="198.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Defect Types" textFill="WHITE">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="8.0" layoutY="47.0" prefHeight="17.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="IIW    6520-1" textFill="WHITE" />
-                        <HBox layoutX="8.0" layoutY="81.0" spacing="10.0">
+                        <Label alignment="CENTER" layoutX="30.0" layoutY="138.0" prefHeight="17.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="IIW    6520-1" textFill="WHITE" />
+                        <HBox layoutX="30.0" layoutY="170.0" prefHeight="230.0" prefWidth="491.0" spacing="80.0">
                            <children>
                               <VBox prefHeight="228.0" prefWidth="153.0" spacing="5.0">
                                  <children>
@@ -124,7 +124,7 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <HBox layoutX="378.0" layoutY="81.0" spacing="10.0">
+                        <HBox layoutX="583.0" layoutY="170.0" spacing="80.0">
                            <children>
                               <VBox prefHeight="228.0" prefWidth="153.0" spacing="5.0">
                                  <children>
@@ -154,47 +154,42 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <Label alignment="CENTER" layoutX="378.0" layoutY="22.0" prefHeight="17.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="According To" textFill="WHITE" />
-                        <Label alignment="CENTER" layoutX="540.0" layoutY="22.0" prefHeight="41.0" prefWidth="198.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Defect Types" textFill="WHITE">
+                        <Label alignment="CENTER" layoutX="583.0" layoutY="116.0" prefHeight="17.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="According To" textFill="WHITE" />
+                        <Label alignment="CENTER" layoutX="815.0" layoutY="113.0" prefHeight="41.0" prefWidth="198.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Defect Types" textFill="WHITE">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="378.0" layoutY="47.0" prefHeight="17.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="IIW    6520-1" textFill="WHITE" />
-                        <Label layoutX="21.0" layoutY="358.0" prefHeight="29.0" prefWidth="186.0" text="Inspection Dates" textFill="WHITE">
+                        <Label alignment="CENTER" layoutX="583.0" layoutY="141.0" prefHeight="17.0" prefWidth="153.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="IIW    6520-1" textFill="WHITE" />
+                        <Label layoutX="24.0" layoutY="469.0" prefHeight="29.0" prefWidth="186.0" text="Inspection Dates" textFill="WHITE">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label layoutX="337.0" layoutY="359.0" prefHeight="29.0" prefWidth="186.0" text="Description and Attachments" textFill="WHITE">
+                        <Label layoutX="24.0" layoutY="544.0" prefHeight="29.0" prefWidth="204.0" text="Description and Attachments" textFill="WHITE">
                            <font>
-                              <Font size="13.0" />
+                              <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtDescription" layoutX="519.0" layoutY="361.0" prefHeight="25.0" prefWidth="217.0" stylesheets="@../css/Style.css">
+                        <TextField fx:id="txtDescription" layoutX="262.0" layoutY="546.0" prefHeight="25.0" prefWidth="751.0" stylesheets="@../css/Style.css">
                            <styleClass>
                               <String fx:value="textfield" />
                               <String fx:value="sideButtons" />
                            </styleClass>
                         </TextField>
-                        <JFXButton fx:id="btnSubmit" buttonType="RAISED" layoutX="521.0" layoutY="427.0" onAction="#handleBtnSubmitAction" prefHeight="25.0" prefWidth="217.0" ripplerFill="#72a365" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Submit" textFill="WHITE" />
-                        <Label fx:id="lblDate" alignment="CENTER" layoutX="186.0" layoutY="361.0" prefHeight="25.0" prefWidth="139.0" styleClass="sideButtons" stylesheets="@../css/Style.css" textFill="WHITE" />
-                        <Separator layoutX="13.0" layoutY="412.0" prefHeight="0.0" prefWidth="718.0" />
+                        <JFXButton fx:id="btnSubmit" buttonType="RAISED" layoutX="792.0" layoutY="650.0" onAction="#handleBtnSubmitAction" prefHeight="25.0" prefWidth="217.0" ripplerFill="#72a365" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Submit" textFill="WHITE" />
+                        <Label fx:id="lblDate" alignment="CENTER" layoutX="260.0" layoutY="472.0" prefHeight="25.0" prefWidth="751.0" styleClass="sideButtons" stylesheets="@../css/Style.css" textFill="WHITE" />
+                        <Separator layoutX="24.0" layoutY="594.0" prefHeight="0.0" prefWidth="985.0" />
+                        <Text fill="#fffdfd" layoutX="75.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Defect Types" textAlignment="CENTER" wrappingWidth="917.13671875">
+                           <font>
+                              <Font size="50.0" />
+                           </font>
+                        </Text>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
         </tabs>
       </TabPane>
-      <HBox layoutX="76.0" layoutY="3.0" prefHeight="67.0" prefWidth="186.0" spacing="1.0" AnchorPane.bottomAnchor="494.8" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label alignment="CENTER" maxHeight="1.7976931348623157E308" prefHeight="70.0" prefWidth="110.0" styleClass="mainBackground" stylesheets="@../css/Style.css" text="Evaluation Symbols" textFill="WHITE" />
-            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefHeight="70.0" prefWidth="110.0" styleClass="mainBackground" stylesheets="@../css/Style.css" text="Accepted    OK" textFill="WHITE" />
-            <Label alignment="CENTER" layoutX="120.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefHeight="70.0" prefWidth="110.0" styleClass="mainBackground" stylesheets="@../css/Style.css" text="Repair   R" textFill="WHITE" />
-            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefHeight="70.0" prefWidth="110.0" styleClass="mainBackground" stylesheets="@../css/Style.css" text="Cut-Out  C/O" textFill="WHITE" />
-            <Label alignment="CENTER" layoutX="120.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefHeight="70.0" prefWidth="154.0" styleClass="mainBackground" stylesheets="@../css/Style.css" text="Re-Shoot  RS" textFill="WHITE" />
-            <Label alignment="CENTER" layoutX="230.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefHeight="70.0" prefWidth="156.0" styleClass="mainBackground" stylesheets="@../css/Style.css" text="Label" textFill="WHITE" />
-         </children>
-      </HBox>
    </children>
 </AnchorPane>

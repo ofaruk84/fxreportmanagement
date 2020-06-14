@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Faruk /fxreportmanagement/Login/LoginFxml.fxml  /fxreportmanagement/HomePage/HomePageFxml.fxml
+ * @author Faruk /fxreportmanagement/Login/LoginFxml.fxml  /fxreportmanagement/HomePage/HomePageFxml.fxml  /fxreportmanagement/Report2/Report2OptionsPgFxml.fxml
  */
 public class FxReportManagement extends Application {
     

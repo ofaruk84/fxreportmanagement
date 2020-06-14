@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.8" prefWidth="749.6" styleClass="mainBackground" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxreportmanagement.Report2.Report2InspectionResultsPgFxmlController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1050.0" styleClass="mainBackground" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxreportmanagement.Report2.Report2InspectionResultsPgFxmlController">
    <children>
       <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <tabs>
@@ -24,7 +24,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="mainBackground" stylesheets="@../css/Style.css">
                      <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="11.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <VBox prefHeight="623.0" prefWidth="1050.0" spacing="40.0" AnchorPane.bottomAnchor="98.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <HBox maxWidth="1.7976931348623157E308" prefHeight="48.0" prefWidth="750.0">
                                  <children>
@@ -160,10 +160,10 @@
                               </HBox>
                            </children>
                            <padding>
-                              <Insets top="10.0" />
+                              <Insets top="20.0" />
                            </padding>
                         </VBox>
-                        <Button fx:id="btnSubmit" layoutX="570.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleBtnSubmit" prefHeight="25.0" prefWidth="169.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Submit" textFill="WHITE" />
+                        <Button fx:id="btnSubmit" layoutX="867.0" layoutY="669.0" mnemonicParsing="false" onAction="#handleBtnSubmit" prefHeight="25.0" prefWidth="169.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Submit" textFill="WHITE" />
                      </children></AnchorPane>
                </content>
             </Tab>
@@ -171,7 +171,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="tbvInspectionResults" layoutX="83.0" layoutY="78.0" prefHeight="340.0" prefWidth="551.0" styleClass="mainBackground" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="tbvInspectionResults" layoutX="83.0" layoutY="78.0" prefHeight="604.0" prefWidth="1050.0" styleClass="mainBackground" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="117.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
                             <TableColumn fx:id="tcId" prefWidth="58.0" text="SerialNo" />
                             <TableColumn fx:id="tcWeldNo" prefWidth="150.0" text="Weld No" />
@@ -183,8 +183,11 @@
                               <TableColumn fx:id="tcDefectLoc" prefWidth="104.0" text="Defect Loc" />
                               <TableColumn fx:id="tcResult" prefWidth="60.0" text="Result" />
                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
                         </TableView>
-                        <JFXButton fx:id="btnSave" layoutX="23.0" layoutY="471.0" onAction="#handleBtnSave" prefHeight="48.0" prefWidth="705.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Save" textFill="#fffbfb">
+                        <JFXButton fx:id="btnSave" layoutX="761.0" layoutY="648.0" onAction="#handleBtnSave" prefHeight="27.0" prefWidth="264.0" styleClass="sideButtons" stylesheets="@../css/Style.css" text="Save" textFill="#fffbfb">
                            <font>
                               <Font size="18.0" />
                            </font>

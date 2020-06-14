@@ -7,10 +7,14 @@ package fxreportmanagement.Report2;
 
 import fxreportmanagement.DatabaseOperations.DatabaseAccess.CustomerDal;
 import fxreportmanagement.DatabaseOperations.DatabaseEntitates.Customer;
+import fxreportmanagement.HelperClasses.DataKeeper;
 import fxreportmanagement.HelperClasses.ExcelExporter;
 import fxreportmanagement.HelperClasses.ExcelExporterAsposeReport1;
 import fxreportmanagement.HelperClasses.ExcelExporterAsposeReport2;
 import fxreportmanagement.Report2.Entitates.CustomerTab;
+import fxreportmanagement.Report2.Entitates.TableViewEntitates.ProjectName;
+import fxreportmanagement.Report2.Entitates.TableViewEntitates.StageOfExamination;
+import fxreportmanagement.Report2.Entitates.TableViewEntitates.SurfaceCondition;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -65,8 +69,18 @@ public class Report2CustomerPgFxmlController implements Initializable {
     private TextField txtInspectionStandart;
 
     private ObservableList<String> oblist;
+
     private final ObservableList<String> oblistCmb = FXCollections.observableArrayList("Values");//Temp Values
-    ;
+
+    private ObservableList<ProjectName> projectNames;
+    private ObservableList<String> olProjectName = FXCollections.observableArrayList();
+
+    private ObservableList<SurfaceCondition> surfaceConditions;
+    private ObservableList<String> olSurfaceCondition = FXCollections.observableArrayList();
+
+    private ObservableList<StageOfExamination> stageOfExaminations;
+    private ObservableList<String> olStageOfExaminations = FXCollections.observableArrayList();
+
     private Customer customer;
     private CustomerDal customerDal;
 
@@ -80,6 +94,9 @@ public class Report2CustomerPgFxmlController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         customerDal = new CustomerDal();
+        getProjectName();
+        getStageOfExamination();
+        getSurfaceCondition();
         populateCmbCustomer();
         setInitialValue();
 
@@ -90,9 +107,9 @@ public class Report2CustomerPgFxmlController implements Initializable {
     private void handleBtnCustomer(ActionEvent event) {
 
 //        ExcelExporter.setCustomerTab(getCustomer());
-          ExcelExporterAsposeReport2.setCustomer(getCustomer());
-          ExcelExporterAsposeReport1.setCustomer(getCustomer());
-          System.out.println("R2 Customer Setted");
+        ExcelExporterAsposeReport2.setCustomer(getCustomer());
+        ExcelExporterAsposeReport1.setCustomer(getCustomer());
+        System.out.println("R2 Customer Setted");
 
     }
 
@@ -148,18 +165,18 @@ public class Report2CustomerPgFxmlController implements Initializable {
         txtDrawingNo.setText("-");
         txtPage.setText("1");
 
-        cmbProjectName.setItems(oblistCmb);
+        cmbProjectName.setItems(olProjectName);
         cmbProjectName.getSelectionModel().selectFirst();
-        
-        cmbSurfaceCondition.setItems(oblistCmb);
+
+        cmbSurfaceCondition.setItems(olSurfaceCondition);
         cmbSurfaceCondition.getSelectionModel().selectFirst();
-        
-        cmbStageOfExamination.setItems(oblistCmb);
+
+        cmbStageOfExamination.setItems(olStageOfExaminations);
         cmbStageOfExamination.getSelectionModel().selectFirst();
-        
+
         cmbJobOrderNo.setItems(oblistCmb);
         cmbJobOrderNo.getSelectionModel().selectFirst();
-        
+
         cmbOfferNo.setItems(oblistCmb);
         cmbOfferNo.getSelectionModel().selectFirst();
 
@@ -167,6 +184,38 @@ public class Report2CustomerPgFxmlController implements Initializable {
         lblReportDate.setText("Value");
         lblReportNo.setText("Value");
 
+    }
+
+    public void getProjectName() {
+
+        projectNames = DataKeeper.getProjectNames();
+
+        for (ProjectName projectName : projectNames) {
+
+            olProjectName.add(projectName.getProjectName());
+        }
+    }
+
+    public void getSurfaceCondition() {
+
+        surfaceConditions = DataKeeper.getSurfaceConditions();
+
+        for (SurfaceCondition surfaceCondition : surfaceConditions) {
+
+            olSurfaceCondition.add(surfaceCondition.getSurfaceCondition());
+
+        }
+    }
+
+    public void getStageOfExamination() {
+
+        stageOfExaminations = DataKeeper.getStageOfExaminations();
+
+        for (StageOfExamination stageOfExamination : stageOfExaminations) {
+
+            olStageOfExaminations.add(stageOfExamination.getStageOfExamination());
+
+        }
     }
 
 }

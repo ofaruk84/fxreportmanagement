@@ -60,6 +60,14 @@ public class ExcelExporterAsposeReport1 {
 
     private static int index = 1;
 
+    private static String operator;
+
+    private static String evaluated;
+
+    private static String confirmation;
+    
+
+
     public static void main(String[] args) {
 
         exportHead();
@@ -78,8 +86,9 @@ public class ExcelExporterAsposeReport1 {
         }
 
     }
-
-    public static void exportGUI() {
+    
+    //Export GUI
+    public static void exportGUI(String fileName) {
 
         exportHead();
         exportCustomer();
@@ -90,14 +99,15 @@ public class ExcelExporterAsposeReport1 {
         exportInspectionResults();
         exportLastSection();
         try {
-            workbook.save("Report1.2.xls");
-            System.out.println("Docoment Report1.2.xlsx craeted ");
+            workbook.save(fileName+".xlsx");
+            System.out.println("Docoment "+fileName+" craeted ");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
 
     }
-
+    
+    //Export Head
     private static void exportHead() {
 
         //---------------------Row 1-----------------------------------------//   
@@ -134,7 +144,8 @@ public class ExcelExporterAsposeReport1 {
         cells.setRowHeight(row, 35);
 
     }
-
+    
+    //Export Customer
     private static void exportCustomer() {
 
         //---------------------Row 3-----------------------------------------//        
@@ -162,7 +173,8 @@ public class ExcelExporterAsposeReport1 {
         createCustomerRow(row, "Evaluation Standart", customer.getEvaluationStandart(), "Stage Of Examination", customer.getStageOfExamination(), "Offer No", customer.getOfferNo());
 
     }
-
+    
+    //Export Equipment
     private static void exportEquipment() {
 
         setWidthHeight();
@@ -710,7 +722,8 @@ public class ExcelExporterAsposeReport1 {
         cells.merge(row, col, 1, 3);
 
     }
-
+    
+    //Export Shooting Informations
     private static void exportShootingInformations() {
 
         //---------------------Row 18-----------------------------------------//
@@ -947,7 +960,8 @@ public class ExcelExporterAsposeReport1 {
         cells.setRowHeight(row, 21);//Set Row Height
 
     }
-
+    
+    //Export Test Arrangements
     private static void exportTestArrangements() {
 
         //---------------------Row 22-----------------------------------------//
@@ -1037,8 +1051,6 @@ public class ExcelExporterAsposeReport1 {
             setCheckBox(row, 11, 20, 40);
         }
 
-      
-
         //C14-15-16-17-18
         col = 13;
         cells.merge(row, col, 2, 5);
@@ -1050,8 +1062,6 @@ public class ExcelExporterAsposeReport1 {
 
             setCheckBox(row, 15, 20, 40);
         }
-
-      
 
         //C19-20-21-22-23
         col = 18;
@@ -1065,8 +1075,6 @@ public class ExcelExporterAsposeReport1 {
             setCheckBox(row, 20, 20, 40);
         }
 
-        
-
         //C24-25-26-27-28
         col = 23;
         cells.merge(row, col, 2, 5);
@@ -1079,10 +1087,9 @@ public class ExcelExporterAsposeReport1 {
             setCheckBox(row, 25, 20, 40);
         }
 
-       
-
     }
-
+    
+    //Export Defect Types
     private static void exportDefecType() {
 
         //---------------------Row 32-----------------------------------------//   
@@ -1245,7 +1252,8 @@ public class ExcelExporterAsposeReport1 {
         setBorder(row, col, 1, 14);//Set Border
         cells.merge(row, col, 1, 14);
     }
-
+    
+    //Export Inspection Results
     private static void exportInspectionResults() {
 
         //---------------------Row 45-----------------------------------------//   
@@ -1463,7 +1471,8 @@ public class ExcelExporterAsposeReport1 {
         setInspectionResultsRow(52);
 
     }
-
+    
+    //Export Last Section
     private static void exportLastSection() {
 
         //---------------------Row 54-----------------------------------------//   
@@ -1514,13 +1523,16 @@ public class ExcelExporterAsposeReport1 {
         setBorder(row, col, 1, 6);//Set Border
         cells.merge(row, col, 1, 6);
 
-        createLastSectionRow(54, "Name Surname");
-        createLastSectionRow(55, "Level");
-        createLastSectionRow(56, "Date");
-        createLastSectionRow(57, "Signature");
+        createLastSectionRow(54, "Name Surname",operator,evaluated,confirmation,"");
+        createLastSectionRow(55, "Level","","","","");
+        createLastSectionRow(56, "Date","","","","");
+        createLastSectionRow(57, "Signature","","","","");
 
     }
-
+    
+    //--------------------------------------------------------------------------
+    
+    //Create Customer Row
     private static void createCustomerRow(int row, String c0, String c5, String c13, String c17, String c21, String c24) {
 
         //C1-2-3-4-5
@@ -1574,7 +1586,8 @@ public class ExcelExporterAsposeReport1 {
         cells.setRowHeight(row, 25);
 
     }
-
+    
+    //Verify IR Vector
     private static boolean verifyVector(Vector<RInspectionResults> vector, int index) {
 
         System.out.println("index " + index + "size  " + vector.size());
@@ -1585,7 +1598,8 @@ public class ExcelExporterAsposeReport1 {
         System.out.println("index<size");
         return result;
     }
-
+    
+    //Create IR Row
     private static void setInspectionResultsRow(int row) {
 
         cells.setRowHeight(row, 25);
@@ -1820,8 +1834,9 @@ public class ExcelExporterAsposeReport1 {
         }
 
     }
-
-    private static void createLastSectionRow(int row, String field) {
+    
+    //Create Last Section  Row
+    private static void createLastSectionRow(int row, String field,String radiographer,String evaluated,String confirmation,String customer) {
 
         //C1-2-3-4-5-6
         col = 0;
@@ -1834,7 +1849,7 @@ public class ExcelExporterAsposeReport1 {
         //C7-12
         col = 6;
 
-        cells.get(row, col).setValue(" ");
+        cells.get(row, col).setValue(radiographer);
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 6);//Set Border
         cells.merge(row, col, 1, 6);
@@ -1842,7 +1857,7 @@ public class ExcelExporterAsposeReport1 {
         //C13-18
         col = 12;
 
-        cells.get(row, col).setValue("");
+        cells.get(row, col).setValue(evaluated);
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 6);//Set Border
         cells.merge(row, col, 1, 6);
@@ -1850,7 +1865,7 @@ public class ExcelExporterAsposeReport1 {
         //C19-22
         col = 18;
 
-        cells.get(row, col).setValue("");
+        cells.get(row, col).setValue(confirmation);
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 4);//Set Border
         cells.merge(row, col, 1, 4);
@@ -1858,7 +1873,7 @@ public class ExcelExporterAsposeReport1 {
         //C23-28
         col = 22;
 
-        cells.get(row, col).setValue("");
+        cells.get(row, col).setValue(customer);
         setCenter(cells.get(row, col));//Set Center
         setBorder(row, col, 1, 6);//Set Border
         cells.merge(row, col, 1, 6);
@@ -1867,7 +1882,8 @@ public class ExcelExporterAsposeReport1 {
         cells.setRowHeight(57, 50);
 
     }
-
+    
+    //Create Defect Type Row
     private static void createDefectRow(int row, String c0, String c1, String c4, String c14, String c15, String c18) {
 
         //String C1
@@ -1921,7 +1937,8 @@ public class ExcelExporterAsposeReport1 {
         cells.merge(row, col, 1, 10);
 
     }
-
+    
+    //Check Checkbox OLD**
     private static void checkCheckboxOfEquipment(int row, int col) {
 
         /*  String temp = equipment.getFilmType();
@@ -2068,27 +2085,57 @@ public class ExcelExporterAsposeReport1 {
         }
          */
     }
-
+    
+    //--------------------------------------------------------------------------
+    
+    //Getter Setters
+    
+    
+    //Set Customer
     public static void setCustomer(CustomerTab customer) {
 
         ExcelExporterAsposeReport1.customer = customer;
     }
-
+    
+    //Set Equipment
     public static void setEquipment(REquipmentTab equipment) {
 
         ExcelExporterAsposeReport1.equipment = equipment;
     }
-
+    
+    //Set Test Arrangements
     public static void setTestArrangements(RTestArrangements testArrangements) {
 
         ExcelExporterAsposeReport1.testArrangements = testArrangements;
     }
-
+    
+    //Set Inspeciton Results
     public static void setInspectionResults(Vector<RInspectionResults> inspectionResultses) {
 
         ExcelExporterAsposeReport1.inspectionResultses = inspectionResultses;
     }
-
+    
+    //Set Opearator
+    public static void setOperator(String operator) {
+        ExcelExporterAsposeReport1.operator = operator;
+    }
+    
+    //Set Evaluated
+    public static void setEvaluated(String evaluated) {
+        ExcelExporterAsposeReport1.evaluated = evaluated;
+    }
+    
+    
+    //Set Confirmation
+    public static void setConfirmation(String confirmation) {
+        ExcelExporterAsposeReport1.confirmation = confirmation;
+       
+    }
+    //--------------------------------------------------------------------------
+    
+    //Setting Styles
+    
+    //Set Color OLD
     private static Style setColor() {
 
         Color color = Color.fromArgb(255, 209, 209);
@@ -2111,7 +2158,8 @@ public class ExcelExporterAsposeReport1 {
 
         return style;
     }
-
+    
+    //Set Color
     private static void setColor2(Cell cell) {
 
         Style style = cell.getStyle();
@@ -2120,7 +2168,8 @@ public class ExcelExporterAsposeReport1 {
         cell.setStyle(style);
 
     }
-
+    
+    //Set Border
     private static void setBorder(int firstRow, int firstColumn, int totalRow, int totalColumn) {
 
         Range range = worksheet.getCells().createRange(firstRow, firstColumn, totalRow, totalColumn);
@@ -2129,7 +2178,9 @@ public class ExcelExporterAsposeReport1 {
         range.setOutlineBorders(CellBorderType.THIN, Color.getBlack());
 
     }
-
+    
+    
+    //Set Border Right
     private static void setBorderRight(int firstRow, int firstColumn, int totalRow, int totalColumn) {
 
         Range range = worksheet.getCells().createRange(firstRow, firstColumn, totalRow, totalColumn);
@@ -2138,7 +2189,9 @@ public class ExcelExporterAsposeReport1 {
         range.setOutlineBorder(CellBorderType.THIN, BorderType.RIGHT_BORDER, Color.getBlack());
 
     }
-
+    
+    
+    //Set Border General
     private static void setBorderG() {
 
         Range range = worksheet.getCells().getMaxDisplayRange();
@@ -2169,7 +2222,9 @@ public class ExcelExporterAsposeReport1 {
         range.setOutlineBorders(BorderType.LEFT_BORDER, Color.getBlack());
 
     }
-
+    
+    
+    //Set Center
     private static void setCenter(Cell cell) {
 
         Style style = cell.getStyle();
@@ -2178,7 +2233,8 @@ public class ExcelExporterAsposeReport1 {
         cell.setStyle(style);
 
     }
-
+    
+    //Set Vertical
     private static void setVertical(Cell cell) {
 
         Style style = cell.getStyle();
@@ -2188,7 +2244,8 @@ public class ExcelExporterAsposeReport1 {
         cell.setStyle(style);
 
     }
-
+    
+    //Set Top Left
     private static void setTopLeft(Cell cell) {
 
         Style style = cell.getStyle();
@@ -2200,13 +2257,15 @@ public class ExcelExporterAsposeReport1 {
         cell.setStyle(style);
 
     }
-
+    
+    //Set Width 
     private static void setWidthHeight() {
 
         worksheet.getCells().setStandardWidth(6);
 
     }
-
+    
+    //Set Picture
     private static void setPicture(int upperLeftRow, int upperLeftCol, int lowerRightRow, int lowerRightcol, String fileName) {
 
         String dataDir = "C:/Users/ofaar/Documents/GitHub/fxreportmanagement/FxReportManagement/src/fxreportmanagement/Resources/" + fileName + ".PNG";
@@ -2219,14 +2278,16 @@ public class ExcelExporterAsposeReport1 {
         }
 
     }
-
+    
+    //Set Check Box
     private static void setCheckBox(int upperLeftRow, int upperLeftColumn, int height, int width) {
 
         int index = worksheet.getCheckBoxes().add(upperLeftRow, upperLeftColumn, height, width);
         CheckBox checkBox = worksheet.getCheckBoxes().get(index);
 
     }
-
+    
+    //Set Check Box With Value
     private static void setCheckBoxWithValue(int upperLeftRow, int upperLeftColumn, int height, int width, String value) {
 
         int index = worksheet.getCheckBoxes().add(upperLeftRow, upperLeftColumn, height, width);

@@ -48,32 +48,10 @@ public class HomePageFxmlController implements Initializable {
     private ToggleGroup report;
     @FXML
     private RadioButton rbMagnetic;
-    @FXML
-    private ComboBox<String> cmbEquipment;
 
-    private EquipmentDal equipmentDal;
 
-    private EmployeeDal employeeDal;
-
-    private ObservableList<String> oblist;
-
-    private Equipment equipment;
-
-    private REquipmentDal requipmentDal;
-
-    private REquipment requipment;
-
-    private REquipmentTab requipmentTab;
     @FXML
     private BorderPane bpMain;
-    @FXML
-    private JFXComboBox<String> cmbOpeartor;
-    @FXML
-    private JFXComboBox<String> cmbEvaluated;
-    @FXML
-    private JFXComboBox<String> cmbConfirmation;
-    @FXML
-    private JFXComboBox<String> cmbREquipment;
 
     /**
      * Initializes the controller class.
@@ -83,15 +61,8 @@ public class HomePageFxmlController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        equipmentDal = new EquipmentDal();
-        employeeDal = new EmployeeDal();
-        requipmentDal = new REquipmentDal();
 
         getDate();
-        populateCmbEquipment();
-        populateCmbEmployees();
-        populateCmbREquipment();
-
     }
 
     //Open Selected Report
@@ -102,30 +73,19 @@ public class HomePageFxmlController implements Initializable {
 
         if (rbMagnetic.isSelected()) {
 
-            ExcelExporter.setOperator(cmbOpeartor.getValue());
-            ExcelExporter.setEvaluated(cmbEvaluated.getValue());
-            ExcelExporter.setConfirmation(cmbConfirmation.getValue());
-            ExcelExporter.setDate(lblDate.getText());
 
-            fileUrl = "Report2/Report2Fxml";
+            fileUrl = "Report2/Report2OptionsPgFxml";
             FxmlPageLoader.loadSameScene(bpMain, fileUrl);
 
-            String value = (String) cmbEquipment.getValue();
-            equipment = equipmentDal.getEquipment(value);
-            Report2FxmlController.getInstance().loadEqupimentName(value);
-            Report2FxmlController.getInstance().loadEquipment(equipment);
+
 
         }
 
         if (rbRadiographic.isSelected()) {
 
-            fileUrl = "Report1/Report1";
+            fileUrl = "Report1/Report1Options";
             FxmlPageLoader.loadSameScene(bpMain, fileUrl);
-
-            String value = (String) cmbREquipment.getValue();
-            requipment = requipmentDal.getEquipment(value);
-            Report1Controller.getInstance().loadEqupimentName(value);
-            Report1Controller.getInstance().loadEquipment(requipment);            
+           
 
         }
 
@@ -141,28 +101,5 @@ public class HomePageFxmlController implements Initializable {
 
     }
 
-    private void populateCmbEquipment() {
-
-        oblist = equipmentDal.getEQName();
-
-        cmbEquipment.setItems(oblist);
-
-    }
-
-    private void populateCmbREquipment() {
-
-        oblist = requipmentDal.getEQName();
-
-        cmbREquipment.setItems(oblist);
-
-    }
-
-    private void populateCmbEmployees() {
-
-        oblist = employeeDal.getEmployeeName();
-        cmbConfirmation.setItems(oblist);
-        cmbEvaluated.setItems(oblist);
-        cmbOpeartor.setItems(oblist);
-    }
 
 }

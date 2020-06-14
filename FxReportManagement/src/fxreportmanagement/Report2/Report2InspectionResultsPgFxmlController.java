@@ -8,6 +8,7 @@ package fxreportmanagement.Report2;
 import com.jfoenix.controls.JFXButton;
 import fxreportmanagement.HelperClasses.ExcelExporter;
 import fxreportmanagement.HelperClasses.ExcelExporterAsposeReport2;
+import fxreportmanagement.HelperClasses.FxmlPageLoader;
 import fxreportmanagement.Report2.Entitates.InspectionResults;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -127,7 +128,7 @@ public class Report2InspectionResultsPgFxmlController implements Initializable {
 //        ExcelExporter.exportGUI();
 
           ExcelExporterAsposeReport2.setInspectionResults(inspectionResultses);
-          ExcelExporterAsposeReport2.exportGUI();
+          FxmlPageLoader.loadPage("Report1/Report2FileExporterFxml");
 
     }
 
