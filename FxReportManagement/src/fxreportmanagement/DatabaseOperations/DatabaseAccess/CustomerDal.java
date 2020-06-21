@@ -17,6 +17,9 @@ import javafx.collections.ObservableList;
 /**
  *
  * @author Faruk
+ * 
+ * Ömer Faruk Korkmaz
+ * 170503014
  */
 public class CustomerDal {
 
@@ -40,6 +43,7 @@ public CustomerDal(){
         
   }
 
+//Establish Connection
 public void establishConnection() throws SQLException{
      
     try {
@@ -75,7 +79,7 @@ public void addCustomer(Customer customer){
 //Delete Customer
 public void delete(int id){
     
-    String sqlQuery ="delete from customer where employeeId = ?";
+    String sqlQuery ="delete from customer where customerId = ?";
       
     try {
         PreparedStatement statement = connection.prepareStatement(sqlQuery);

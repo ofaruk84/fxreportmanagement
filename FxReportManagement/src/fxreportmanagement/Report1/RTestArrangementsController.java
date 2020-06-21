@@ -22,6 +22,10 @@ import javafx.scene.control.ToggleGroup;
  * FXML Controller class
  *
  * @author Faruk
+ * 
+ * 
+ * Ömer Faruk Korkmaz 
+ * 170503014
  */
 public class RTestArrangementsController implements Initializable {
 

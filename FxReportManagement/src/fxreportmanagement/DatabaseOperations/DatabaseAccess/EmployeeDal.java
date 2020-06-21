@@ -18,6 +18,9 @@ import javafx.collections.ObservableList;
 /**
  *
  * @author Faruk
+ * 
+ * Ömer Faruk Korkmaz
+ * 170503014
  */
 public class EmployeeDal {
 
@@ -179,11 +182,12 @@ public class EmployeeDal {
 
     }
 
+    //Get Employee Name
     public ObservableList<String> getEmployeeName() {
-        
+
         String name;
         ObservableList<String> oblist = FXCollections.observableArrayList();;
-        
+
         String sqlQuery = "SELECT employeeName,employeeLastName FROM employee";
         try {
             PreparedStatement statement = connection.prepareStatement(sqlQuery);
@@ -192,9 +196,9 @@ public class EmployeeDal {
 
             while (rs.next()) {
                 name = rs.getString("employeeName") + " " + rs.getString("employeeLastName");
-                
+
                 oblist.add(name);
-                
+
             }
 
         } catch (SQLException ex) {
@@ -204,7 +208,28 @@ public class EmployeeDal {
         return oblist;
 
     }
-    
-    
 
+    //Get Level
+    public String getLevel(String name){
+
+        String level = "";
+        String sqlQuery = "SELECT employeeLevel FROM employee where employeeName = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sqlQuery);
+            statement.setString(1, name);
+
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                level = rs.getString("employeeLevel");
+
+            }
+
+        } catch (SQLException ex) {
+            dbHelper.showErrorMessage(ex);
+        }
+
+        return level;
+
+    }
 }

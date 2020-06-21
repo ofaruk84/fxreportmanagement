@@ -20,6 +20,9 @@ import javafx.stage.Stage;
 /**
  *
  * @author Faruk
+ * 
+ * Ömer Faruk Korkmaz
+ * 170503014
  */
 public class FxmlPageLoader {
 

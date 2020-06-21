@@ -23,6 +23,9 @@ import javafx.scene.control.ToggleGroup;
  * FXML Controller class
  *
  * @author Faruk
+ * 
+ * Ömer Faruk Korkmaz 
+ * 170503014
  */
 public class REquipmentController implements Initializable {
 
@@ -197,18 +200,18 @@ public class REquipmentController implements Initializable {
 
     private void fill() {
 
-        lblTemperature.setText("val");
-        txtHeatTreatment.setText("val");
-        txtFilters.setText("filters");
-        txtX12.setText("12");
-        txtX16.setText("12");
-        txtX24.setText("12");
-        txtX36.setText("12");
-        txtX48.setText("12");
-        txtX40.setText("12");
-        txtSuitibleFilm.setText("Value");
-        txtRepairFilm.setText("value");
-        txtFilmBrand.setText("Kodak");
+//        lblTemperature.setText("val");
+//        txtHeatTreatment.setText("val");
+//        txtFilters.setText("filters");
+//        txtX12.setText("12");
+//        txtX16.setText("12");
+//        txtX24.setText("12");
+//        txtX36.setText("12");
+//        txtX48.setText("12");
+//        txtX40.setText("12");
+//        txtSuitibleFilm.setText("Value");
+//        txtRepairFilm.setText("value");
+//        txtFilmBrand.setText("Kodak");
         
 
     }

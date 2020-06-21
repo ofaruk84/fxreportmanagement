@@ -31,6 +31,9 @@ import javafx.scene.control.TextField;
  * FXML Controller class
  *
  * @author Faruk
+ * 
+ * Ömer Faruk Korkmaz 
+ * 170503014
  */
 public class Report2CustomerPgFxmlController implements Initializable {
 

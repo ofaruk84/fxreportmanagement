@@ -8,6 +8,7 @@ package fxreportmanagement.Report2;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import fxreportmanagement.HelperClasses.ExcelExporterAsposeReport2;
+import fxreportmanagement.HelperClasses.PdfExporter;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -18,6 +19,9 @@ import javafx.fxml.Initializable;
  * FXML Controller class
  *
  * @author Faruk
+ * 
+ * Ömer Faruk Korkmaz 
+ * 170503014
  */
 public class Report2FileExporterFxmlController implements Initializable {
 
@@ -41,11 +45,18 @@ public class Report2FileExporterFxmlController implements Initializable {
     private void handleBtnExcelAction(ActionEvent event) {
         
         ExcelExporterAsposeReport2.exportGUI(txtFileName.getText());
+       
         btnPDF.setVisible(true);
     }
 
     @FXML
     private void handleBtnPDFAction(ActionEvent event) {
+        
+        System.out.println("girdi");
+        
+        PdfExporter.exportPDF(txtFileName.getText());
+        System.out.println("created");
+        
     }
 
 }

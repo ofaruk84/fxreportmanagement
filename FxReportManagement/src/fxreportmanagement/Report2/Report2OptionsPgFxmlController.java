@@ -39,6 +39,9 @@ import javafx.scene.layout.AnchorPane;
  * FXML Controller class
  *
  * @author Faruk
+ * 
+ * Ömer Faruk Korkmaz 
+ * 170503014
  */
 public class Report2OptionsPgFxmlController implements Initializable {
 

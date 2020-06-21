@@ -7,6 +7,14 @@ package fxreportmanagement.Report2.Entitates;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
+/*
+
+ * @author Faruk 
+
+ * Ömer Faruk Korkmaz 
+ * 170503014
+
+*/
 
 
 public class InspectionResults {

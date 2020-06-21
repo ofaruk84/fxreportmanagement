@@ -15,7 +15,7 @@
    <children>
       <AnchorPane layoutX="226.0" layoutY="40.0" prefHeight="127.0" prefWidth="1300.0" styleClass="sideBackground" stylesheets="@../css/Style.css" AnchorPane.bottomAnchor="773.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Text fill="WHITE" layoutX="80.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Magnetic Particle Inspection Report" textAlignment="CENTER" wrappingWidth="1109.13671875" AnchorPane.bottomAnchor="34.7060546875">
+            <Text fill="WHITE" layoutX="80.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Magnetic Particle Inspection Report" textAlignment="CENTER" wrappingWidth="1038.13671875" AnchorPane.bottomAnchor="35.0">
                <font>
                   <Font size="45.0" />
                </font>

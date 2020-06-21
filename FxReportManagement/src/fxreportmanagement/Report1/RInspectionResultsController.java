@@ -30,6 +30,10 @@ import javafx.scene.input.MouseEvent;
  * FXML Controller class
  *
  * @author Faruk
+ * 
+ * Ömer Faruk Korkmaz 
+ * 170503014
+ * 
  */
 public class RInspectionResultsController implements Initializable {
 
@@ -215,26 +219,26 @@ public class RInspectionResultsController implements Initializable {
 
     private void fill() {
 
-        txtShootingArea.setText("1");
-        txtFilmNo.setText("1");
-        txtMaterialType.setText("1");
-        txtWeldingType.setText("1");
-        txtWelderNo.setText("1");
-        txtPosition.setText("1");
-        txtThickness.setText("1");
-        txtIQI.setText("1");
-        txtVisibleIQI.setText("1");
-        txtDensity.setText("1");
-        txtX12.setText("1");
-        txtX16.setText("1");
-        txtX24.setText("1");
-        txtX36.setText("1");
-        txtX48.setText("1");
-        txtX40.setText("1");
-        txtDefectLoc.setText("1");
-        txtDefectType.setText("1");
-        txtPreEvaluation.setText("1");
-        txtFinalEvaluation.setText("1");
+//        txtShootingArea.setText("1");
+//        txtFilmNo.setText("1");
+//        txtMaterialType.setText("1");
+//        txtWeldingType.setText("1");
+//        txtWelderNo.setText("1");
+//        txtPosition.setText("1");
+//        txtThickness.setText("1");
+//        txtIQI.setText("1");
+//        txtVisibleIQI.setText("1");
+//        txtDensity.setText("1");
+//        txtX12.setText("1");
+//        txtX16.setText("1");
+//        txtX24.setText("1");
+//        txtX36.setText("1");
+//        txtX48.setText("1");
+//        txtX40.setText("1");
+//        txtDefectLoc.setText("1");
+//        txtDefectType.setText("1");
+//        txtPreEvaluation.setText("1");
+//        txtFinalEvaluation.setText("1");
     }
 
 }

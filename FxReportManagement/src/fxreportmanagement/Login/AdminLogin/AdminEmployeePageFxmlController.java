@@ -27,6 +27,9 @@ import javafx.scene.layout.Pane;
  * FXML Controller class
  *
  * @author Faruk
+ * 
+ * Ömer Faruk Korkmaz 
+ * 170503014
  */
 public class AdminEmployeePageFxmlController implements Initializable {
 

@@ -8,8 +8,11 @@ package fxreportmanagement.Report2.Entitates;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
- *
+ * old Class, Not Used !!!
  * @author Faruk
+ * 
+ *  * Ömer Faruk Korkmaz 
+ * 170503014
  */
 public class CustomerOptions {
     

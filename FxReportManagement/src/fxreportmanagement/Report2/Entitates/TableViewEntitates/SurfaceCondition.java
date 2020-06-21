@@ -10,6 +10,9 @@ import javafx.beans.property.SimpleStringProperty;
 /**
  *
  * @author Faruk
+ * 
+ * Ömer Faruk Korkmaz 
+ * 170503014
  */
 public class SurfaceCondition {
 

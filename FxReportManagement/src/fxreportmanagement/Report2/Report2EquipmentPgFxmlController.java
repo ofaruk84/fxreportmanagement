@@ -29,6 +29,9 @@ import javafx.scene.layout.Background;
  * FXML Controller class
  *
  * @author Faruk
+ * 
+ * Ömer Faruk Korkmaz 
+ * 170503014
  */
 public class Report2EquipmentPgFxmlController implements Initializable {
 
@@ -115,14 +118,14 @@ public class Report2EquipmentPgFxmlController implements Initializable {
     private void handleBtnEquipmentSubmit(ActionEvent event) {
 
 //        ExcelExporter.setEquitmentTab(getEquipment());
-
         boolean res = verifyTextboxes();
         if (res) {
-            
+
             ExcelExporterAsposeReport2.setEquipment(getEquipment());
             System.out.println("R2 Equipment Setted");
-        }else{
-            System.out.println("Fill the Gaps");}
+        } else {
+            System.out.println("Fill the Gaps");
+        }
     }
 
     //Get Equipment Information from GUI
@@ -145,13 +148,8 @@ public class Report2EquipmentPgFxmlController implements Initializable {
         String surfaceCondition = txtSurfaceCondition.getText();
         String identicationOfLightEquipment = txtIdenOfLightEquip.getText();
         String liftingTestDateNo = txtLiftingTestDateNo.getText();
-        String weldType = "";
-        if (rbtnButtWeld.isSelected()) {
-            weldType = "Butt Weld";
-        }
-        if (rbtnFilledWeld.isSelected()) {
-            weldType = "Filled Weld";
-        }
+        String butt = getButt();
+        String fillet = getFillet();
         String standartDevitions = txtStandartDerivations.getText();
         String inspectionDates = lblInspectionDates.getText();
         String description = txtDescription.getText();
@@ -159,7 +157,7 @@ public class Report2EquipmentPgFxmlController implements Initializable {
         return new EquipmentTab(poleDistance, equipment, mpCarrierMedium, magTech, uvLightIntesity, distanceOfLight, examinationArea, currentType,
                 luxmeter, testMedium, demagnetization, heatTreatment, surfaceTemparature, gaussFieldStrength,
                 surfaceCondition, identicationOfLightEquipment,
-                liftingTestDateNo, weldType, standartDevitions, inspectionDates, description);
+                liftingTestDateNo, getButt(),getFillet(), standartDevitions, inspectionDates, description);
 
     }
 
@@ -199,17 +197,38 @@ public class Report2EquipmentPgFxmlController implements Initializable {
 
     //Fill Junk Values
     private void fill() {
-        txtTestMedium.setText("Value");
-        txtDemagnetization.setText("Value");
-        txtHeatTreatment.setText("Value");
-        txtLiftingTestDateNo.setText("Value");
-        txtStandartDerivations.setText("Value");
-        txtDescription.setText("Value");
+//        txtTestMedium.setText("Value");
+//        txtDemagnetization.setText("Value");
+//        txtHeatTreatment.setText("Value");
+//        txtLiftingTestDateNo.setText("Value");
+//        txtStandartDerivations.setText("Value");
+//        txtDescription.setText("Value");
     }
 
     //Set CustomerTab
     public void setCustomerTab(CustomerTab customerTab) {
         this.customerTab = customerTab;
+    }
+
+    //WELD TYPES
+    private String getButt() {
+
+        String res = "0";
+
+        if (rbtnButtWeld.isSelected()) {
+            res = "1";
+        }
+        return res;
+    }
+    
+        private String getFillet() {
+
+        String res = "0";
+
+        if (rbtnFilledWeld.isSelected()) {
+            res = "1";
+        }
+        return res;
     }
 
     //Verify
@@ -277,7 +296,6 @@ public class Report2EquipmentPgFxmlController implements Initializable {
             res = false;
         }
 
-
         if (txtGaussFieldStrength.getText().isEmpty()) {
 
             txtGaussFieldStrength.setStyle("-fx-background-color: red;");
@@ -313,8 +331,7 @@ public class Report2EquipmentPgFxmlController implements Initializable {
             txtDescription.setStyle("-fx-background-color: red;");
             res = false;
         }
-        
-        
+
         return res;
 
     }

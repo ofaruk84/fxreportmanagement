@@ -20,6 +20,9 @@ import javafx.scene.layout.Pane;
  * FXML Controller class
  *
  * @author Faruk
+ * 
+ * Ömer Faruk Korkmaz 
+ * 170503014
  */
 //749.6-564.8 #f0932b-turuncu ##273c75-hover;
 public class Report2FxmlController implements Initializable {

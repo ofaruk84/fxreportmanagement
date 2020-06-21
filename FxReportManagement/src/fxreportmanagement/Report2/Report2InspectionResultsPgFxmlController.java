@@ -30,6 +30,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
  * FXML Controller class
  *
  * @author Faruk
+ * 
+ * Ömer Faruk Korkmaz 
+ * 170503014
  */
 public class Report2InspectionResultsPgFxmlController implements Initializable {
 
@@ -128,7 +131,8 @@ public class Report2InspectionResultsPgFxmlController implements Initializable {
 //        ExcelExporter.exportGUI();
 
           ExcelExporterAsposeReport2.setInspectionResults(inspectionResultses);
-          FxmlPageLoader.loadPage("Report1/Report2FileExporterFxml");
+          System.out.println("R2 IR setted");
+          FxmlPageLoader.loadPage("Report2/Report2FileExporterFxml");
 
     }
 
@@ -173,14 +177,14 @@ public class Report2InspectionResultsPgFxmlController implements Initializable {
     //Fill Junk Values
     private void fill() {
 
-        txtDefectLoc.setText("Value");
-        txtDefectType.setText("Value");
-        txtDiameter.setText("Value");
-        txtDiameter.setText("Value");
-        txtTestLength.setText("Value");
-        txtWeldNo.setText("Value");
-        txtThickness.setText(Integer.toString(i++));
-        txtWeldingProcess.setText("Value");
+//        txtDefectLoc.setText("Value");
+//        txtDefectType.setText("Value");
+//        txtDiameter.setText("Value");
+//        txtDiameter.setText("Value");
+//        txtTestLength.setText("Value");
+//        txtWeldNo.setText("Value");
+//        txtThickness.setText(Integer.toString(i++));
+//        txtWeldingProcess.setText("Value");
 
     }
 }

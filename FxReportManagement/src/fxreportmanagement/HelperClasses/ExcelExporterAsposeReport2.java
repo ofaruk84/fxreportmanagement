@@ -28,6 +28,8 @@ import java.util.Vector;
 /**
  *
  * @author Faruk
+ *
+ * Ömer Faruk Korkmaz 170503014
  */
 public class ExcelExporterAsposeReport2 {
 
@@ -58,8 +60,6 @@ public class ExcelExporterAsposeReport2 {
     private static String evaluated;
 
     private static String confirmation;
-
-    
 
     public static void main(String[] args) {
 
@@ -296,7 +296,8 @@ public class ExcelExporterAsposeReport2 {
         col = 0;
 
         cells.get(row, col).setValue("");
-//        setPicture(row, col, 18, 6, "butt0");
+        setPicture(row, col, 19, 6, "butt");
+        setCheckBoxWithValue(18, 4, 20, 20, equipment.getButt());
         setBorder(row, col, 5, 6);//Set Border
         cells.merge(row, col, 5, 6);
 
@@ -304,6 +305,8 @@ public class ExcelExporterAsposeReport2 {
         col = 6;
 
         cells.get(row, col).setValue("");
+        setPicture(row, 6, 19, 12, "fillet");
+        setCheckBoxWithValue(18, 10, 20, 20, equipment.getFillet());
         setBorder(row, col, 5, 7);//Set Border
         cells.merge(row, col, 5, 7);
 
@@ -1075,6 +1078,16 @@ public class ExcelExporterAsposeReport2 {
 
     }
 
+    //Set Check Box With Value
+    private static void setCheckBoxWithValue(int upperLeftRow, int upperLeftColumn, int height, int width, String value) {
+
+        int index = worksheet.getCheckBoxes().add(upperLeftRow, upperLeftColumn, height, width);
+        CheckBox checkBox = worksheet.getCheckBoxes().get(index);
+
+        checkBox.setCheckedValue(Integer.parseInt(value));
+
+    }
+
     //------------------------------------------------------------------------
     //Getter Setters
     //Set Customer
@@ -1110,7 +1123,6 @@ public class ExcelExporterAsposeReport2 {
         ExcelExporterAsposeReport2.confirmation = confirmation;
 
     }
-
 
     //Export IR Old
     private void exportIr() {

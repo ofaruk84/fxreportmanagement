@@ -27,6 +27,9 @@ import javafx.scene.input.MouseEvent;
  * FXML Controller class
  *
  * @author Faruk
+ * 
+ * Ömer Faruk Korkmaz 
+ * 170503014
  */
 public class AdminEquipmentPageFxmlController implements Initializable {
 
@@ -95,11 +98,13 @@ public class AdminEquipmentPageFxmlController implements Initializable {
     private void handleBtnUpdate(ActionEvent event) {
         equipment = getEquipment();
         equipmentDal.update(index, equipment);
+        populateTable();
     }
 
     @FXML
     private void handleBtnDelete(ActionEvent event) {
         equipmentDal.delete(index);
+        populateTable();
     }
 
     @FXML

@@ -27,6 +27,9 @@ import javafx.scene.input.MouseEvent;
  * FXML Controller class
  *
  * @author Faruk
+ * 
+ * Ömer Faruk Korkmaz 
+ * 170503014
  */
 public class AdminCustomerPageFxmlController implements Initializable {
 

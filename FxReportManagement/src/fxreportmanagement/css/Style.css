@@ -1,4 +1,11 @@
+/*
 
+ * @author Faruk 
+
+ * Ömer Faruk Korkmaz 
+ * 170503014
+
+*/
 
 .mainBackground{
     -fx-background-color: #1e272e;
@@ -47,7 +54,7 @@
 }*/
 
 .combo-box .cell{
-    -fx-text-fill: white;
+    
     -fx-text-alignment : center;
     
 }

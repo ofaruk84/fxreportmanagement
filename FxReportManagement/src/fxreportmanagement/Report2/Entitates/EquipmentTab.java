@@ -1,11 +1,18 @@
-
 package fxreportmanagement.Report2.Entitates;
 
 import javafx.beans.property.SimpleStringProperty;
 
+/*
+
+ * @author Faruk 
+
+ * Ömer Faruk Korkmaz 
+ * 170503014
+
+*/
 
 public class EquipmentTab {
-    
+
     private SimpleStringProperty poleDistance;
     private SimpleStringProperty equipment;
     private SimpleStringProperty mpCarrierMedium;
@@ -23,20 +30,22 @@ public class EquipmentTab {
     private SimpleStringProperty surfaceCondition;
     private SimpleStringProperty identicationOfLightEquipment;
     private SimpleStringProperty liftingTestDateNo;
+    private SimpleStringProperty butt;
+    private SimpleStringProperty fillet;
     private SimpleStringProperty weldType;
     private SimpleStringProperty standartDevitions;
     private SimpleStringProperty inspectionDates;
     private SimpleStringProperty description;
 
     public EquipmentTab() {
+
     }
-    
-    
-    public EquipmentTab(String poleDitance,String equipment,String mpCarrierMedium,String magTech,String uvLightIntensity,String distanceOfLight,
-           String examinationArea,String currentType,String luxmeter,String testMedium,String demagnetization,String heatTreatmenet,
-           String surfaceTemperature,String gaussFieldStrength,String surfaceCondition,String identifactionOfLightEquipment,
-           String liftingTestDateNo,String weldType,String standartDevitions,String inspectionDates,String description){
-        
+
+    public EquipmentTab(String poleDitance, String equipment, String mpCarrierMedium, String magTech, String uvLightIntensity, String distanceOfLight,
+            String examinationArea, String currentType, String luxmeter, String testMedium, String demagnetization, String heatTreatmenet,
+            String surfaceTemperature, String gaussFieldStrength, String surfaceCondition, String identifactionOfLightEquipment,
+            String liftingTestDateNo, String weldType, String standartDevitions, String inspectionDates, String description) {
+
         this.poleDistance = new SimpleStringProperty(poleDitance);
         this.equipment = new SimpleStringProperty(equipment);
         this.mpCarrierMedium = new SimpleStringProperty(mpCarrierMedium);
@@ -57,10 +66,39 @@ public class EquipmentTab {
         this.weldType = new SimpleStringProperty(weldType);
         this.standartDevitions = new SimpleStringProperty(standartDevitions);
         this.inspectionDates = new SimpleStringProperty(inspectionDates);
-        this.description = new SimpleStringProperty(description);        
-        
-        
-        }
+        this.description = new SimpleStringProperty(description);
+
+    }
+
+    public EquipmentTab(String poleDitance, String equipment, String mpCarrierMedium, String magTech, String uvLightIntensity, String distanceOfLight,
+            String examinationArea, String currentType, String luxmeter, String testMedium, String demagnetization, String heatTreatmenet,
+            String surfaceTemperature, String gaussFieldStrength, String surfaceCondition, String identifactionOfLightEquipment,
+            String liftingTestDateNo, String butt, String fillet, String standartDevitions, String inspectionDates, String description) {
+
+        this.poleDistance = new SimpleStringProperty(poleDitance);
+        this.equipment = new SimpleStringProperty(equipment);
+        this.mpCarrierMedium = new SimpleStringProperty(mpCarrierMedium);
+        this.magTech = new SimpleStringProperty(magTech);
+        this.uvLightIntesity = new SimpleStringProperty(uvLightIntensity);
+        this.distanceOfLight = new SimpleStringProperty(distanceOfLight);
+        this.examinationArea = new SimpleStringProperty(examinationArea);
+        this.currentType = new SimpleStringProperty(currentType);
+        this.luxmeter = new SimpleStringProperty(luxmeter);
+        this.testMedium = new SimpleStringProperty(testMedium);
+        this.demagnetization = new SimpleStringProperty(demagnetization);
+        this.heatTreatment = new SimpleStringProperty(heatTreatmenet);
+        this.surfaceTemparature = new SimpleStringProperty(surfaceTemperature);
+        this.gaussFieldStrength = new SimpleStringProperty(gaussFieldStrength);
+        this.surfaceCondition = new SimpleStringProperty(surfaceCondition);
+        this.identicationOfLightEquipment = new SimpleStringProperty(identifactionOfLightEquipment);
+        this.liftingTestDateNo = new SimpleStringProperty(liftingTestDateNo);
+        this.butt = new SimpleStringProperty(butt);
+        this.fillet = new SimpleStringProperty(fillet);
+        this.standartDevitions = new SimpleStringProperty(standartDevitions);
+        this.inspectionDates = new SimpleStringProperty(inspectionDates);
+        this.description = new SimpleStringProperty(description);
+
+    }
 
     public String getPoleDistance() {
         return poleDistance.getValue();
@@ -145,7 +183,13 @@ public class EquipmentTab {
     public String getDescription() {
         return description.getValue();
     }
-    
-        
-    
+
+    public String getButt() {
+        return butt.getValue();
+    }
+
+    public String getFillet() {
+        return fillet.getValue();
+    }
+
 }

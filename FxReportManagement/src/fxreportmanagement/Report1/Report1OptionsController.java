@@ -38,6 +38,10 @@ import javafx.scene.layout.AnchorPane;
  * FXML Controller class
  *
  * @author Faruk
+ * 
+ * 
+ * Ömer Faruk Korkmaz 
+ * 170503014
  */
 public class Report1OptionsController implements Initializable {
 
@@ -132,7 +136,9 @@ public class Report1OptionsController implements Initializable {
         ExcelExporterAsposeReport1.setEvaluated(cmbEvaluated.getValue());
 
         ExcelExporterAsposeReport1.setConfirmation(cmbConfirmation.getValue());
-
+        
+         setLevels();
+         
         String fileUrl = "Report1/Report1";
         FxmlPageLoader.loadSameScene(ancMain, fileUrl);
 
@@ -140,6 +146,8 @@ public class Report1OptionsController implements Initializable {
         requipment = requipmentDal.getEquipment(value);
         Report1Controller.getInstance().loadEqupimentName(value);
         Report1Controller.getInstance().loadEquipment(requipment);
+        
+       
     }
 
     @FXML
@@ -347,6 +355,19 @@ public class Report1OptionsController implements Initializable {
         cmbConfirmation.setItems(oblist);
         cmbEvaluated.setItems(oblist);
         cmbOpeartor.setItems(oblist);
+    }
+
+    private void setLevels() {
+
+        String confirmationLevel = cmbConfirmation.getValue();
+        String operatorLevel = cmbOpeartor.getValue();
+        String evaluatedLevel = cmbEvaluated.getValue();
+        
+        
+        ExcelExporterAsposeReport1.setConfirmationLevel(employeeDal.getLevel(confirmationLevel));
+        ExcelExporterAsposeReport1.setOperatorLevel(employeeDal.getLevel(operatorLevel));
+        ExcelExporterAsposeReport1.setEvaluated(employeeDal.getLevel(evaluatedLevel));
+
     }
 
 }

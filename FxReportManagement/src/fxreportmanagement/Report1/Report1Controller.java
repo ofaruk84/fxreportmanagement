@@ -5,6 +5,7 @@
  */
 package fxreportmanagement.Report1;
 
+import com.jfoenix.controls.JFXButton;
 import fxreportmanagement.DatabaseOperations.DatabaseEntitates.REquipment;
 import fxreportmanagement.HelperClasses.FxmlPageLoader;
 import java.net.URL;
@@ -20,6 +21,9 @@ import javafx.scene.layout.Pane;
  * FXML Controller class
  *
  * @author Faruk
+ * 
+ * Ömer Faruk Korkmaz 
+ * 170503014
  */
 public class Report1Controller implements Initializable {
 
@@ -107,5 +111,7 @@ public class Report1Controller implements Initializable {
         equipment = eq;
         
     }    
+
+
 
 }

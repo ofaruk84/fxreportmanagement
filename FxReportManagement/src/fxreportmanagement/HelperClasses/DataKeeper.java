@@ -13,6 +13,9 @@ import javafx.collections.ObservableList;
 /**
  *
  * @author Faruk
+ * 
+ * Ömer Faruk Korkmaz
+ * 170503014
  */
 public class DataKeeper {
 
